@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 750px;
+    min-height: 1334px;
+    background: #FDF6E3;
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+  }
+
+  /* 顶部细条 - 精简为纯色 */
+  .top-bar {
+    height: 6px;
+    background: #FFB74D;
+  }
+
+  /* 标题区 */
+  .header {
+    text-align: center;
+    padding: 36px 40px 32px;
+  }
+
+  .logo-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .logo-icon {
+    height: 40px;
+    width: auto;
+  }
+
+  .title {
+    font-size: 38px;
+    font-weight: 800;
+    color: #4E342E;
+    letter-spacing: 4px;
+    line-height: 1.4;
+  }
+
+  .title .highlight {
+    color: #FF6B35;
+  }
+
+  /* 步骤区 */
+  .steps-container {
+    padding: 20px 28px 36px;
+  }
+
+  .step-card {
+    background: #FFFDF7;
+    border: 1.5px solid #E8D5B7;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+
+  .step-header {
+    display: flex;
+    align-items: center;
+    padding: 16px 20px 10px;
+    gap: 14px;
+  }
+
+  .step-number {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #8B6914;
+    color: #FFFDF7;
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .step-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #4E342E;
+    line-height: 1.5;
+  }
+
+  /* 截图 - 完整显示，不裁剪不压缩 */
+  .step-image-wrap {
+    padding: 0 12px 16px;
+  }
+
+  .step-image-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    border: 1px solid #E8D5B7;
+  }
+
+  /* 提示卡片 */
+  .tip-card {
+    background: #FFF8E1;
+    border: 1.5px solid #FFB74D;
+    border-radius: 16px;
+    padding: 16px 22px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .tip-icon {
+    font-size: 26px;
+    flex-shrink: 0;
+  }
+
+  .tip-text {
+    font-size: 16px;
+    color: #E65100;
+    font-weight: 600;
+  }
+
+  /* 底部 */
+  .footer {
+    text-align: center;
+    padding: 16px 40px 24px;
+  }
+
+  .footer-text {
+    font-size: 13px;
+    color: #B0A090;
+    letter-spacing: 2px;
+  }
+
+  /* 底部细条 */
+  .bottom-bar {
+    height: 6px;
+    background: #FFB74D;
+  }
+</style>
+</head>
+<body>
+
+<!-- 顶部细条 -->
+<div class="top-bar"></div>
+
+<!-- 标题区 -->
+<div class="header">
+  <div class="logo-row">
+    <img class="logo-icon" src="wps-logo.png" alt="WPS Logo">
+  </div>
+  <div class="title">WPS <span class="highlight">AIPPT</span> 购买流程</div>
+</div>
+
+<!-- 步骤区 -->
+<div class="steps-container">
+
+  <!-- 步骤 01 -->
+  <div class="step-card">
+    <div class="step-header">
+      <div class="step-number">01</div>
+      <div class="step-title">网页搜索"WPS 开放平台"，进入开发者后台</div>
+    </div>
+    <div class="step-image-wrap">
+      <img src="step1.png" alt="步骤1截图">
+    </div>
+  </div>
+
+  <!-- 步骤 02 -->
+  <div class="step-card">
+    <div class="step-header">
+      <div class="step-number">02</div>
+      <div class="step-title">创建集成应用</div>
+    </div>
+    <div class="step-image-wrap">
+      <img src="step2.png" alt="步骤2截图">
+    </div>
+  </div>
+
+  <!-- 步骤 03 -->
+  <div class="step-card">
+    <div class="step-header">
+      <div class="step-number">03</div>
+      <div class="step-title">在应用内开启应用卡片，在卡片内开启 AI PPT</div>
+    </div>
+    <div class="step-image-wrap">
+      <img src="step3.png" alt="步骤3截图">
+    </div>
+  </div>
+
+  <!-- 提示卡片 -->
+  <div class="tip-card">
+    <div class="tip-icon">💡</div>
+    <div class="tip-text">试用体验后可进行购买</div>
+  </div>
+
+  <!-- 购买截图 -->
+  <div class="step-card">
+    <div class="step-image-wrap" style="padding-top: 12px;">
+      <img src="step4.png" alt="购买截图">
+    </div>
+  </div>
+
+</div>
+
+<!-- 底部 -->
+<div class="footer">
+  <div class="footer-text">WPS 开放平台 · AIPPT</div>
+</div>
+
+<!-- 底部细条 -->
+<div class="bottom-bar"></div>
+
+</body>
+</html>

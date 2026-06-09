@@ -1,0 +1,41 @@
+{
+  "meta": {
+    "platform": "zhihu.com",
+    "period": "~2026-03 to 2026-06 (Tavily time-range month + 2026 keywords)",
+    "n": 428,
+    "supply_method": "title keyword classification on search sample",
+    "heat_method": "supply × format/debate weight (question-heavy categories boosted); NOT official vote counts",
+    "limitation": "No Zhihu open API; page scrape blocked; heat is model estimate"
+  },
+  "supply_pct": {
+    "测评": 12.1,
+    "教程": 10.3,
+    "资讯": 12.9,
+    "科普": 47.2,
+    "人文": 17.5
+  },
+  "heat_pct_estimated": {
+    "测评": 14.3,
+    "教程": 9.1,
+    "资讯": 6.9,
+    "科普": 46.4,
+    "人文": 23.2
+  },
+  "topic_clusters": {
+    "AI工具/编程": 80,
+    "其他AI泛谈": 58,
+    "就业/社会": 34,
+    "大模型/产品": 30,
+    "Agent/智能体": 24,
+    "硬件/算力": 19,
+    "视频/AIGC": 16,
+    "机器人": 13,
+    "政策/治理": 2
+  },
+  "format": {
+    "zhuanlan": 362,
+    "question": 43,
+    "pin": 10,
+    "other": 13
+  }
+}
