@@ -871,21 +871,38 @@
             margin: 0 0 2px;
         }
 
-        .aippt-feature-panel.active {
-            display: block;
-        }
-        .aippt-feature-panel[data-panel="0"] { background-image: url('panel-img-1.png'); }
-        .aippt-feature-panel[data-panel="1"] { background-image: url('panel-img-2.png'); }
-        .aippt-feature-panel[data-panel="2"] { background-image: url('panel-img-3.png'); }
-        .aippt-feature-panel[data-panel="3"] { background-image: url('panel-img-4.png'); }
-        .aippt-feature-panel[data-panel="4"] { background-image: url('panel-img-5.png'); }
-        
         .aippt-feature-panel {
-            background-size: contain;
-            background-position: right center;
-            background-repeat: no-repeat;
+            display: none;
+            flex-direction: row;
+            align-items: center;
+            gap: 24px;
+            overflow: hidden;
         }
-
+        
+        .aippt-feature-panel.active {
+            display: flex;
+        }
+        
+        .panel-content {
+            flex: 0 0 45%;
+            min-width: 0;
+        }
+        
+        .panel-visual {
+            flex: 0 0 50%;
+            min-width: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .panel-visual img {
+            max-width: 100%;
+            max-height: 280px;
+            object-fit: contain;
+        }
+                                                
+        
 
         @keyframes fadeInPanel {
             from { opacity: 0; transform: translateY(8px); }
@@ -2541,63 +2558,70 @@
             <div class="aippt-feature-sparkle"></div>
             <div class="aippt-feature-sparkle"></div>
             <div class="aippt-feature-sparkle"></div>
-            <!-- Panel 0: 多种输入 -->
-            <div class="aippt-feature-panel active" data-panel="0">
+                        <div class="aippt-feature-panel active" data-panel="0">
                 <div class="panel-content">
-                <h3 class="aippt-panel-title">多种输入方式，快速生成大纲</h3>
-                <ul class="aippt-panel-desc">
-                    <li>输入一句话，即可生成PPT大纲</li>
-                    <li>粘贴长文本，AI自动提炼结构</li>
-                    <li>上传文档，AI读取内容并转化为PPT</li>
-                    <li>联网搜索，补充相关资料并生成内容框架</li>
-                </ul>
+                    <h3 class="aippt-panel-title">多种输入方式，快速生成大纲</h3>
+                    <ul class="aippt-panel-desc">
+                        <li>输入一句话，即可生成 PPT 大纲</li>
+                        <li>粘贴长文本，AI 自动提炼结构</li>
+                        <li>上传文档，AI 读取内容并转化为 PPT</li>
+                        <li>联网搜索，补充相关资料并生成内容框架</li>
+                    </ul>
+                </div>
+                <div class="panel-visual">
+                    <img src="panel-img-1.png" alt="多种输入">
                 </div>
             </div>
-
-            <!-- Panel 1: 海量模版 -->
             <div class="aippt-feature-panel" data-panel="1">
                 <div class="panel-content">
-                <h3 class="aippt-panel-title">海量模板，自动匹配版式</h3>
-                <ul class="aippt-panel-desc">
-                    <li>支持海量PPT模板选择</li>
-                    <li>可结合不同主题和场景，自动匹配合适风格</li>
-                    <li>支持企业模板复用，保证品牌风格统一</li>
-                </ul>
+                    <h3 class="aippt-panel-title">海量模板，自动匹配版式</h3>
+                    <ul class="aippt-panel-desc">
+                        <li>支持海量 PPT 模板选择</li>
+                        <li>可结合不同主题和场景，自动匹配合适风格</li>
+                        <li>支持企业模板复用，保证品牌风格统一</li>
+                    </ul>
+                </div>
+                <div class="panel-visual">
+                    <img src="panel-img-2.png" alt="海量模版">
                 </div>
             </div>
-
-            <!-- Panel 2: 边聊边改 -->
             <div class="aippt-feature-panel" data-panel="2">
                 <div class="panel-content">
-                <h3 class="aippt-panel-title">边聊边改，继续优化内容</h3>
-                <ul class="aippt-panel-desc">
-                    <li>生成后可继续通过AI修改</li>
-                    <li>支持调整内容、补充页面、优化表达</li>
-                    <li>用户可以在WebOffice中继续编辑PPT</li>
-                </ul>
+                    <h3 class="aippt-panel-title">边聊边改，继续优化内容</h3>
+                    <ul class="aippt-panel-desc">
+                        <li>生成后可继续通过 AI 修改</li>
+                        <li>支持调整内容、补充页面、优化表达</li>
+                        <li>用户可以在 WebOffice 中继续编辑 PPT</li>
+                    </ul>
+                </div>
+                <div class="panel-visual">
+                    <img src="panel-img-3.png" alt="边聊边改">
                 </div>
             </div>
-
-            <!-- Panel 3: 一键生成 -->
             <div class="aippt-feature-panel" data-panel="3">
-                <h3 class="aippt-panel-title">生成完整PPT，减少重复制作</h3>
-                <ul class="aippt-panel-desc">
-                    <li>AI根据大纲自动生成完整页面</li>
-                    <li>自动完成标题、正文、结构和基础排版</li>
-                    <li>适合快速产出初稿，减少从0开始制作的时间</li>
-                </ul>
+                <div class="panel-content">
+                    <h3 class="aippt-panel-title">生成完整 PPT，减少重复制作</h3>
+                    <ul class="aippt-panel-desc">
+                        <li>AI 根据大纲自动生成完整页面</li>
+                        <li>自动完成标题、正文、结构和基础排版</li>
+                        <li>适合快速产出初稿，减少从 0 开始制作的时间</li>
+                    </ul>
+                </div>
+                <div class="panel-visual">
+                    <img src="panel-img-4.png" alt="一键生成">
                 </div>
             </div>
-
-            <!-- Panel 4: 在线编辑 -->
             <div class="aippt-feature-panel" data-panel="4">
                 <div class="panel-content">
-                <h3 class="aippt-panel-title">在线编辑，支持企业协作</h3>
-                <ul class="aippt-panel-desc">
-                    <li>生成结果可进入WebOffice</li>
-                    <li>支持在线修改文字、页面、排版和内容结构</li>
-                    <li>支持多人协作，方便企业内部共同完善</li>
-                </ul>
+                    <h3 class="aippt-panel-title">在线编辑，支持企业协作</h3>
+                    <ul class="aippt-panel-desc">
+                        <li>生成结果可进入 WebOffice</li>
+                        <li>支持在线修改文字、页面、排版和内容结构</li>
+                        <li>支持多人协作，方便企业内部共同完善</li>
+                    </ul>
+                </div>
+                <div class="panel-visual">
+                    <img src="panel-img-5.png" alt="在线编辑">
                 </div>
             </div>
         </div>
