@@ -835,37 +835,36 @@
             flex: 1;
             display: none;
             animation: fadeInPanel 0.35s ease;
-            background: rgba(255,255,255,0.85);
-            backdrop-filter: blur(10px);
+            background: #fff;
             border-radius: 20px;
-            padding: 40px;
+            padding: 32px;
             box-shadow: 0 8px 32px rgba(0,0,0,0.08);
             overflow: hidden;
-            min-height: 320px;
-        }
-
-        .panel-bg-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            opacity: 0.15;
-            z-index: 0;
-            transform: scale(1.05);
-            transition: transform 0.5s ease;
-        }
-
-        .aippt-feature-panel.active .panel-bg-image {
-            transform: scale(1);
         }
 
         .panel-content {
             position: relative;
             z-index: 1;
+            margin-bottom: 24px;
+        }
+
+        .panel-bg-image {
+            position: relative;
+            width: 100%;
+            height: 280px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 12px;
+            z-index: 1;
+        }
+
+        .aippt-panel-title {
+            font-size: 22px;
+        }
+
+        .aippt-panel-desc li {
+            font-size: 14px;
         }
 
         .aippt-feature-panel.active {
@@ -2512,8 +2511,8 @@
             <div class="aippt-feature-sparkle"></div>
             <!-- Panel 0: 多种输入 -->
             <div class="aippt-feature-panel active" data-panel="0">
-                <div class="panel-bg-image" style="background-image: url('panel-img-1.png');"></div>
                 <div class="panel-content">
+                <div class="panel-bg-image" style="background-image: url('panel-img-1.png');"></div>
                 <h3 class="aippt-panel-title">多种输入方式，快速生成大纲</h3>
                 <ul class="aippt-panel-desc">
                     <li>输入一句话，即可生成PPT大纲</li>
@@ -2526,8 +2525,8 @@
 
             <!-- Panel 1: 海量模版 -->
             <div class="aippt-feature-panel" data-panel="1">
-                <div class="panel-bg-image" style="background-image: url('panel-img-2.png');"></div>
                 <div class="panel-content">
+                <div class="panel-bg-image" style="background-image: url('panel-img-2.png');"></div>
                 <h3 class="aippt-panel-title">海量模板，自动匹配版式</h3>
                 <ul class="aippt-panel-desc">
                     <li>支持海量PPT模板选择</li>
@@ -2539,8 +2538,8 @@
 
             <!-- Panel 2: 边聊边改 -->
             <div class="aippt-feature-panel" data-panel="2">
-                <div class="panel-bg-image" style="background-image: url('panel-img-3.png');"></div>
                 <div class="panel-content">
+                <div class="panel-bg-image" style="background-image: url('panel-img-3.png');"></div>
                 <h3 class="aippt-panel-title">边聊边改，继续优化内容</h3>
                 <ul class="aippt-panel-desc">
                     <li>生成后可继续通过AI修改</li>
@@ -2563,8 +2562,8 @@
 
             <!-- Panel 4: 在线编辑 -->
             <div class="aippt-feature-panel" data-panel="4">
-                <div class="panel-bg-image" style="background-image: url('panel-img-5.png');"></div>
                 <div class="panel-content">
+                <div class="panel-bg-image" style="background-image: url('panel-img-5.png');"></div>
                 <h3 class="aippt-panel-title">在线编辑，支持企业协作</h3>
                 <ul class="aippt-panel-desc">
                     <li>生成结果可进入WebOffice</li>
