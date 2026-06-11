@@ -835,6 +835,37 @@
             flex: 1;
             display: none;
             animation: fadeInPanel 0.35s ease;
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            overflow: hidden;
+            min-height: 320px;
+        }
+
+        .panel-bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.15;
+            z-index: 0;
+            transform: scale(1.05);
+            transition: transform 0.5s ease;
+        }
+
+        .aippt-feature-panel.active .panel-bg-image {
+            transform: scale(1);
+        }
+
+        .panel-content {
+            position: relative;
+            z-index: 1;
         }
 
         .aippt-feature-panel.active {
@@ -2481,6 +2512,8 @@
             <div class="aippt-feature-sparkle"></div>
             <!-- Panel 0: 多种输入 -->
             <div class="aippt-feature-panel active" data-panel="0">
+                <div class="panel-bg-image" style="background-image: url('panel-img-1.png');"></div>
+                <div class="panel-content">
                 <h3 class="aippt-panel-title">多种输入方式，快速生成大纲</h3>
                 <ul class="aippt-panel-desc">
                     <li>输入一句话，即可生成PPT大纲</li>
@@ -2488,26 +2521,33 @@
                     <li>上传文档，AI读取内容并转化为PPT</li>
                     <li>联网搜索，补充相关资料并生成内容框架</li>
                 </ul>
+                </div>
             </div>
 
             <!-- Panel 1: 海量模版 -->
             <div class="aippt-feature-panel" data-panel="1">
+                <div class="panel-bg-image" style="background-image: url('panel-img-2.png');"></div>
+                <div class="panel-content">
                 <h3 class="aippt-panel-title">海量模板，自动匹配版式</h3>
                 <ul class="aippt-panel-desc">
                     <li>支持海量PPT模板选择</li>
                     <li>可结合不同主题和场景，自动匹配合适风格</li>
                     <li>支持企业模板复用，保证品牌风格统一</li>
                 </ul>
+                </div>
             </div>
 
             <!-- Panel 2: 边聊边改 -->
             <div class="aippt-feature-panel" data-panel="2">
+                <div class="panel-bg-image" style="background-image: url('panel-img-3.png');"></div>
+                <div class="panel-content">
                 <h3 class="aippt-panel-title">边聊边改，继续优化内容</h3>
                 <ul class="aippt-panel-desc">
                     <li>生成后可继续通过AI修改</li>
                     <li>支持调整内容、补充页面、优化表达</li>
                     <li>用户可以在WebOffice中继续编辑PPT</li>
                 </ul>
+                </div>
             </div>
 
             <!-- Panel 3: 一键生成 -->
@@ -2518,16 +2558,20 @@
                     <li>自动完成标题、正文、结构和基础排版</li>
                     <li>适合快速产出初稿，减少从0开始制作的时间</li>
                 </ul>
+                </div>
             </div>
 
             <!-- Panel 4: 在线编辑 -->
             <div class="aippt-feature-panel" data-panel="4">
+                <div class="panel-bg-image" style="background-image: url('panel-img-5.png');"></div>
+                <div class="panel-content">
                 <h3 class="aippt-panel-title">在线编辑，支持企业协作</h3>
                 <ul class="aippt-panel-desc">
                     <li>生成结果可进入WebOffice</li>
                     <li>支持在线修改文字、页面、排版和内容结构</li>
                     <li>支持多人协作，方便企业内部共同完善</li>
                 </ul>
+                </div>
             </div>
         </div>
     </section>
