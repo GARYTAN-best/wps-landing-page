@@ -1782,6 +1782,140 @@
             .sdk-card-text .sdk-divider { width: 24px; margin-bottom: 10px; }
         }
 
+        /* SDK Pricing Wrap */
+        .sdk-pricing-wrap {
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+            pointer-events: none;
+        }
+
+        .sdk-section:hover .sdk-pricing-wrap {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .sdk-pricing-cards {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .sdk-pricing-cards .pricing-card {
+            flex: 1;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 32px 24px;
+            text-align: center;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+        }
+
+        .sdk-pricing-cards .pricing-card-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0f172a;
+            margin: 0 0 12px;
+        }
+
+        .sdk-pricing-cards .pricing-card-price {
+            font-size: 36px;
+            font-weight: 800;
+            color: #dc2626;
+            margin: 0 0 24px;
+        }
+
+        .sdk-pricing-cards .pricing-unit {
+            font-size: 14px;
+            font-weight: 400;
+            color: #64748b;
+        }
+
+        .sdk-pricing-cards .pricing-coming-soon {
+            color: #94a3b8;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .sdk-pricing-cards .pricing-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 24px;
+            text-align: left;
+        }
+
+        .sdk-pricing-cards .pricing-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 14px;
+            color: #475569;
+            line-height: 1.6;
+            margin: 0 0 10px;
+        }
+
+        .sdk-pricing-cards .pricing-features li svg {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+            color: #3b82f6;
+            margin-top: 2px;
+        }
+
+        .sdk-pricing-cards .pricing-card-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .sdk-pricing-cards .pricing-card-btn-primary {
+            background: #2563eb;
+            color: #fff;
+            border: none;
+        }
+
+        .sdk-pricing-cards .pricing-card-btn-primary:hover {
+            background: #1d4ed8;
+        }
+
+        .sdk-pricing-cards .pricing-card-btn-outline {
+            background: #fff;
+            color: #475569;
+            border: 1px solid #e2e8f0;
+        }
+
+        .sdk-pricing-cards .pricing-card-btn-outline:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+        }
+
+        .sdk-pricing-note {
+            font-size: 13px;
+            color: #94a3b8;
+            text-align: center;
+        }
+
+        .sdk-pricing-note a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+
+        .sdk-pricing-note a:hover {
+            text-decoration: underline;
+        }
+
         /* ================= INTEGRATION + PRICING (Tab B) ================= */
         .integration-section {
             padding: 80px 24px 96px;
@@ -2846,6 +2980,33 @@
                 </div>
             </div>
         </div>
+        
+        <!-- Pricing Cards (shown on hover) -->
+        <div class="sdk-pricing-wrap">
+            <div class="sdk-pricing-cards" id="sdkPricingCards">
+                <div class="pricing-card">
+                    <h3 class="pricing-card-title">AIPPT 经典版</h3>
+                    <div class="pricing-card-price">1.2 元<span class="pricing-unit">/份</span></div>
+                    <ul class="pricing-features">
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg> AI 极速生成，多格式秒转 PPT</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg> 内嵌千套模版，适配企业自定义模板</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg> 秒出 AI 演讲稿，一键高效汇报</li>
+                    </ul>
+                    <a href="#" class="pricing-card-btn pricing-card-btn-primary" id="classicBtn">立即购买</a>
+                </div>
+                <div class="pricing-card">
+                    <h3 class="pricing-card-title">AIPPT 专业版</h3>
+                    <div class="pricing-card-price pricing-coming-soon">敬请期待</div>
+                    <ul class="pricing-features">
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg> 更专业，HTML 引擎逐页渲染</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg> 更省事，AI 生成可编辑图表</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg> 更高效，5 分钟精准出稿</li>
+                    </ul>
+                    <a href="#" class="pricing-card-btn pricing-card-btn-outline" id="proBtn">联系销售</a>
+                </div>
+            </div>
+            <p class="sdk-pricing-note">📢 更多个性化需求或大量采购，获取更多报价，请联系销售咨询 <a href="https://f.kdocs.cn/ksform/w/write/fELKHo71#routePromt" target="_blank">立即咨询 &gt;</a></p>
+        </div>
     </section>
 
     <!-- Case Cards Section -->
@@ -3154,6 +3315,27 @@
                     panels.forEach(p => p.classList.remove('active'));
                     this.classList.add('active');
                     panels[index].classList.add('active');
+                });
+            });
+        })();
+
+        // ================= SDK Card Hover Pricing =================
+        (function() {
+            const sdkCards = document.querySelectorAll('.sdk-card');
+            const classicBtn = document.getElementById('classicBtn');
+            const proBtn = document.getElementById('proBtn');
+
+            const btnLinks = {
+                0: { classic: 'https://open.wps.cn/documents/app-integration-dev/docs-center/aippt/11111111111111111/Topic', pro: 'https://f.kdocs.cn/ksform/w/write/fELKHo71#routePromt' },
+                1: { classic: 'https://f.kdocs.cn/ksform/w/write/fELKHo71#routePromt', pro: 'https://f.kdocs.cn/ksform/w/write/fELKHo71#routePromt' },
+                2: { classic: '#', pro: '#' }
+            };
+
+            sdkCards.forEach((card, index) => {
+                card.addEventListener('mouseenter', function() {
+                    const links = btnLinks[index] || btnLinks[0];
+                    if (classicBtn) classicBtn.href = links.classic;
+                    if (proBtn) proBtn.href = links.pro;
                 });
             });
         })();
