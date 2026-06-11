@@ -747,7 +747,7 @@
         }
 
         .aippt-feature-content {
-            max-width: 700px;
+            max-width: 920px;
             margin: 0 auto;
             position: relative;
             padding: 48px 40px;
@@ -755,7 +755,7 @@
             overflow: hidden;
             background: linear-gradient(135deg, rgba(248, 245, 255, 0.8) 0%, rgba(240, 245, 255, 0.6) 100%);
             border: 1px solid rgba(139, 92, 246, 0.08);
-            min-height: 400px;
+            min-height: 460px;
         }
 
         /* 装饰光斑 */
@@ -875,30 +875,33 @@
             display: none;
             flex-direction: row;
             align-items: center;
-            gap: 24px;
+            gap: 32px;
             overflow: hidden;
+            text-align: left;
+            padding: 36px 40px;
         }
-        
+
         .aippt-feature-panel.active {
             display: flex;
         }
-        
+
         .panel-content {
-            flex: 0 0 45%;
+            flex: 0 0 48%;
             min-width: 0;
+            text-align: left;
         }
-        
+
         .panel-visual {
-            flex: 0 0 50%;
+            flex: 0 0 52%;
             min-width: 0;
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        
+
         .panel-visual img {
             max-width: 100%;
-            max-height: 280px;
+            max-height: 300px;
             object-fit: contain;
         }
                                                 
@@ -1778,6 +1781,167 @@
             .sdk-card-text p { font-size: 13px; }
             .sdk-card-text .sdk-divider { width: 24px; margin-bottom: 10px; }
         }
+
+        /* ================= INTEGRATION + PRICING (Tab B) ================= */
+        .integration-section {
+            padding: 80px 24px 96px;
+            max-width: 960px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .integration-section h2 {
+            font-size: 36px;
+            font-weight: 800;
+            color: #0f172a;
+            margin: 0 0 16px;
+            line-height: 1.3;
+        }
+
+        .integration-subtitle {
+            font-size: 18px;
+            color: #64748b;
+            margin: 0 0 40px;
+            line-height: 1.7;
+        }
+
+        .integration-tabs {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            margin: 0 auto 24px;
+            max-width: 640px;
+            background: #f1f5f9;
+            border-radius: 16px;
+            padding: 8px;
+        }
+
+        .integration-tab {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 16px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #64748b;
+            border-radius: 12px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+            font-family: inherit;
+        }
+
+        .integration-tab svg {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+
+        .integration-tab.active {
+            background: #ffffff;
+            color: #2563eb;
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.12);
+        }
+
+        .integration-tab:not(.active):hover {
+            color: #334155;
+        }
+
+        .integration-panel-wrap {
+            max-width: 720px;
+            margin: 0 auto 40px;
+            min-height: 72px;
+        }
+
+        .integration-panel {
+            display: none;
+            padding: 20px 28px;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            font-size: 15px;
+            color: #475569;
+            line-height: 1.7;
+            text-align: center;
+            animation: fadeInPanel 0.3s ease;
+        }
+
+        .integration-panel.active {
+            display: block;
+        }
+
+        .integration-section .pricing-cards {
+            margin-bottom: 0;
+        }
+
+        .pricing-card {
+            align-items: center;
+        }
+
+        .pricing-integration-note {
+            font-size: 13px;
+            color: #94a3b8;
+            margin: 8px 0 16px;
+            line-height: 1.5;
+        }
+
+        .pricing-card-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 28px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            margin-top: auto;
+            white-space: nowrap;
+        }
+
+        .pricing-card-cta-primary {
+            background: #2563eb;
+            color: #ffffff;
+            border: 1.5px solid #2563eb;
+        }
+
+        .pricing-card-cta-primary:hover {
+            background: #1d4ed8;
+            border-color: #1d4ed8;
+            transform: translateY(-1px);
+        }
+
+        .pricing-card-cta-outline {
+            background: #ffffff;
+            color: #64748b;
+            border: 1.5px solid #e2e8f0;
+        }
+
+        .pricing-card-cta-outline:hover {
+            border-color: #cbd5e1;
+            color: #475569;
+        }
+
+        .pricing-card-cta-disabled {
+            opacity: 0.45;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        @media (max-width: 768px) {
+            .integration-section { padding: 48px 16px 64px; }
+            .integration-section h2 { font-size: 26px; }
+            .integration-tabs { max-width: 100%; flex-wrap: wrap; gap: 6px; padding: 6px; }
+            .integration-tab { flex: 1 1 30%; padding: 12px 8px; font-size: 13px; }
+            .integration-panel { padding: 16px 20px; font-size: 14px; }
+            .integration-section .pricing-cards { flex-direction: column; align-items: center; }
+        }
+
         .enterprise-section {
             padding: 0 24px 96px;
             max-width: 1200px;
@@ -2569,7 +2733,7 @@
                     </ul>
                 </div>
                 <div class="panel-visual">
-                    <img src="panel-img-1.png" alt="多种输入">
+                    <img src="panel-img-1.png?v=3" alt="多种输入">
                 </div>
             </div>
             <div class="aippt-feature-panel" data-panel="1">
@@ -2582,7 +2746,7 @@
                     </ul>
                 </div>
                 <div class="panel-visual">
-                    <img src="panel-img-2.png" alt="海量模版">
+                    <img src="panel-img-2.png?v=3" alt="海量模版">
                 </div>
             </div>
             <div class="aippt-feature-panel" data-panel="2">
@@ -2595,7 +2759,7 @@
                     </ul>
                 </div>
                 <div class="panel-visual">
-                    <img src="panel-img-3.png" alt="边聊边改">
+                    <img src="panel-img-3.png?v=3" alt="边聊边改">
                 </div>
             </div>
             <div class="aippt-feature-panel" data-panel="3">
@@ -2608,7 +2772,7 @@
                     </ul>
                 </div>
                 <div class="panel-visual">
-                    <img src="panel-img-4.png" alt="一键生成">
+                    <img src="panel-img-4.png?v=3" alt="一键生成">
                 </div>
             </div>
             <div class="aippt-feature-panel" data-panel="4">
@@ -2621,82 +2785,44 @@
                     </ul>
                 </div>
                 <div class="panel-visual">
-                    <img src="panel-img-5.png" alt="在线编辑">
+                    <img src="panel-img-5.png?v=3" alt="在线编辑">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SDK Cards Section -->
-    <section class="sdk-section">
-        <h2>灵活接入AIPPT能力，适配不同业务场景</h2>
-        <p class="sdk-subtitle">WPS AIPPT 提供 API、SDK、skill 多种接入方式<br>可根据自身需求，选择适合的集成方案</p>
-        <div class="sdk-cards">
-            <!-- Card 1: API 接入 -->
-            <div class="sdk-card">
-                <div class="sdk-card-icon">
-                    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="8" y="12" width="48" height="40" rx="4" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
-                        <path d="M20 28l-6 6 6 6" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M44 28l6 6-6 6" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <line x1="36" y1="24" x2="28" y2="40" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round"/>
-                    </svg>
-                </div>
-                <span class="sdk-card-label">API 接入</span>
-                <div class="sdk-card-text">
-                    <h3>API 接入</h3>
-                    <div class="sdk-divider"></div>
-                    <p>适合在业务系统中调用PPT生成能力，支持经典模式与专业模式（HTML）生成</p>
-                    <a href="https://open.wps.cn/documents/app-integration-dev/docs-center/aippt/11111111111111111/Topic" class="sdk-card-btn" target="_blank">查看API文档</a>
-                </div>
-            </div>
+    <!-- Integration + Pricing (Tab B) -->
+    <section class="integration-section" id="integration">
+        <h2>选择接入方式与版本</h2>
+        <p class="integration-subtitle">WPS AIPPT 提供 API、SDK、Skill 三种接入方式，均可选择经典版或专业版</p>
 
-            <!-- Card 2: SDK 接入 -->
-            <div class="sdk-card">
-                <div class="sdk-card-icon">
-                    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="12" y="8" width="40" height="48" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
-                        <rect x="20" y="16" width="24" height="4" rx="1" fill="#93c5fd"/>
-                        <rect x="20" y="24" width="18" height="4" rx="1" fill="#bfdbfe"/>
-                        <rect x="20" y="32" width="22" height="4" rx="1" fill="#93c5fd"/>
-                        <rect x="20" y="40" width="14" height="4" rx="1" fill="#bfdbfe"/>
-                    </svg>
-                </div>
-                <span class="sdk-card-label">SDK 接入</span>
-                <div class="sdk-card-text">
-                    <h3>SDK 接入</h3>
-                    <div class="sdk-divider"></div>
-                    <p>适合在自有产品中嵌入AIPPT完整流程，支持生成、预览、专业模式（HTML）生成、WebOffice在线编辑等能力</p>
-                    <a href="javascript:void(0)" class="sdk-card-btn sdk-card-btn-disabled" style="opacity:0.45;cursor:not-allowed;pointer-events:none;">申请SDK接入</a>
-                </div>
-            </div>
+        <div class="integration-tabs" role="tablist">
+            <button class="integration-tab active" role="tab" data-integration="api" aria-selected="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                API 接入
+            </button>
+            <button class="integration-tab" role="tab" data-integration="sdk" aria-selected="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="13" x2="15" y2="13"/></svg>
+                SDK 接入
+            </button>
+            <button class="integration-tab" role="tab" data-integration="skill" aria-selected="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+                Skill 接入
+            </button>
+        </div>
 
-            <!-- Card 3: Skill 接入 -->
-            <div class="sdk-card">
-                <div class="sdk-card-icon">
-                    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="32" cy="32" r="20" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
-                        <circle cx="32" cy="22" r="4" fill="#93c5fd" stroke="#2563eb" stroke-width="1.5"/>
-                        <circle cx="22" cy="38" r="4" fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.5"/>
-                        <circle cx="42" cy="38" r="4" fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.5"/>
-                        <line x1="32" y1="26" x2="24" y2="35" stroke="#3b82f6" stroke-width="1.5"/>
-                        <line x1="32" y1="26" x2="40" y2="35" stroke="#3b82f6" stroke-width="1.5"/>
-                        <line x1="26" y1="38" x2="38" y2="38" stroke="#3b82f6" stroke-width="1.5"/>
-                    </svg>
-                </div>
-                <span class="sdk-card-label">Skill 接入</span>
-                <div class="sdk-card-text">
-                    <h3>SKILL 接入</h3>
-                    <div class="sdk-divider"></div>
-                    <p>适合在智能体、工作流或特定平台中调用AIPPT能力，支持根据用户指令自动生成PPT</p>
-                    <a href="javascript:void(0)" class="sdk-card-btn">敬请期待</a>
-                </div>
+        <div class="integration-panel-wrap">
+            <div class="integration-panel active" data-panel="api">
+                适合在业务系统中调用 PPT 生成能力，支持经典模式与专业模式（HTML）生成
+            </div>
+            <div class="integration-panel" data-panel="sdk">
+                适合在自有产品中嵌入 AIPPT 完整流程，支持生成、预览、专业模式（HTML）生成、WebOffice 在线编辑等能力
+            </div>
+            <div class="integration-panel" data-panel="skill">
+                适合在智能体、工作流或特定平台中调用 AIPPT 能力，支持根据用户指令自动生成 PPT
             </div>
         </div>
-    </section>
-    <!-- Pricing Section -->
-    <section class="pricing-section">
-        <h2>选择适合您的版本</h2>
+
         <div class="pricing-cards">
             <div class="pricing-card">
                 <h3 class="pricing-card-title">AIPPT 经典版</h3>
@@ -2706,6 +2832,8 @@
                     <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg> 内嵌千套模版，适配企业自定义模板</li>
                     <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg> 秒出 AI 演讲稿，一键高效汇报</li>
                 </ul>
+                <p class="pricing-integration-note" id="classicNote">API 接入 · 经典版按 1.2 元/份计费</p>
+                <a href="https://open.wps.cn/documents/app-integration-dev/docs-center/aippt/11111111111111111/Topic" class="pricing-card-cta pricing-card-cta-primary" id="classicCta" target="_blank">查看 API 文档</a>
             </div>
             <div class="pricing-card">
                 <h3 class="pricing-card-title">AIPPT 专业版</h3>
@@ -2715,9 +2843,12 @@
                     <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg> 更省事，AI 生成可编辑图表</li>
                     <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg> 更高效，5 分钟精准出稿</li>
                 </ul>
+                <p class="pricing-integration-note" id="proNote">API 接入 · 专业版即将推出</p>
+                <a href="https://f.kdocs.cn/ksform/w/write/fELKHo71#routePromt" class="pricing-card-cta pricing-card-cta-outline" id="proCta" target="_blank">预约专业版咨询</a>
             </div>
         </div>
     </section>
+
     <!-- Case Cards Section -->
     <section class="case-section" style="margin-top: 24px;">
         <h2>多场景适配，选择满足您业务需求的方案</h2>
@@ -2886,28 +3017,6 @@
         <h2>快速开始使用</h2>
         <p class="quickstart-subtitle">立即接入 WPS AIPPT，提升企业PPT创作效率</p>
 
-        <!-- Pricing Cards -->
-        <div class="pricing-cards">
-            <div class="pricing-card">
-                <h3 class="pricing-card-title">AIPPT 经典版</h3>
-                <div class="pricing-card-price">1.2元<span class="pricing-unit">/份</span></div>
-                <ul class="pricing-features">
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg> AI 极速生成，多格式秒转 PPT</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg> 内嵌千套模版，适配企业自定义模板</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg> 秒出AI演讲稿，一键高效汇报</li>
-                </ul>
-            </div>
-            <div class="pricing-card">
-                <h3 class="pricing-card-title">AIPPT 专业版</h3>
-                <div class="pricing-card-price pricing-coming-soon">敬请期待</div>
-                <ul class="pricing-features">
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg> 更专业，HTML 引擎逐页渲染</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg> 更省事，AI 生成可编辑图表</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg> 更高效，5 分钟精准出稿</li>
-                </ul>
-            </div>
-        </div>
-
         <div class="quickstart-cards">
             <!-- Card 1 -->
             <div class="quickstart-card">
@@ -3047,6 +3156,70 @@
                     this.classList.add('active');
                     panels[index].classList.add('active');
                 });
+            });
+        })();
+
+        // ================= Integration Tabs + Pricing CTA =================
+        (function() {
+            const CONFIG = {
+                api: {
+                    classicNote: 'API 接入 · 经典版按 1.2 元/份计费',
+                    proNote: 'API 接入 · 专业版即将推出',
+                    classic: { text: '查看 API 文档', href: 'https://open.wps.cn/documents/app-integration-dev/docs-center/aippt/11111111111111111/Topic', primary: true },
+                    pro: { text: '预约专业版咨询', href: 'https://f.kdocs.cn/ksform/w/write/fELKHo71#routePromt', primary: false }
+                },
+                sdk: {
+                    classicNote: 'SDK 接入 · 经典版与专业版均可选',
+                    proNote: 'SDK 接入 · 专业版即将推出',
+                    classic: { text: '客户咨询', href: 'https://f.kdocs.cn/ksform/w/write/fELKHo71#routePromt', primary: true },
+                    pro: { text: '预约专业版咨询', href: 'https://f.kdocs.cn/ksform/w/write/fELKHo71#routePromt', primary: false }
+                },
+                skill: {
+                    classicNote: 'Skill 接入 · 经典版即将开放',
+                    proNote: 'Skill 接入 · 专业版即将推出',
+                    classic: { text: '敬请期待', href: 'javascript:void(0)', primary: false, disabled: true },
+                    pro: { text: '敬请期待', href: 'javascript:void(0)', primary: false, disabled: true }
+                }
+            };
+
+            const tabs = document.querySelectorAll('.integration-tab');
+            const panels = document.querySelectorAll('.integration-panel');
+            const classicNote = document.getElementById('classicNote');
+            const proNote = document.getElementById('proNote');
+            const classicCta = document.getElementById('classicCta');
+            const proCta = document.getElementById('proCta');
+
+            function applyCta(el, cfg) {
+                el.textContent = cfg.text;
+                el.href = cfg.href;
+                el.classList.remove('pricing-card-cta-primary', 'pricing-card-cta-outline', 'pricing-card-cta-disabled');
+                if (cfg.disabled) {
+                    el.classList.add('pricing-card-cta-outline', 'pricing-card-cta-disabled');
+                    el.removeAttribute('target');
+                } else {
+                    el.classList.add(cfg.primary ? 'pricing-card-cta-primary' : 'pricing-card-cta-outline');
+                    if (cfg.href.startsWith('http')) el.target = '_blank';
+                    else el.removeAttribute('target');
+                }
+            }
+
+            function switchIntegration(key) {
+                const c = CONFIG[key];
+                if (!c) return;
+                tabs.forEach(t => {
+                    const active = t.dataset.integration === key;
+                    t.classList.toggle('active', active);
+                    t.setAttribute('aria-selected', active ? 'true' : 'false');
+                });
+                panels.forEach(p => p.classList.toggle('active', p.dataset.panel === key));
+                classicNote.textContent = c.classicNote;
+                proNote.textContent = c.proNote;
+                applyCta(classicCta, c.classic);
+                applyCta(proCta, c.pro);
+            }
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => switchIntegration(tab.dataset.integration));
             });
         })();
 
