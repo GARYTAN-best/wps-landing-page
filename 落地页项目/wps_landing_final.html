@@ -2791,60 +2791,59 @@
         </div>
     </section>
 
-    <!-- Integration + Pricing (Tab B) -->
-    <section class="integration-section" id="integration">
-        <h2>选择接入方式与版本</h2>
-        <p class="integration-subtitle">WPS AIPPT 提供 API、SDK、Skill 三种接入方式，均可选择经典版或专业版</p>
-
-        <div class="integration-tabs" role="tablist">
-            <button class="integration-tab active" role="tab" data-integration="api" aria-selected="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-                API 接入
-            </button>
-            <button class="integration-tab" role="tab" data-integration="sdk" aria-selected="false">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="13" x2="15" y2="13"/></svg>
-                SDK 接入
-            </button>
-            <button class="integration-tab" role="tab" data-integration="skill" aria-selected="false">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
-                Skill 接入
-            </button>
-        </div>
-
-        <div class="integration-panel-wrap">
-            <div class="integration-panel active" data-panel="api">
-                适合在业务系统中调用 PPT 生成能力，支持经典模式与专业模式（HTML）生成
+        <!-- SDK Cards Section -->
+    <section class="sdk-section">
+        <h2>灵活接入 AIPPT 能力</h2>
+        <p class="sdk-subtitle">WPS AIPPT 提供 API、SDK、Skill 三种接入方式，适配不同业务场景</p>
+        <div class="sdk-cards">
+            <!-- Card 1: API 接入 -->
+            <div class="sdk-card">
+                <div class="sdk-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="16 18 22 12 16 6"/>
+                        <polyline points="8 6 2 12 8 18"/>
+                    </svg>
+                </div>
+                <div class="sdk-card-label">API 接入</div>
+                <div class="sdk-card-text">
+                    <h3>API 接入</h3>
+                    <div class="sdk-divider"></div>
+                    <p>适合在业务系统中调用 PPT 生成能力<br>支持经典模式与专业模式生成</p>
+                    <a href="https://open.wps.cn/documents/app-integration-dev/docs-center/aippt/11111111111111111/Topic" class="sdk-card-btn" target="_blank">查看 API 文档</a>
+                </div>
             </div>
-            <div class="integration-panel" data-panel="sdk">
-                适合在自有产品中嵌入 AIPPT 完整流程，支持生成、预览、专业模式（HTML）生成、WebOffice 在线编辑等能力
+            <!-- Card 2: SDK 接入 -->
+            <div class="sdk-card">
+                <div class="sdk-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="4" y="4" width="16" height="16" rx="2"/>
+                        <line x1="9" y1="9" x2="15" y2="9"/>
+                        <line x1="9" y1="13" x2="15" y2="13"/>
+                    </svg>
+                </div>
+                <div class="sdk-card-label">SDK 接入</div>
+                <div class="sdk-card-text">
+                    <h3>SDK 接入</h3>
+                    <div class="sdk-divider"></div>
+                    <p>适合在自有产品中嵌入 AIPPT 完整流程<br>支持生成、预览、WebOffice 在线编辑</p>
+                    <a href="https://f.kdocs.cn/ksform/w/write/fELKHo71#routePromt" class="sdk-card-btn" target="_blank">申请 SDK 接入</a>
+                </div>
             </div>
-            <div class="integration-panel" data-panel="skill">
-                适合在智能体、工作流或特定平台中调用 AIPPT 能力，支持根据用户指令自动生成 PPT
-            </div>
-        </div>
-
-        <div class="pricing-cards">
-            <div class="pricing-card">
-                <h3 class="pricing-card-title">AIPPT 经典版</h3>
-                <div class="pricing-card-price">1.2元<span class="pricing-unit">/份</span></div>
-                <ul class="pricing-features">
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg> AI 极速生成，多格式秒转 PPT</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg> 内嵌千套模版，适配企业自定义模板</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg> 秒出 AI 演讲稿，一键高效汇报</li>
-                </ul>
-                <p class="pricing-integration-note" id="classicNote">API 接入 · 经典版按 1.2 元/份计费</p>
-                <a href="https://open.wps.cn/documents/app-integration-dev/docs-center/aippt/11111111111111111/Topic" class="pricing-card-cta pricing-card-cta-primary" id="classicCta" target="_blank">查看 API 文档</a>
-            </div>
-            <div class="pricing-card">
-                <h3 class="pricing-card-title">AIPPT 专业版</h3>
-                <div class="pricing-card-price pricing-coming-soon">敬请期待</div>
-                <ul class="pricing-features">
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg> 更专业，HTML 引擎逐页渲染</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg> 更省事，AI 生成可编辑图表</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg> 更高效，5 分钟精准出稿</li>
-                </ul>
-                <p class="pricing-integration-note" id="proNote">API 接入 · 专业版即将推出</p>
-                <a href="https://f.kdocs.cn/ksform/w/write/fELKHo71#routePromt" class="pricing-card-cta pricing-card-cta-outline" id="proCta" target="_blank">预约专业版咨询</a>
+            <!-- Card 3: Skill 接入 -->
+            <div class="sdk-card">
+                <div class="sdk-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                    </svg>
+                </div>
+                <div class="sdk-card-label">Skill 接入</div>
+                <div class="sdk-card-text">
+                    <h3>Skill 接入</h3>
+                    <div class="sdk-divider"></div>
+                    <p>适合在智能体、工作流中调用 AIPPT 能力<br>支持根据用户指令自动生成 PPT</p>
+                    <span class="sdk-card-btn sdk-card-btn-disabled">敬请期待</span>
+                </div>
             </div>
         </div>
     </section>
