@@ -633,9 +633,9 @@
         }
 
         .aippt-section .aippt-desc {
-            font-size: 18px;
+            font-size: 15px;
             color: #64748b;
-            margin: 0 0 48px;
+            margin: 0 0 32px;
             line-height: 1.7;
         }
 
@@ -755,7 +755,7 @@
             overflow: hidden;
             background: linear-gradient(135deg, rgba(248, 245, 255, 0.8) 0%, rgba(240, 245, 255, 0.6) 100%);
             border: 1px solid rgba(139, 92, 246, 0.08);
-            min-height: 460px;
+            min-height: 560px;
         }
 
         /* 装饰光斑 */
@@ -830,23 +830,36 @@
         .aippt-feature-panel {
             position: relative;
             z-index: 1;
-        }
-
-        .aippt-feature-panel {
-            flex: 1;
             display: none;
-            animation: fadeInPanel 0.35s ease;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 24px;
+            overflow: hidden;
+            text-align: center;
+            padding: 36px 40px 40px;
             background: #fff;
             border-radius: 20px;
-            padding: 32px;
             box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-            overflow: hidden;
+            animation: fadeInPanel 0.35s ease;
+            width: 100%;
+            min-height: 520px;
+            box-sizing: border-box;
+        }
+
+        .aippt-feature-panel.active {
+            display: flex;
         }
 
         .panel-content {
             position: relative;
             z-index: 1;
-            margin-bottom: 24px;
+            flex: 0 0 auto;
+            min-width: 0;
+            min-height: 132px;
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto;
+            width: 100%;
         }
 
         .panel-bg-image {
@@ -865,44 +878,33 @@
         }
 
         .aippt-panel-desc li {
-            font-size: 12px;
+            font-size: 15px;
             color: #64748b;
-            line-height: 1.4;
+            line-height: 1.6;
             margin: 0 0 2px;
         }
 
-        .aippt-feature-panel {
-            display: none;
-            flex-direction: row;
-            align-items: center;
-            gap: 32px;
-            overflow: hidden;
-            text-align: left;
-            padding: 36px 40px;
-        }
-
-        .aippt-feature-panel.active {
-            display: flex;
-        }
-
-        .panel-content {
-            flex: 0 0 48%;
-            min-width: 0;
-            text-align: left;
-        }
-
         .panel-visual {
-            flex: 0 0 52%;
-            min-width: 0;
+            flex: 0 0 320px;
+            width: 100%;
+            height: 320px;
             display: flex;
             align-items: center;
             justify-content: center;
+            background: #f8fafc;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+            box-sizing: border-box;
         }
 
         .panel-visual img {
+            width: 840px;
             max-width: 100%;
-            max-height: 300px;
+            height: 320px;
+            max-height: 100%;
             object-fit: contain;
+            display: block;
         }
                                                 
         
@@ -926,13 +928,13 @@
             margin: 0;
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 10px;
         }
 
         .aippt-panel-desc li {
-            font-size: 12px;
+            font-size: 15px;
             color: #64748b;
-            line-height: 1.4;
+            line-height: 1.6;
             padding-left: 0;
         }
 
@@ -941,10 +943,16 @@
         }
 
         @media (max-width: 768px) {
-            .aippt-feature-tags { max-width: 100%; padding: 6px; border-radius: 14px; }
+            .aippt-feature-tags { max-width: 100%; padding: 6px; border-radius: 10px; }
             .aippt-feature-tag { padding: 12px 10px; font-size: 13px; }
             .aippt-feature-tag svg { width: 14px; height: 14px; }
             .aippt-panel-title { font-size: 22px; }
+            .aippt-panel-desc li { font-size: 14px; }
+            .aippt-feature-content { padding: 32px 20px; min-height: 480px; }
+            .aippt-feature-panel { min-height: 440px; padding: 28px 20px 24px; }
+            .panel-content { min-height: 120px; }
+            .panel-visual { flex: 0 0 200px; height: 200px; }
+            .panel-visual img { width: 100%; height: 200px; }
         }
 
 
@@ -1144,7 +1152,7 @@
         .case-card-content p {
             font-size: 14px;
             color: #64748b;
-            line-height: 1.7;
+            line-height: 1.6;
             margin: 0;
         }
 
@@ -1298,9 +1306,9 @@
         }
 
         .quickstart-section .quickstart-subtitle {
-            font-size: 18px;
+            font-size: 15px;
             color: #64748b;
-            margin: 0 0 48px;
+            margin: 0 0 32px;
             line-height: 1.7;
         }
 
@@ -1429,7 +1437,7 @@
         .quickstart-card-icon {
             width: 56px;
             height: 56px;
-            border-radius: 14px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1602,37 +1610,37 @@
 
         /* ================= SDK CARDS ================= */
         .sdk-section {
-            padding: 80px 24px 96px;
+            padding: 60px 24px 72px;
             max-width: 1200px;
             margin: 0 auto;
             text-align: center;
         }
 
         .sdk-section h2 {
-            font-size: 36px;
+            font-size: 28px;
             font-weight: 800;
             color: #0f172a;
-            margin: 0 0 16px;
+            margin: 0 0 12px;
             line-height: 1.3;
         }
 
         .sdk-section .sdk-subtitle {
-            font-size: 18px;
+            font-size: 15px;
             color: #64748b;
-            margin: 0 0 48px;
+            margin: 0 0 32px;
         }
 
         .sdk-cards {
             display: flex;
-            gap: 20px;
+            gap: 16px;
             justify-content: center;
         }
 
         .sdk-card {
             flex: 1;
-            max-width: 420px;
-            min-height: 340px;
-            border-radius: 16px;
+            max-width: 340px;
+            min-height: 260px;
+            border-radius: 12px;
             background: #f0f6ff;
             display: flex;
             flex-direction: column;
@@ -1665,8 +1673,8 @@
         }
 
         .sdk-card-icon {
-            width: 80px;
-            height: 80px;
+            width: 56px;
+            height: 56px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1676,8 +1684,8 @@
         }
 
         .sdk-card-icon svg {
-            width: 64px;
-            height: 64px;
+            width: 44px;
+            height: 44px;
         }
 
         .sdk-card:hover .sdk-card-icon {
@@ -1686,10 +1694,10 @@
         }
 
         .sdk-card-label {
-            font-size: 20px;
+            font-size: 16px;
             font-weight: 700;
             color: #1e293b;
-            margin-top: 16px;
+            margin-top: 12px;
             position: relative;
             z-index: 1;
             transition: all 0.4s ease;
@@ -1702,20 +1710,20 @@
         .sdk-card-text {
             position: absolute;
             top: 50%;
-            left: 20px;
+            left: 16px;
             transform: translateY(-50%);
-            right: 20px;
+            right: 16px;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 24px 24px;
+            padding: 18px 18px;
             opacity: 0;
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             z-index: 1;
             background: rgba(255, 255, 255, 0.12);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border-radius: 14px;
+            border-radius: 10px;
             border: 1px solid rgba(255, 255, 255, 0.18);
         }
 
@@ -1725,25 +1733,25 @@
         }
 
         .sdk-card-text h3 {
-            font-size: 22px;
+            font-size: 18px;
             font-weight: 700;
             color: #ffffff;
-            margin: 0 0 12px;
+            margin: 0 0 10px;
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         .sdk-card-text .sdk-divider {
-            width: 32px;
-            height: 3px;
+            width: 24px;
+            height: 2px;
             background: linear-gradient(90deg, #ffffff, rgba(255,255,255,0.4));
             border-radius: 2px;
-            margin-bottom: 14px;
+            margin-bottom: 10px;
         }
 
         .sdk-card-text p {
-            font-size: 14px;
+            font-size: 13px;
             color: rgba(255, 255, 255, 0.9);
-            line-height: 1.7;
+            line-height: 1.6;
             margin: 0;
             text-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
         }
@@ -1752,16 +1760,16 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 10px 24px;
-            border-radius: 8px;
-            font-size: 14px;
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-size: 13px;
             font-weight: 600;
             color: #1a73e8;
             background: #fff;
             border: none;
             cursor: pointer;
             text-decoration: none;
-            margin-top: 16px;
+            margin-top: 12px;
             transition: all 0.25s ease;
             white-space: nowrap;
             align-self: center;
@@ -1800,9 +1808,9 @@
         }
 
         .access-methods-subtitle {
-            font-size: 18px;
+            font-size: 15px;
             color: #64748b;
-            margin: 0 0 48px;
+            margin: 0 0 32px;
             line-height: 1.7;
         }
 
@@ -1834,7 +1842,7 @@
             height: 56px;
             margin: 0 auto 20px;
             background: linear-gradient(135deg, rgba(139,92,246,0.1), rgba(99,102,241,0.08));
-            border-radius: 14px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -2628,7 +2636,100 @@
             .footer-col a { font-size: 13px; }
             .wps-footer { padding: 48px 0 24px; }
         }
-    </style>
+    
+        /* ================= VERSION PRICING SECTION ================= */
+        .version-pricing-section {
+            padding: 60px 24px 72px;
+            max-width: 960px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .version-pricing-section h2 {
+            font-size: 28px;
+            font-weight: 800;
+            color: #0f172a;
+            margin: 0 0 36px;
+            line-height: 1.3;
+        }
+
+        .vp-cards {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .vp-card {
+            flex: 1;
+            max-width: 420px;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 32px 28px;
+            text-align: center;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .vp-card-title {
+            font-size: 22px;
+            font-weight: 800;
+            color: #0f172a;
+            margin: 0 0 14px;
+        }
+
+        .vp-card-price {
+            font-size: 40px;
+            font-weight: 800;
+            color: #dc2626;
+            margin: 0 0 22px;
+        }
+
+        .vp-unit {
+            font-size: 14px;
+            font-weight: 400;
+            color: #64748b;
+        }
+
+        .vp-price-soon {
+            font-size: 24px;
+            font-weight: 600;
+            color: #94a3b8;
+            margin: 10px 0 22px;
+            min-height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .vp-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 22px;
+            text-align: left;
+            flex: 1;
+        }
+
+        .vp-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 14px;
+            color: #334155;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .vp-features li svg {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+            margin-top: 1px;
+            color: #22c55e;
+        }
+
+        </style>
 </head>
 <body>
 
@@ -2832,7 +2933,7 @@
                     </ul>
                 </div>
                 <div class="panel-visual">
-                    <img src="panel-img-1.png?v=3" alt="多种输入">
+                    <img src="panel-img-1.png?v=7" alt="多种输入">
                 </div>
             </div>
             <div class="aippt-feature-panel" data-panel="1">
@@ -2845,7 +2946,7 @@
                     </ul>
                 </div>
                 <div class="panel-visual">
-                    <img src="panel-img-2.png?v=3" alt="海量模版">
+                    <img src="panel-img-2.png?v=7" alt="海量模版">
                 </div>
             </div>
             <div class="aippt-feature-panel" data-panel="2">
@@ -2858,7 +2959,7 @@
                     </ul>
                 </div>
                 <div class="panel-visual">
-                    <img src="panel-img-3.png?v=3" alt="边聊边改">
+                    <img src="panel-img-3.png?v=6" alt="边聊边改">
                 </div>
             </div>
             <div class="aippt-feature-panel" data-panel="3">
@@ -2871,7 +2972,7 @@
                     </ul>
                 </div>
                 <div class="panel-visual">
-                    <img src="panel-img-4.png?v=3" alt="一键生成">
+                    <img src="panel-img-4.png?v=6" alt="一键生成">
                 </div>
             </div>
             <div class="aippt-feature-panel" data-panel="4">
@@ -2884,7 +2985,7 @@
                     </ul>
                 </div>
                 <div class="panel-visual">
-                    <img src="panel-img-5.png?v=3" alt="在线编辑">
+                    <img src="panel-img-5.png?v=6" alt="在线编辑">
                 </div>
             </div>
         </div>
@@ -2945,505 +3046,32 @@
                 </div>
             </div>
         </div>
-        
-        <!-- Pricing Cards (shown on hover) -->
-        <div class="sdk-pricing-wrap">
-            <div class="sdk-pricing-cards" id="sdkPricingCards">
-                <div class="pricing-card">
-                    <h3 class="pricing-card-title">AIPPT 经典版</h3>
-                    <div class="pricing-card-price">1.2 元<span class="pricing-unit">/份</span></div>
-                    <ul class="pricing-features">
-                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg> AI 极速生成，多格式秒转 PPT</li>
-                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg> 内嵌千套模版，适配企业自定义模板</li>
-                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg> 秒出 AI 演讲稿，一键高效汇报</li>
-                    </ul>
-                    <a href="#" class="pricing-card-btn pricing-card-btn-primary" id="classicBtn">立即购买</a>
-                </div>
-                <div class="pricing-card">
-                    <h3 class="pricing-card-title">AIPPT 专业版</h3>
-                    <div class="pricing-card-price pricing-coming-soon">敬请期待</div>
-                    <ul class="pricing-features">
-                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg> 更专业，HTML 引擎逐页渲染</li>
-                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg> 更省事，AI 生成可编辑图表</li>
-                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg> 更高效，5 分钟精准出稿</li>
-                    </ul>
-                    <a href="#" class="pricing-card-btn pricing-card-btn-outline" id="proBtn">联系销售</a>
-                </div>
-            </div>
-            <p class="sdk-pricing-note">📢 更多个性化需求或大量采购，获取更多报价，请联系销售咨询 <a href="https://f.kdocs.cn/ksform/w/write/fELKHo71#routePromt" target="_blank">立即咨询 &gt;</a></p>
-        </div>
     </section>
 
-    <!-- Case Cards Section -->
-    <section class="case-section" style="margin-top: 24px;">
-        <h2>多场景适配，选择满足您业务需求的方案</h2>
-        <p class="case-subtitle">WPS AIPPT覆盖企业常见PPT制作场景，各环节效率拉满</p>
-        <div class="case-cards">
-            <!-- Card 1: 工作汇报 -->
-            <div class="case-card">
-                <div class="case-card-img">
-                    <div class="decor"></div>
-                    <div class="decor"></div>
-                    <div class="decor"></div>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <rect x="3" y="3" width="18" height="18" rx="2"/>
-                        <line x1="3" y1="9" x2="21" y2="9"/>
-                        <line x1="9" y1="3" x2="9" y2="9"/>
-                        <line x1="7" y1="13" x2="11" y2="13"/>
-                        <line x1="7" y1="17" x2="13" y2="17"/>
-                    </svg>
-                </div>
-                <div class="case-card-content">
-                    <h3>工作汇报</h3>
-                    <p class="case-card-tags">周报、月报、季度汇报、年终总结</p>
-                    <p class="case-card-label">使用方式</p>
-                    <p>上传工作总结文档或输入汇报主题，AI自动生成汇报PPT</p>
-                    <p class="case-card-label">核心价值</p>
-                    <p>快速整理工作内容，生成结构清晰的汇报材料</p>
-                </div>
-            </div>
 
-            <!-- Card 2: 销售提案 -->
-            <div class="case-card">
-                <div class="case-card-img">
-                    <div class="decor"></div>
-                    <div class="decor"></div>
-                    <div class="decor"></div>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <rect x="2" y="7" width="20" height="14" rx="2"/>
-                        <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
-                        <line x1="12" y1="12" x2="12" y2="16"/>
-                        <line x1="10" y1="14" x2="14" y2="14"/>
-                    </svg>
-                </div>
-                <div class="case-card-content">
-                    <h3>销售提案</h3>
-                    <p class="case-card-tags">客户方案、产品介绍、商务提案、售前材料</p>
-                    <p class="case-card-label">使用方式</p>
-                    <p>输入客户需求和产品信息，AI生成结构化销售方案PPT</p>
-                    <p class="case-card-label">核心价值</p>
-                    <p>快速形成客户沟通材料，提升方案准备效率</p>
-                </div>
-            </div>
-
-            <!-- Card 3: 培训课件 -->
-            <div class="case-card">
-                <div class="case-card-img">
-                    <div class="decor"></div>
-                    <div class="decor"></div>
-                    <div class="decor"></div>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
-                    </svg>
-                </div>
-                <div class="case-card-content">
-                    <h3>培训课件</h3>
-                    <p class="case-card-tags">新员工培训、业务培训、产品培训、知识分享</p>
-                    <p class="case-card-label">使用方式</p>
-                    <p>上传培训文档或课程大纲，AI生成培训PPT</p>
-                    <p class="case-card-label">核心价值</p>
-                    <p>减少课件制作时间，快速搭建清晰的培训内容结构</p>
-                </div>
-            </div>
-
-            <!-- Card 4: 市场活动方案 -->
-            <div class="case-card">
-                <div class="case-card-img">
-                    <div class="decor"></div>
-                    <div class="decor"></div>
-                    <div class="decor"></div>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M3 11l18-5v12L3 13v-2z"/>
-                        <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/>
-                    </svg>
-                </div>
-                <div class="case-card-content">
-                    <h3>市场活动方案</h3>
-                    <p class="case-card-tags">活动策划、品牌宣传、营销方案、发布会材料</p>
-                    <p class="case-card-label">使用方式</p>
-                    <p>输入活动主题、目标人群和执行方案，AI生成活动策划PPT</p>
-                    <p class="case-card-label">核心价值</p>
-                    <p>快速产出对外展示材料，提升方案包装效率</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Partners Section -->
-    <section class="partners-section">
-        <h2>优质的合作伙伴/客户，构建值得信赖的生态</h2>
-        <div class="partners-slider-wrapper">
-            <!-- Row 1 -->
-            <div class="partners-row">
-                <div class="partner-item"><img src="partner-logos/partner-01.png" alt="中国中车" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-02.png" alt="Haier" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-03.png" alt="Midea" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-04.png" alt="GREE 格力" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-05.png" alt="中国南方航空" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-06.png" alt="ZTE 中兴" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-01.png" alt="中国中车" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-02.png" alt="Haier" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-03.png" alt="Midea" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-04.png" alt="GREE 格力" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-05.png" alt="中国南方航空" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-06.png" alt="ZTE 中兴" class="partner-logo"></div>
-            </div>
-            <!-- Row 2 -->
-            <div class="partners-row">
-                <div class="partner-item"><img src="partner-logos/partner-07.png" alt="用友" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-08.png" alt="中国石油" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-09.png" alt="HUAWEI" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-10.png" alt="中信证券" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-11.png" alt="NCI 新华保险" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-12.png" alt="中国人寿" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-07.png" alt="用友" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-08.png" alt="中国石油" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-09.png" alt="HUAWEI" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-10.png" alt="中信证券" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-11.png" alt="NCI 新华保险" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-12.png" alt="中国人寿" class="partner-logo"></div>
-            </div>
-            <!-- Row 3 -->
-            <div class="partners-row">
-                <div class="partner-item"><img src="partner-logos/partner-13.png" alt="中国铁建" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-14.png" alt="中国农业银行" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-15.png" alt="中国银行" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-16.png" alt="知乎" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-17.png" alt="中国工商银行" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-18.png" alt="中国移动" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-13.png" alt="中国铁建" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-14.png" alt="中国农业银行" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-15.png" alt="中国银行" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-16.png" alt="知乎" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-17.png" alt="中国工商银行" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-18.png" alt="中国移动" class="partner-logo"></div>
-            </div>
-            <!-- Row 4 -->
-            <div class="partners-row">
-                <div class="partner-item"><img src="partner-logos/partner-19.png" alt="合作伙伴19" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-20.png" alt="合作伙伴20" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-21.png" alt="合作伙伴21" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-22.png" alt="合作伙伴22" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-23.png" alt="合作伙伴23" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-24.png" alt="合作伙伴24" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-19.png" alt="合作伙伴19" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-20.png" alt="合作伙伴20" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-21.png" alt="合作伙伴21" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-22.png" alt="合作伙伴22" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-23.png" alt="合作伙伴23" class="partner-logo"></div>
-                <div class="partner-item"><img src="partner-logos/partner-24.png" alt="合作伙伴24" class="partner-logo"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Quick Start Section -->
-    <section class="quickstart-section">
-        <h2>快速开始使用</h2>
-        <p class="quickstart-subtitle">立即接入 WPS AIPPT，提升企业PPT创作效率</p>
-
-        <div class="quickstart-cards">
-            <!-- Card 1 -->
-            <div class="quickstart-card">
-                <div class="quickstart-card-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-                        <line x1="8" y1="21" x2="16" y2="21"/>
-                        <line x1="12" y1="17" x2="12" y2="21"/>
-                    </svg>
-                </div>
-                <p>如果你想直接体验AIPPT生成能力<br>可以前往网页入口</p>
-                <a href="https://aippt.wps.cn/aippt/?open_position=open" class="quickstart-btn" target="_blank">立即体验</a>
-            </div>
-            <!-- Card 2 -->
-            <div class="quickstart-card">
-                <div class="quickstart-card-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                        <polyline points="14 2 14 8 20 8"/>
-                        <line x1="16" y1="13" x2="8" y2="13"/>
-                        <line x1="16" y1="17" x2="8" y2="17"/>
-                        <polyline points="10 9 9 9 8 9"/>
-                    </svg>
-                </div>
-                <p>如果你需要接入API能力<br>可以查看API使用指南</p>
-                <a href="https://open.wps.cn/documents/app-integration-dev/docs-center/aippt/11111111111111111/Topic" class="quickstart-btn" target="_blank">查看API文档</a>
-            </div>
-            <!-- Card 3 -->
-            <div class="quickstart-card">
-                <div class="quickstart-card-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                        <circle cx="9" cy="7" r="4"/>
-                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                    </svg>
-                </div>
-                <p>如果你需要SDK、WebOffice在线编辑<br>或企业定制能力，可以填写表单联系售前</p>
-                <a href="https://f.kdocs.cn/ksform/w/write/fELKHo71#routePromt" class="quickstart-btn" target="_blank">客户咨询</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="wps-footer">
-        <div class="footer-inner">
-            <div class="footer-top">
-                <div>
-                    <div class="footer-logo">
-                        <img src="wps365-logo.png" class="logo-icon" alt="WPS 365">
-                        WPS 开放平台
-                    </div>
-                    <div class="lang-selector">
-                        语言 简体中文 ▾
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h4>金山办公产品</h4>
-                    <ul>
-                        <li><a href="#">WPS Office</a></li>
-                        <li><a href="#">WPS WebOffice</a></li>
-                        <li><a href="#">WPS 365</a></li>
-                        <li><a href="#">WPS 协作</a></li>
-                        <li><a href="#">WPS AI</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>法律声明</h4>
-                    <ul>
-                        <li><a href="#">开发者协议</a></li>
-                        <li><a href="#">数据处理协议</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>联系我们</h4>
-                    <ul>
-                        <li><a href="#">产品咨询</a></li>
-                        <li><a href="#">技术支持</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div>
-                    Copyright © 金山办公 2026 &nbsp;|&nbsp; 官方举报电话 (含互联网算法推荐举报):4006775005
-                </div>
-                <div>
-                    粤公网安备 44049102496073 号 &nbsp;|&nbsp; 粤 ICP 备 13015957 号
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // ================= Hero Carousel =================
-        (function() {
-            const slides = document.querySelectorAll('.hero-slide');
-            const dots = document.querySelectorAll('.hero-dot');
-            let current = 0;
-            let timer;
-
-            function goTo(index) {
-                slides[current].classList.remove('active');
-                dots[current].classList.remove('active');
-                current = index;
-                if (current >= slides.length) current = 0;
-                if (current < 0) current = slides.length - 1;
-                slides[current].classList.add('active');
-                dots[current].classList.add('active');
-            }
-
-            function next() { goTo(current + 1); }
-
-            function startAuto() { timer = setInterval(next, 5000); }
-            function stopAuto() { clearInterval(timer); }
-
-            dots.forEach(dot => {
-                dot.addEventListener('click', function() {
-                    stopAuto();
-                    goTo(parseInt(this.dataset.dot, 10));
-                    startAuto();
-                });
-            });
-
-            startAuto();
-        })();
-
-        // ================= AIPPT Feature Tabs =================
-        (function() {
-            const tags = document.querySelectorAll('.aippt-feature-tag');
-            const panels = document.querySelectorAll('.aippt-feature-panel');
-
-            tags.forEach(tag => {
-                tag.addEventListener('click', function() {
-                    const index = parseInt(this.dataset.tab, 10);
-                    tags.forEach(t => t.classList.remove('active'));
-                    panels.forEach(p => p.classList.remove('active'));
-                    this.classList.add('active');
-                    panels[index].classList.add('active');
-                });
-            });
-        })();
-
-
-
-        // ================= Integration Tabs + Pricing CTA =================
-        (function() {
-            const CONFIG = {
-                api: {
-                    classicNote: 'API 接入 · 经典版按 1.2 元/份计费',
-                    proNote: 'API 接入 · 专业版即将推出',
-                    classic: { text: '查看 API 文档', href: 'https://open.wps.cn/documents/app-integration-dev/docs-center/aippt/11111111111111111/Topic', primary: true },
-                    pro: { text: '预约专业版咨询', href: 'https://f.kdocs.cn/ksform/w/write/fELKHo71#routePromt', primary: false }
-                },
-                sdk: {
-                    classicNote: 'SDK 接入 · 经典版与专业版均可选',
-                    proNote: 'SDK 接入 · 专业版即将推出',
-                    classic: { text: '客户咨询', href: 'https://f.kdocs.cn/ksform/w/write/fELKHo71#routePromt', primary: true },
-                    pro: { text: '预约专业版咨询', href: 'https://f.kdocs.cn/ksform/w/write/fELKHo71#routePromt', primary: false }
-                },
-                skill: {
-                    classicNote: 'Skill 接入 · 经典版即将开放',
-                    proNote: 'Skill 接入 · 专业版即将推出',
-                    classic: { text: '敬请期待', href: 'javascript:void(0)', primary: false, disabled: true },
-                    pro: { text: '敬请期待', href: 'javascript:void(0)', primary: false, disabled: true }
-                }
-            };
-
-            const tabs = document.querySelectorAll('.integration-tab');
-            const panels = document.querySelectorAll('.integration-panel');
-            const classicNote = document.getElementById('classicNote');
-            const proNote = document.getElementById('proNote');
-            const classicCta = document.getElementById('classicCta');
-            const proCta = document.getElementById('proCta');
-
-            function applyCta(el, cfg) {
-                el.textContent = cfg.text;
-                el.href = cfg.href;
-                el.classList.remove('pricing-card-cta-primary', 'pricing-card-cta-outline', 'pricing-card-cta-disabled');
-                if (cfg.disabled) {
-                    el.classList.add('pricing-card-cta-outline', 'pricing-card-cta-disabled');
-                    el.removeAttribute('target');
-                } else {
-                    el.classList.add(cfg.primary ? 'pricing-card-cta-primary' : 'pricing-card-cta-outline');
-                    if (cfg.href.startsWith('http')) el.target = '_blank';
-                    else el.removeAttribute('target');
-                }
-            }
-
-            function switchIntegration(key) {
-                const c = CONFIG[key];
-                if (!c) return;
-                tabs.forEach(t => {
-                    const active = t.dataset.integration === key;
-                    t.classList.toggle('active', active);
-                    t.setAttribute('aria-selected', active ? 'true' : 'false');
-                });
-                panels.forEach(p => p.classList.toggle('active', p.dataset.panel === key));
-                classicNote.textContent = c.classicNote;
-                proNote.textContent = c.proNote;
-                applyCta(classicCta, c.classic);
-                applyCta(proCta, c.pro);
-            }
-
-            tabs.forEach(tab => {
-                tab.addEventListener('click', () => switchIntegration(tab.dataset.integration));
-            });
-        })();
-
-        // ================= Enterprise Card Accordion =================
-        document.querySelectorAll('.enterprise-card').forEach(card => {
-            const left = card.querySelector('.enterprise-left');
-            const items = left.querySelectorAll('.enterprise-item');
-            const imgs = card.querySelectorAll('.enterprise-img');
-            const panels = card.querySelectorAll('.scenario-panel');
-
-            function switchTo(index) {
-                items.forEach(i => i.classList.remove('active'));
-                imgs.forEach(img => img.classList.remove('active'));
-                panels.forEach(p => p.classList.remove('active'));
-
-                items[index].classList.add('active');
-                if (imgs[index]) imgs[index].classList.add('active');
-                if (panels[index]) panels[index].classList.add('active');
-            }
-
-            items.forEach((item, idx) => {
-                item.addEventListener('mouseenter', function() {
-                    switchTo(idx);
-                });
-            });
-        });
-    </script>
-
-</body>
-</html>    <!-- Access Methods -->
-    <section class="access-methods-section">
-        <h2>三种接入方式，灵活适配业务场景</h2>
-        <p class="access-methods-subtitle">WPS AIPPT 提供 API、SDK、Skill 三种接入方式，按需选择</p>
-        <div class="access-method-cards">
-            <div class="access-method-card">
-                <div class="access-method-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="16 18 22 12 16 6"/>
-                        <polyline points="8 6 2 12 8 18"/>
-                    </svg>
-                </div>
-                <h3>API 接入</h3>
-                <p>适合在业务系统中调用 PPT 生成能力<br>支持经典模式与专业模式生成</p>
-                <a href="https://open.wps.cn/documents/app-integration-dev/docs-center/aippt/11111111111111111/Topic" class="access-method-btn" target="_blank">查看文档</a>
-            </div>
-            <div class="access-method-card">
-                <div class="access-method-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="4" y="4" width="16" height="16" rx="2"/>
-                        <line x1="9" y1="9" x2="15" y2="9"/>
-                        <line x1="9" y1="13" x2="15" y2="13"/>
-                    </svg>
-                </div>
-                <h3>SDK 接入</h3>
-                <p>适合在自有产品中嵌入 AIPPT 完整流程<br>支持生成、预览、WebOffice 在线编辑</p>
-                <a href="https://f.kdocs.cn/ksform/w/write/fELKHo71#routePromt" class="access-method-btn" target="_blank">申请接入</a>
-            </div>
-            <div class="access-method-card">
-                <div class="access-method-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="3"/>
-                        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
-                    </svg>
-                </div>
-                <h3>Skill 接入</h3>
-                <p>适合在智能体、工作流中调用 AIPPT 能力<br>支持根据用户指令自动生成 PPT</p>
-                <span class="access-method-btn access-method-btn-disabled">敬请期待</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section class="pricing-section">
-        <h2>三种方式均可选择接入经典版或专业版</h2>
-        <div class="version-cards">
-            <div class="version-card">
-                <div class="version-badge">经典版</div>
-                <div class="version-price">1.2 元<span class="version-unit">/份</span></div>
-                <ul class="version-features">
+    <!-- Version Pricing Section -->
+    <section class="version-pricing-section">
+        <h2>三种接入方式均可选择经典版或专业版</h2>
+        <div class="vp-cards">
+            <div class="vp-card">
+                <h3 class="vp-card-title">AIPPT 经典版</h3>
+                <div class="vp-card-price">1.2 元<span class="vp-unit">/份</span></div>
+                <ul class="vp-features">
                     <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg> AI 极速生成，多格式秒转 PPT</li>
                     <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg> 内嵌千套模版，适配企业自定义模板</li>
                     <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg> 秒出 AI 演讲稿，一键高效汇报</li>
                 </ul>
-                <a href="https://open.wps.cn/documents/app-integration-dev/docs-center/aippt/11111111111111111/Topic" class="version-btn version-btn-primary" target="_blank">立即购买</a>
             </div>
-            <div class="version-card">
-                <div class="version-badge version-badge-pro">专业版</div>
-                <div class="version-price version-price-soon">敬请期待</div>
-                <ul class="version-features">
+            <div class="vp-card">
+                <h3 class="vp-card-title">AIPPT 专业版</h3>
+                <div class="vp-price-soon">敬请期待</div>
+                <ul class="vp-features">
                     <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg> 更专业，HTML 引擎逐页渲染</li>
                     <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg> 更省事，AI 生成可编辑图表</li>
                     <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg> 更高效，5 分钟精准出稿</li>
                 </ul>
-                <a href="https://f.kdocs.cn/ksform/w/write/fELKHo71#routePromt" class="version-btn version-btn-outline" target="_blank">联系销售</a>
             </div>
         </div>
-        <p class="pricing-note"> 更多个性化需求或大量采购，获取更多报价，请联系销售咨询 <a href="https://f.kdocs.cn/ksform/w/write/fELKHo71#routePromt" target="_blank">立即咨询 &gt;</a></p>
     </section>
 
     <!-- Case Cards Section -->
@@ -3467,11 +3095,7 @@
                 </div>
                 <div class="case-card-content">
                     <h3>工作汇报</h3>
-                    <p class="case-card-tags">周报、月报、季度汇报、年终总结</p>
-                    <p class="case-card-label">使用方式</p>
-                    <p>上传工作总结文档或输入汇报主题，AI自动生成汇报PPT</p>
-                    <p class="case-card-label">核心价值</p>
-                    <p>快速整理工作内容，生成结构清晰的汇报材料</p>
+                    <p>上传工作总结文档或输入汇报主题，AI 快速整理工作内容，生成汇报 PPT</p>
                 </div>
             </div>
 
@@ -3490,11 +3114,7 @@
                 </div>
                 <div class="case-card-content">
                     <h3>销售提案</h3>
-                    <p class="case-card-tags">客户方案、产品介绍、商务提案、售前材料</p>
-                    <p class="case-card-label">使用方式</p>
-                    <p>输入客户需求和产品信息，AI生成结构化销售方案PPT</p>
-                    <p class="case-card-label">核心价值</p>
-                    <p>快速形成客户沟通材料，提升方案准备效率</p>
+                    <p>输入客户需求和产品信息，AI 生成结构化销售方案 PPT</p>
                 </div>
             </div>
 
@@ -3511,11 +3131,7 @@
                 </div>
                 <div class="case-card-content">
                     <h3>培训课件</h3>
-                    <p class="case-card-tags">新员工培训、业务培训、产品培训、知识分享</p>
-                    <p class="case-card-label">使用方式</p>
-                    <p>上传培训文档或课程大纲，AI生成培训PPT</p>
-                    <p class="case-card-label">核心价值</p>
-                    <p>减少课件制作时间，快速搭建清晰的培训内容结构</p>
+                    <p>上传培训文档或课程大纲，AI 一键制作培训 PPT</p>
                 </div>
             </div>
 
@@ -3532,11 +3148,7 @@
                 </div>
                 <div class="case-card-content">
                     <h3>市场活动方案</h3>
-                    <p class="case-card-tags">活动策划、品牌宣传、营销方案、发布会材料</p>
-                    <p class="case-card-label">使用方式</p>
-                    <p>输入活动主题、目标人群和执行方案，AI生成活动策划PPT</p>
-                    <p class="case-card-label">核心价值</p>
-                    <p>快速产出对外展示材料，提升方案包装效率</p>
+                    <p>输入活动主题和执行方案，AI 生成快速产出对外展示 PPT</p>
                 </div>
             </div>
         </div>
@@ -3846,6 +3458,8 @@
             });
         });
     </script>
+
+</script>
 
 </body>
 </html>
