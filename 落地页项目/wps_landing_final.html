@@ -12,27 +12,22 @@
             --text-primary: #1f2937;
             --text-secondary: #6b7280;
             --link-hover: #2563eb;
-            --section-gap: 120px;
+            --section-gap: 140px;
             --section-spacing-x: 24px;
             --section-header-gap: 16px;
-            --section-subtitle-gap: 36px;
-            --section-title-content-gap: 52px;
+            --section-subtitle-gap: 40px;
+            --section-title-content-gap: 56px;
         }
 
-        /* 各主板块统一间距：相邻板块之间 = --section-gap */
+        /* 各主板块统一间距：相邻板块之间 = --section-gap（仅用 margin-top，避免 padding 叠加） */
         .sdk-section,
         .version-pricing-section,
         .aippt-section,
         .case-section,
         .partners-section,
         .quickstart-section {
-            padding: 0 var(--section-spacing-x) var(--section-gap);
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .sdk-section {
-            padding-top: var(--section-gap);
+            padding: 0 var(--section-spacing-x);
+            margin: var(--section-gap) auto 0;
         }
 
         .sdk-section h2,
@@ -739,11 +734,11 @@
 
         @media (max-width: 768px) {
             :root {
-                --section-gap: 88px;
+                --section-gap: 104px;
                 --section-spacing-x: 20px;
                 --section-header-gap: 14px;
-                --section-subtitle-gap: 28px;
-                --section-title-content-gap: 42px;
+                --section-subtitle-gap: 32px;
+                --section-title-content-gap: 48px;
             }
             .aippt-section h2 { font-size: 26px; padding: 12px 20px; }
             .aippt-section h2::after { width: 40px; height: 3px; bottom: -3px; }
@@ -763,7 +758,7 @@
         }
 
         .aippt-feature-top {
-            padding: 40px 40px 28px;
+            padding: 0 40px 28px;
             text-align: center;
         }
 
@@ -1017,7 +1012,7 @@
         }
 
         @media (max-width: 768px) {
-            .aippt-feature-top { padding: 28px 20px 20px; }
+            .aippt-feature-top { padding: 0 20px 20px; }
             .aippt-feature-bottom { flex-direction: column; padding: 0; border-radius: 14px; }
             .aippt-feature-tags { flex-direction: row; width: 100%; flex-wrap: wrap; background: transparent; padding: 8px; border-radius: 0; gap: 4px; border-bottom: 1px solid #cbd5e1; }
             .aippt-feature-tag { flex: 1 1 auto; padding: 8px 10px; font-size: 13px; justify-content: center; min-width: 0; background: transparent; border-radius: 8px; }
@@ -2539,7 +2534,8 @@
         /* ================= FOOTER ================= */
         .wps-footer {
             background: #ffffff;
-            padding: 64px 0 32px;
+            margin-top: var(--section-gap);
+            padding: 48px 0 32px;
             color: var(--text-primary);
             border-top: 1px solid #e5e7eb;
             width: 100%;
@@ -2629,11 +2625,11 @@
 
         @media (max-width: 768px) {
             :root {
-                --section-gap: 88px;
+                --section-gap: 104px;
                 --section-spacing-x: 20px;
                 --section-header-gap: 14px;
-                --section-subtitle-gap: 28px;
-                --section-title-content-gap: 42px;
+                --section-subtitle-gap: 32px;
+                --section-title-content-gap: 48px;
             }
             .header-inner { padding: 0 24px; }
             .nav-links { display: none; }
@@ -2655,7 +2651,7 @@
             .footer-logo { font-size: 18px; }
             .footer-col h4 { font-size: 14px; }
             .footer-col a { font-size: 13px; }
-            .wps-footer { padding: 48px 0 24px; }
+            .wps-footer { margin-top: var(--section-gap); padding: 40px 0 24px; }
         }
     
         /* ================= VERSION PRICING SECTION (AiPPT-style) ================= */
@@ -2773,48 +2769,6 @@
             min-height: 0;
         }
 
-        .vp-card-cta {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: auto;
-            min-width: 0;
-            height: auto;
-            padding: 14px 32px;
-            margin-top: 24px;
-            align-self: center;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            font-weight: 600;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            white-space: nowrap;
-            box-shadow: 0 2px 8px rgba(99, 102, 241, 0.25);
-        }
-
-        .vp-card-cta-primary {
-            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
-            color: #fff;
-            box-shadow: 0 2px 8px rgba(139, 92, 246, 0.25);
-        }
-
-        .vp-card-cta-primary:hover {
-            background: linear-gradient(135deg, #7c3aed, #6d28d9);
-            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.35);
-            opacity: 1;
-        }
-
-        .vp-card-cta-disabled {
-            background: #f1f5f9;
-            color: #94a3b8;
-            border: 1px solid #e2e8f0;
-            box-shadow: none;
-            cursor: not-allowed;
-            pointer-events: none;
-        }
-
         .vp-features {
             list-style: none;
             padding: 24px 28px 32px;
@@ -2857,11 +2811,11 @@
 
         @media (max-width: 768px) {
             :root {
-                --section-gap: 88px;
+                --section-gap: 104px;
                 --section-spacing-x: 20px;
                 --section-header-gap: 14px;
-                --section-subtitle-gap: 28px;
-                --section-title-content-gap: 42px;
+                --section-subtitle-gap: 32px;
+                --section-title-content-gap: 48px;
             }
             .version-pricing-section h2 { font-size: 28px; }
             .vp-cards { flex-direction: column; align-items: center; gap: 20px; }
@@ -2876,7 +2830,6 @@
             .vp-feature-label,
             .vp-feature-value { font-size: 13px; }
             .vp-features { padding: 20px 20px 28px; }
-            .vp-card-cta { margin-top: 20px; font-size: 16px; }
         }
 
         /* ================= RESPONSIVE (窗口缩放适配) ================= */
@@ -2885,6 +2838,11 @@
         }
 
         @media (max-width: 1200px) {
+            :root {
+                --section-gap: 124px;
+                --section-subtitle-gap: 36px;
+                --section-title-content-gap: 52px;
+            }
             .header-inner { padding: 0 32px; }
             .header-left { gap: 32px; }
             .nav-links { gap: 20px; }
@@ -2893,7 +2851,7 @@
             .hero-content-inner { padding: 64px 32px; }
             .hero-card-title { font-size: 38px; }
             .hero-card-subtitle { font-size: 30px; }
-            .aippt-feature-top { padding: 32px 28px 20px; }
+            .aippt-feature-top { padding: 0 28px 20px; }
             .aippt-feature-content { padding: 24px 28px 28px; }
             .vp-cards { gap: 24px; }
         }
@@ -3204,7 +3162,6 @@
                             </div>
                             <p class="vp-price-desc">按量计费，灵活接入</p>
                         </div>
-                        <a href="https://365.kdocs.cn/3rd/open/documents/app-integration-dev/docs-center/aippt/Application" class="vp-card-cta vp-card-cta-primary" target="_blank">免费试用</a>
                     </div>
                     <ul class="vp-features">
                         <li>
@@ -3234,7 +3191,6 @@
                             </div>
                             <p class="vp-price-desc">专业版即将开放，敬请期待</p>
                         </div>
-                        <span class="vp-card-cta vp-card-cta-disabled">敬请期待</span>
                     </div>
                     <ul class="vp-features">
                         <li>
