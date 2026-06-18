@@ -12,8 +12,60 @@
             --text-primary: #1f2937;
             --text-secondary: #6b7280;
             --link-hover: #2563eb;
-            --section-spacing-y: 96px;
+            --section-gap: 120px;
             --section-spacing-x: 24px;
+            --section-header-gap: 16px;
+            --section-subtitle-gap: 36px;
+            --section-title-content-gap: 52px;
+        }
+
+        /* 各主板块统一间距：相邻板块之间 = --section-gap */
+        .sdk-section,
+        .version-pricing-section,
+        .aippt-section,
+        .case-section,
+        .partners-section,
+        .quickstart-section {
+            padding: 0 var(--section-spacing-x) var(--section-gap);
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .sdk-section {
+            padding-top: var(--section-gap);
+        }
+
+        .sdk-section h2,
+        .version-pricing-section h2,
+        .case-section h2,
+        .partners-section h2,
+        .quickstart-section h2 {
+            font-size: clamp(26px, 3.2vw, 36px);
+            font-weight: 800;
+            color: #0f172a;
+            margin: 0 0 var(--section-header-gap);
+            line-height: 1.3;
+        }
+
+        .version-pricing-section h2,
+        .partners-section h2 {
+            margin-bottom: var(--section-title-content-gap);
+        }
+
+        .sdk-section .sdk-subtitle,
+        .case-section .case-subtitle,
+        .quickstart-section .quickstart-subtitle,
+        .aippt-section .aippt-desc {
+            font-size: clamp(15px, 1.6vw, 18px);
+            color: #64748b;
+            margin: 0 0 var(--section-subtitle-gap);
+            line-height: 1.7;
+        }
+
+        .case-section h2,
+        .partners-section h2,
+        .quickstart-section h2 {
+            text-align: center;
         }
 
         * { box-sizing: border-box; }
@@ -606,19 +658,17 @@
 
         /* ================= AIPPT SECTION ================= */
         .aippt-section {
-            padding: var(--section-spacing-y) var(--section-spacing-x);
             text-align: center;
             max-width: 1200px;
-            margin: 0 auto;
             position: relative;
         }
 
 
 
         .aippt-section h2 {
-            font-size: 36px;
+            font-size: clamp(26px, 3.2vw, 36px);
             font-weight: 800;
-            margin: 0 0 16px;
+            margin: 0 0 var(--section-header-gap);
             line-height: 1.3;
             display: inline-block;
             background: linear-gradient(90deg, #6366f1, #a855f7, #ec4899, #6366f1);
@@ -635,10 +685,7 @@
         }
 
         .aippt-section .aippt-desc {
-            font-size: 18px;
-            color: #64748b;
-            margin: 0 0 32px;
-            line-height: 1.7;
+            line-height: 1.65;
         }
 
         .aippt-btn-group {
@@ -692,13 +739,16 @@
 
         @media (max-width: 768px) {
             :root {
-                --section-spacing-y: 72px;
+                --section-gap: 88px;
                 --section-spacing-x: 20px;
+                --section-header-gap: 14px;
+                --section-subtitle-gap: 28px;
+                --section-title-content-gap: 42px;
             }
             .aippt-section h2 { font-size: 26px; padding: 12px 20px; }
             .aippt-section h2::after { width: 40px; height: 3px; bottom: -3px; }
-            .aippt-section .aippt-desc { font-size: 15px; padding: 10px 18px; margin-bottom: 36px; }
-            .aippt-btn-group { flex-direction: column; gap: 12px; margin-bottom: 48px; }
+            .aippt-section .aippt-desc { font-size: 15px; }
+            .aippt-btn-group { flex-direction: column; gap: 12px; }
             .aippt-btn { min-width: 240px; }
         }
 
@@ -706,21 +756,21 @@
             max-width: 1100px;
             margin: 0 auto;
             background: #ffffff;
-            border-radius: 20px;
+            border-radius: 16px;
             overflow: hidden;
-            border: 1px solid #e5e7eb;
-            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(139, 92, 246, 0.04), 0 8px 40px rgba(139, 92, 246, 0.06);
+            border: 1px solid #eef2f6;
+            box-shadow: 0 2px 12px rgba(15, 23, 42, 0.05);
         }
 
         .aippt-feature-top {
-            padding: 48px 48px 0;
+            padding: 40px 40px 28px;
             text-align: center;
         }
 
         .aippt-feature-bottom {
             display: flex;
             align-items: stretch;
-            padding: 24px 24px 24px 24px;
+            padding: 0 16px 16px;
         }
 
         .aippt-feature-tags {
@@ -740,8 +790,8 @@
             align-items: center;
             justify-content: flex-start;
             gap: 8px;
-            padding: 12px 16px;
-            font-size: 15px;
+            padding: 10px 14px;
+            font-size: 14px;
             font-weight: 600;
             color: #64748b;
             border-radius: 10px;
@@ -778,13 +828,12 @@
             max-width: none;
             margin: 0;
             position: relative;
-            padding: 32px 40px;
+            padding: 16px 20px 20px;
             overflow: hidden;
             background: linear-gradient(135deg, rgba(248, 245, 255, 0.95) 0%, rgba(240, 245, 255, 0.8) 100%);
             border: none;
-            border-left: 1px solid rgba(255, 255, 255, 0.6);
-            min-height: 460px;
-            border-radius: 0;
+            min-height: 0;
+            border-radius: 12px;
         }
 
         /* 装饰光斑 */
@@ -862,16 +911,16 @@
             display: none;
             flex-direction: column;
             align-items: stretch;
-            gap: 24px;
+            gap: 16px;
             overflow: hidden;
             text-align: center;
-            padding: 36px 40px 40px;
+            padding: 20px 24px 24px;
             background: #fff;
-            border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            border-radius: 12px;
+            box-shadow: none;
             animation: fadeInPanel 0.35s ease;
             width: 100%;
-            min-height: 520px;
+            min-height: 0;
             box-sizing: border-box;
         }
 
@@ -884,7 +933,7 @@
             z-index: 1;
             flex: 0 0 auto;
             min-width: 0;
-            min-height: 132px;
+            min-height: 0;
             text-align: center;
             max-width: 720px;
             margin: 0 auto;
@@ -902,35 +951,24 @@
             z-index: 1;
         }
 
-        .aippt-panel-title {
-            font-size: 24px;
-        }
-
-        .aippt-panel-desc li {
-            font-size: 15px;
-            color: #64748b;
-            line-height: 1.6;
-            margin: 0 0 2px;
-        }
-
         .panel-visual {
-            flex: 0 0 320px;
+            flex: 0 0 240px;
             width: 100%;
-            height: 320px;
+            height: 240px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #f8fafc;
-            border-radius: 12px;
-            border: 1px solid #e2e8f0;
+            background: transparent;
+            border-radius: 0;
+            border: none;
             overflow: hidden;
             box-sizing: border-box;
         }
 
         .panel-visual img {
-            width: 840px;
+            width: 100%;
             max-width: 100%;
-            height: 320px;
+            height: 240px;
             max-height: 100%;
             object-fit: contain;
             display: block;
@@ -944,10 +982,10 @@
         }
 
         .aippt-panel-title {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 800;
             color: #0f172a;
-            margin: 0 0 16px;
+            margin: 0 0 10px;
             line-height: 1.3;
         }
 
@@ -957,13 +995,13 @@
             margin: 0;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 6px;
         }
 
         .aippt-panel-desc li {
             font-size: 15px;
             color: #64748b;
-            line-height: 1.7;
+            line-height: 1.55;
             padding-left: 0;
         }
 
@@ -972,20 +1010,19 @@
         }
 
         @media (max-width: 768px) {
-            .aippt-feature-wrapper { border-radius: 16px; }
-            .aippt-feature-top { padding: 32px 24px 0; }
-            .aippt-feature-bottom { flex-direction: column; padding: 16px; }
-            .aippt-feature-tags { flex-direction: row; width: 100%; flex-wrap: wrap; background: #f1f5f9; padding: 6px; border-radius: 12px; gap: 4px; }
-            .aippt-feature-tag { flex: 1 1 auto; padding: 10px 10px; font-size: 13px; justify-content: center; min-width: 0; background: transparent; }
+            .aippt-feature-wrapper { border-radius: 14px; }
+            .aippt-feature-top { padding: 28px 20px 20px; }
+            .aippt-feature-bottom { flex-direction: column; padding: 0 12px 12px; }
+            .aippt-feature-tags { flex-direction: row; width: 100%; flex-wrap: wrap; background: #f1f5f9; padding: 6px; border-radius: 10px; gap: 4px; }
+            .aippt-feature-tag { flex: 1 1 auto; padding: 8px 10px; font-size: 13px; justify-content: center; min-width: 0; background: transparent; }
             .aippt-feature-tag:not(.active):hover { background: rgba(255,255,255,0.6); }
             .aippt-feature-tag svg { width: 14px; height: 14px; }
-            .aippt-panel-title { font-size: 20px; }
+            .aippt-panel-title { font-size: 18px; }
             .aippt-panel-desc li { font-size: 14px; }
-            .aippt-feature-content { padding: 32px 20px; min-height: 480px; border-radius: 16px; border-left: none; background: linear-gradient(135deg, rgba(248, 245, 255, 0.8) 0%, rgba(240, 245, 255, 0.6) 100%); }
-            .aippt-feature-panel { min-height: 440px; padding: 28px 20px 24px; }
-            .panel-content { min-height: 120px; }
-            .panel-visual { flex: 0 0 200px; height: 200px; }
-            .panel-visual img { width: 100%; height: 200px; }
+            .aippt-feature-content { padding: 12px; border-radius: 10px; }
+            .aippt-feature-panel { padding: 16px 16px 20px; gap: 12px; }
+            .panel-visual { flex: 0 0 180px; height: 180px; }
+            .panel-visual img { height: 180px; }
         }
 
 
@@ -1061,24 +1098,11 @@
 
         /* ================= CASE CARDS SECTION (DingTalk-style) ================= */
         .case-section {
-            padding: var(--section-spacing-y) var(--section-spacing-x);
             max-width: 1040px;
-            margin: 0 auto;
             text-align: center;
         }
 
-        .case-section h2 {
-            font-size: 36px;
-            font-weight: 800;
-            color: #0f172a;
-            margin: 0 0 16px;
-            line-height: 1.3;
-        }
-
         .case-section .case-subtitle {
-            font-size: 18px;
-            color: #64748b;
-            margin: 0 0 36px;
             line-height: 1.7;
         }
 
@@ -1227,23 +1251,12 @@
 
         /* ================= PARTNERS SECTION ================= */
         .partners-section {
-            padding: var(--section-spacing-y) var(--section-spacing-x);
             max-width: 1200px;
-            margin: 0 auto;
         }
 
         .partners-slider-wrapper {
             position: relative;
             overflow: hidden;
-        }
-
-        .partners-section h2 {
-            font-size: 36px;
-            font-weight: 800;
-            color: #0f172a;
-            text-align: center;
-            margin: 0 0 40px;
-            line-height: 1.3;
         }
 
         .partners-slider-wrapper::before,
@@ -1346,25 +1359,8 @@
         }
 
         .quickstart-section {
-            padding: var(--section-spacing-y) var(--section-spacing-x);
             max-width: 1200px;
-            margin: 0 auto;
             text-align: center;
-        }
-
-        .quickstart-section h2 {
-            font-size: 36px;
-            font-weight: 800;
-            color: #0f172a;
-            margin: 0 0 16px;
-            line-height: 1.3;
-        }
-
-        .quickstart-section .quickstart-subtitle {
-            font-size: 18px;
-            color: #64748b;
-            margin: 0 0 36px;
-            line-height: 1.7;
         }
 
         /* Pricing Cards */
@@ -1656,24 +1652,8 @@
 
         /* ================= SDK CARDS ================= */
         .sdk-section {
-            padding: var(--section-spacing-y) var(--section-spacing-x);
             max-width: 1200px;
-            margin: 0 auto;
             text-align: center;
-        }
-
-        .sdk-section h2 {
-            font-size: 36px;
-            font-weight: 800;
-            color: #0f172a;
-            margin: 0 0 16px;
-            line-height: 1.3;
-        }
-
-        .sdk-section .sdk-subtitle {
-            font-size: 18px;
-            color: #64748b;
-            margin: 0 0 36px;
         }
 
         .sdk-cards {
@@ -2426,27 +2406,12 @@
 
         /* ================= PARTNERS SECTION ================= */
         .partners-section {
-            padding: var(--section-spacing-y) var(--section-spacing-x);
             max-width: 1200px;
-            margin: 0 auto;
         }
 
         .partners-slider-wrapper {
             position: relative;
             overflow: hidden;
-        }
-
-        .partners-section h2 {
-            font-size: 36px;
-            font-weight: 800;
-            color: #0f172a;
-            text-align: center;
-            margin: 0 0 40px;
-            line-height: 1.3;
-        }
-
-        .partners-slider-wrapper {
-            position: relative;
         }
 
         .partners-slider-wrapper::before,
@@ -2676,8 +2641,11 @@
 
         @media (max-width: 768px) {
             :root {
-                --section-spacing-y: 72px;
+                --section-gap: 88px;
                 --section-spacing-x: 20px;
+                --section-header-gap: 14px;
+                --section-subtitle-gap: 28px;
+                --section-title-content-gap: 42px;
             }
             .header-inner { padding: 0 24px; }
             .nav-links { display: none; }
@@ -2690,8 +2658,8 @@
             .api-card { width: 100%; max-width: 320px; height: 110px; }
             .aippt-section h2 { font-size: 26px; padding: 12px 20px; }
             .aippt-section h2::after { width: 40px; height: 3px; bottom: -3px; }
-            .aippt-section .aippt-desc { font-size: 15px; padding: 10px 18px; margin-bottom: 36px; }
-            .aippt-btn-group { flex-direction: column; gap: 12px; margin-bottom: 48px; }
+            .aippt-section .aippt-desc { font-size: 15px; }
+            .aippt-btn-group { flex-direction: column; gap: 12px; }
             .aippt-btn { min-width: 240px; }
             .enterprise-card { flex-direction: column; }
             .footer-top { grid-template-columns: 1fr; gap: 32px; }
@@ -2704,18 +2672,8 @@
     
         /* ================= VERSION PRICING SECTION (AiPPT-style) ================= */
         .version-pricing-section {
-            padding: var(--section-spacing-y) var(--section-spacing-x);
             max-width: 920px;
-            margin: 0 auto;
             text-align: center;
-        }
-
-        .version-pricing-section h2 {
-            font-size: 36px;
-            font-weight: 800;
-            color: #0f172a;
-            margin: 0 0 36px;
-            line-height: 1.3;
         }
 
         .vp-cards {
@@ -2910,7 +2868,14 @@
         }
 
         @media (max-width: 768px) {
-            .version-pricing-section h2 { font-size: 28px; margin-bottom: 28px; }
+            :root {
+                --section-gap: 88px;
+                --section-spacing-x: 20px;
+                --section-header-gap: 14px;
+                --section-subtitle-gap: 28px;
+                --section-title-content-gap: 42px;
+            }
+            .version-pricing-section h2 { font-size: 28px; }
             .vp-cards { flex-direction: column; align-items: center; gap: 20px; }
             .vp-card { max-width: 100%; width: 100%; }
             .vp-card:hover { transform: none; }
@@ -2927,21 +2892,6 @@
         }
 
         /* ================= RESPONSIVE (窗口缩放适配) ================= */
-        .sdk-section h2,
-        .version-pricing-section h2,
-        .aippt-section h2,
-        .case-section h2,
-        .partners-section h2,
-        .quickstart-section h2 {
-            font-size: clamp(26px, 3.2vw, 36px);
-        }
-
-        .sdk-section .sdk-subtitle,
-        .case-section .case-subtitle,
-        .quickstart-section .quickstart-subtitle {
-            font-size: clamp(15px, 1.6vw, 18px);
-        }
-
         .aippt-feature-tag {
             white-space: normal;
         }
@@ -2955,9 +2905,9 @@
             .hero-content-inner { padding: 64px 32px; }
             .hero-card-title { font-size: 38px; }
             .hero-card-subtitle { font-size: 30px; }
-            .aippt-feature-top { padding: 40px 32px 0; }
-            .aippt-feature-bottom { padding: 20px; }
-            .aippt-feature-content { padding: 28px 28px; min-height: 420px; }
+            .aippt-feature-top { padding: 32px 28px 20px; }
+            .aippt-feature-bottom { padding: 0 14px 14px; }
+            .aippt-feature-content { padding: 14px 18px 18px; }
             .vp-cards { gap: 24px; }
         }
 
@@ -2975,29 +2925,29 @@
             .quickstart-card { flex: 1 1 calc(50% - 12px); max-width: none; }
             .quickstart-card:nth-child(3) { flex: 1 1 100%; max-width: 420px; }
             .case-cards { grid-template-columns: 1fr; max-width: 560px; }
-            .aippt-feature-bottom { flex-direction: column; padding: 16px; }
+            .aippt-feature-bottom { flex-direction: column; padding: 0 12px 12px; }
             .aippt-feature-tags {
                 flex-direction: row;
                 flex-wrap: wrap;
                 width: 100%;
                 background: #f1f5f9;
                 padding: 6px;
-                border-radius: 12px;
+                border-radius: 10px;
                 gap: 4px;
             }
             .aippt-feature-tag {
                 flex: 1 1 auto;
                 justify-content: center;
-                padding: 10px 12px;
-                font-size: 14px;
+                padding: 8px 10px;
+                font-size: 13px;
                 min-width: 0;
             }
             .aippt-feature-content {
-                border-left: none;
-                border-radius: 16px;
-                min-height: 400px;
-                padding: 28px 24px;
+                border-radius: 10px;
+                padding: 12px;
             }
+            .panel-visual { flex: 0 0 200px; height: 200px; }
+            .panel-visual img { height: 200px; }
             .vp-card { flex: 1 1 calc(50% - 12px); max-width: none; }
         }
 
