@@ -2663,7 +2663,7 @@
         .vp-cards {
             display: flex;
             flex-wrap: wrap;
-            gap: 36px;
+            gap: 56px;
             justify-content: center;
             align-items: stretch;
         }
@@ -2697,9 +2697,12 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
+            min-height: 168px;
             padding: 32px 28px;
             background: linear-gradient(270deg, #ede9fe 0%, #f8f7ff 100%);
             border-bottom: 1px solid #f3f2f5;
+            box-sizing: border-box;
         }
 
         .vp-title-row {
@@ -2769,11 +2772,71 @@
             min-height: 0;
         }
 
+        .vp-price-desc-soon {
+            margin: 0;
+            font-size: 15px;
+            color: #64748b;
+        }
+
+        .vp-card-pro .vp-price {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 68px;
+        }
+
         .vp-features {
             list-style: none;
-            padding: 24px 28px 32px;
+            padding: 24px 28px 20px;
             margin: 0;
             flex: 1;
+        }
+
+        .vp-card-footer {
+            padding: 4px 48px 24px;
+            margin-top: auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        .vp-card-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: auto;
+            min-width: 128px;
+            max-width: 72%;
+            padding: 9px 28px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+            line-height: 1.35;
+        }
+
+        .vp-card-btn-primary {
+            background: #2563eb;
+            color: #fff;
+            border: 1.5px solid #2563eb;
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.22);
+        }
+
+        .vp-card-btn-primary:hover {
+            background: #1d4ed8;
+            border-color: #1d4ed8;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.32);
+        }
+
+        .vp-card-btn-disabled {
+            background: #f8fafc;
+            color: #94a3b8;
+            border: 1.5px solid #e2e8f0;
+            cursor: not-allowed;
+            pointer-events: none;
         }
 
         .vp-features li {
@@ -2818,10 +2881,11 @@
                 --section-title-content-gap: 48px;
             }
             .version-pricing-section h2 { font-size: 28px; }
-            .vp-cards { flex-direction: column; align-items: center; gap: 20px; }
+            .vp-cards { flex-direction: column; align-items: center; gap: 28px; }
             .vp-card { max-width: 100%; width: 100%; }
             .vp-card:hover { transform: none; }
-            .vp-card-head { padding: 24px 20px 28px; }
+            .vp-card-head { min-height: 148px; padding: 24px 20px; }
+            .vp-card-pro .vp-price { min-height: 60px; }
             .vp-card-title { font-size: 17px; margin-bottom: 10px; }
             .vp-price-num { font-size: 32px; }
             .vp-price-currency { font-size: 18px; }
@@ -2829,7 +2893,9 @@
             .vp-price-desc,
             .vp-feature-label,
             .vp-feature-value { font-size: 13px; }
-            .vp-features { padding: 20px 20px 28px; }
+            .vp-features { padding: 20px 20px 16px; }
+            .vp-card-footer { padding: 4px 36px 20px; }
+            .vp-card-btn { font-size: 13px; padding: 8px 24px; min-width: 120px; }
         }
 
         /* ================= RESPONSIVE (窗口缩放适配) ================= */
@@ -2853,7 +2919,7 @@
             .hero-card-subtitle { font-size: 30px; }
             .aippt-feature-top { padding: 0 28px 20px; }
             .aippt-feature-content { padding: 24px 28px 28px; }
-            .vp-cards { gap: 24px; }
+            .vp-cards { gap: 44px; }
         }
 
         @media (max-width: 1024px) {
@@ -2902,7 +2968,7 @@
             }
             .panel-visual { flex: 0 0 200px; height: 200px; }
             .panel-visual img { height: 200px; }
-            .vp-card { flex: 1 1 calc(50% - 12px); max-width: none; }
+            .vp-card { flex: 1 1 calc(50% - 28px); max-width: none; }
         }
 
         @media (max-width: 900px) {
@@ -3177,6 +3243,9 @@
                             <span class="vp-feature-value">一键高效汇报</span>
                         </li>
                     </ul>
+                    <div class="vp-card-footer">
+                        <a href="https://f.kdocs.cn/ksform/w/write/fELKHo71#routePromt" class="vp-card-btn vp-card-btn-primary" target="_blank" rel="noopener">立即购买</a>
+                    </div>
                 </div>
             </div>
             <div class="vp-card vp-card-pro">
@@ -3186,10 +3255,7 @@
                             <h3 class="vp-card-title">AIPPT 专业版</h3>
                         </div>
                         <div class="vp-price">
-                            <div class="vp-price-current">
-                                <span class="vp-price-soon-text">—</span>
-                            </div>
-                            <p class="vp-price-desc">专业版即将开放，敬请期待</p>
+                            <p class="vp-price-desc vp-price-desc-soon">专业版即将开放</p>
                         </div>
                     </div>
                     <ul class="vp-features">
@@ -3206,6 +3272,9 @@
                             <span class="vp-feature-value">5 分钟精准出稿</span>
                         </li>
                     </ul>
+                    <div class="vp-card-footer">
+                        <span class="vp-card-btn vp-card-btn-disabled">敬请期待</span>
+                    </div>
                 </div>
             </div>
         </div>
