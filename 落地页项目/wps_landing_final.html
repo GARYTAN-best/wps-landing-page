@@ -12,7 +12,7 @@
             --text-primary: #1f2937;
             --text-secondary: #6b7280;
             --link-hover: #2563eb;
-            --section-gap: 140px;
+            --section-gap: 152px;
             --section-spacing-x: 24px;
             --section-header-gap: 16px;
             --section-subtitle-gap: 40px;
@@ -25,7 +25,8 @@
         .aippt-section,
         .case-section,
         .partners-section,
-        .quickstart-section {
+        .quickstart-section,
+        .steps-section {
             padding: 0 var(--section-spacing-x);
             margin: var(--section-gap) auto 0;
         }
@@ -34,7 +35,8 @@
         .version-pricing-section h2,
         .case-section h2,
         .partners-section h2,
-        .quickstart-section h2 {
+        .quickstart-section h2,
+        .steps-section h2 {
             font-size: clamp(26px, 3.2vw, 36px);
             font-weight: 800;
             color: #0f172a;
@@ -42,7 +44,6 @@
             line-height: 1.3;
         }
 
-        .version-pricing-section h2,
         .partners-section h2 {
             margin-bottom: var(--section-title-content-gap);
         }
@@ -50,7 +51,8 @@
         .sdk-section .sdk-subtitle,
         .case-section .case-subtitle,
         .quickstart-section .quickstart-subtitle,
-        .aippt-section .aippt-desc {
+        .aippt-section .aippt-desc,
+        .steps-section .steps-subtitle {
             font-size: clamp(15px, 1.6vw, 18px);
             color: #64748b;
             margin: 0 0 var(--section-subtitle-gap);
@@ -695,6 +697,7 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            box-sizing: border-box;
             padding: 14px 32px;
             border-radius: 10px;
             font-size: 16px;
@@ -703,33 +706,34 @@
             cursor: pointer;
             transition: all 0.25s ease;
             white-space: nowrap;
-            min-width: 160px;
+            min-width: 176px;
         }
 
         .aippt-btn-outline {
             background: #ffffff;
             color: #2563eb;
-            border: 1.5px solid #d1d5db;
+            border: 2px solid #2563eb;
         }
 
         .aippt-btn-outline:hover {
-            border-color: #2563eb;
-            background: rgba(37, 99, 235, 0.04);
-            transform: translateY(-1px);
+            background: #ffffff;
+            color: #2563eb;
+            transform: none;
+            box-shadow: none;
         }
 
         .aippt-btn-primary {
             background: #2563eb;
             color: #ffffff;
-            border: 1.5px solid #2563eb;
+            border: 2px solid #2563eb;
             box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
         }
 
         .aippt-btn-primary:hover {
-            background: #1d4ed8;
-            border-color: #1d4ed8;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 16px rgba(37, 99, 235, 0.35);
+            background: #2563eb;
+            border-color: #2563eb;
+            transform: none;
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
         }
 
         @media (max-width: 768px) {
@@ -1112,7 +1116,7 @@
         .case-cards {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+            gap: 24px;
             max-width: 960px;
             margin: 0 auto;
         }
@@ -1151,42 +1155,40 @@
             border-color: #dbeafe;
         }
 
-        /* 钉钉式：上实下虚渐透 + 右下贴边裁切 */
+        /* 放大并往右下角挤，被卡片边缘裁切，营造嵌入感 */
         .case-card-art {
             position: absolute;
-            right: -34%;
-            bottom: -36%;
+            right: -4%;
+            bottom: -10%;
             top: auto;
-            width: 96%;
-            height: 118%;
-            display: flex;
-            align-items: flex-end;
-            justify-content: flex-end;
+            width: 52%;
+            display: block;
             pointer-events: none;
             z-index: 0;
-            opacity: 0.58;
-            -webkit-mask-image: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.88) 28%, rgba(0, 0, 0, 0.42) 58%, transparent 92%);
-            mask-image: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.88) 28%, rgba(0, 0, 0, 0.42) 58%, transparent 92%);
-            transition: opacity 0.3s ease;
+            transition: transform 0.35s ease;
+        }
+
+        .case-card-art img {
+            width: 100%;
+            display: block;
+            border-radius: 12px;
+            box-shadow: 0 10px 28px rgba(15, 23, 42, 0.14);
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
         }
 
         .case-card:hover .case-card-art {
-            opacity: 0.66;
+            transform: translate(-6px, -6px);
         }
 
-        .case-card-art svg {
-            width: 100%;
-            height: 100%;
-            display: block;
-            transform: translate(8%, 10%);
-            transform-origin: bottom right;
+        .case-card:hover .case-card-art img {
+            box-shadow: 0 16px 34px rgba(15, 23, 42, 0.2);
         }
 
         .case-card-content {
             position: relative;
             z-index: 1;
             padding: 32px 36px;
-            max-width: 64%;
+            max-width: 46%;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -1219,15 +1221,12 @@
 
         @media (max-width: 1024px) {
             .case-cards { gap: 16px; max-width: 100%; }
-            .case-card-content { padding: 28px 24px; max-width: 58%; min-height: 208px; }
+            .case-card-content { padding: 28px 24px; max-width: 46%; min-height: 208px; }
             .case-card-art {
-                right: -32%;
-                bottom: -32%;
-                width: 92%;
-                height: 114%;
-                opacity: 0.54;
+                right: -6%;
+                bottom: -10%;
+                width: 52%;
             }
-            .case-card-art svg { transform: translate(7%, 8%); }
         }
 
         @media (max-width: 768px) {
@@ -1241,15 +1240,11 @@
             .case-card-content h3 { font-size: 20px; margin-bottom: 10px; }
             .case-card-content p { font-size: 14px; max-width: 16em; }
             .case-card-art {
-                width: 88%;
-                height: 108%;
-                right: -32%;
-                bottom: -28%;
-                opacity: 0.52;
-                -webkit-mask-image: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.82) 30%, rgba(0, 0, 0, 0.35) 60%, transparent 92%);
-                mask-image: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.82) 30%, rgba(0, 0, 0, 0.35) 60%, transparent 92%);
+                width: 52%;
+                right: -8%;
+                bottom: -10%;
+                opacity: 0.55;
             }
-            .case-card-art svg { transform: translate(6%, 8%); }
         }
 
         /* ================= PARTNERS SECTION ================= */
@@ -1364,6 +1359,97 @@
         .quickstart-section {
             max-width: 1200px;
             text-align: center;
+            position: relative;
+        }
+
+        .quickstart-header-bar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 20px;
+        }
+
+        .quickstart-bar-thin {
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, #8b5cf6, #a855f7);
+            border-radius: 2px;
+        }
+
+        .quickstart-bar-thick {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #2563eb);
+            border-radius: 2px;
+        }
+
+        /* Decorative elements */
+        .quickstart-decor {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .quickstart-decor-1 {
+            width: 200px;
+            height: 200px;
+            top: -40px;
+            left: -60px;
+            background: radial-gradient(circle, rgba(139,92,246,0.08), transparent 70%);
+        }
+
+        .quickstart-decor-2 {
+            width: 180px;
+            height: 180px;
+            top: -20px;
+            right: -40px;
+            background: radial-gradient(circle, rgba(59,130,246,0.07), transparent 70%);
+        }
+
+        /* Bottom consultation area */
+        .quickstart-consult {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 48px;
+            padding: 20px 32px;
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            border-radius: 16px;
+            border: 1px solid #e5e7eb;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .quickstart-consult-text {
+            font-size: 16px;
+            color: #475569;
+            font-weight: 500;
+        }
+
+        .quickstart-consult-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 32px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            background: #ffffff;
+            color: #2563eb;
+            border: 2px solid #2563eb;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+        }
+
+        .quickstart-consult-btn:hover {
+            background: #eff6ff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(37,99,235,0.20);
         }
 
         /* Pricing Cards */
@@ -1470,9 +1556,9 @@
         }
 
         .quickstart-card {
-            flex: 1 1 280px;
+            flex: 1 1 300px;
             min-width: 0;
-            max-width: 420px;
+            max-width: 360px;
             background: #ffffff;
             border: 1px solid #e5e7eb;
             border-radius: 16px;
@@ -1488,6 +1574,30 @@
             border-color: #c7d2fe;
             box-shadow: 0 8px 32px rgba(99,102,241,0.1);
             transform: translateY(-4px);
+        }
+
+        .quickstart-card-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(139,92,246,0.08));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: #6366f1;
+            transition: all 0.3s ease;
+        }
+
+        .quickstart-card:hover .quickstart-card-icon {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: #ffffff;
+            transform: scale(1.05);
+        }
+
+        .quickstart-card-icon svg {
+            width: 32px;
+            height: 32px;
         }
 
         .quickstart-card-title {
@@ -1510,48 +1620,40 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 16px 40px;
-            border-radius: 12px;
-            font-size: 18px;
+            padding: 14px 36px;
+            border-radius: 10px;
+            font-size: 16px;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.25s ease;
             white-space: nowrap;
+            box-sizing: border-box;
+            min-width: 176px;
         }
 
-        .quickstart-card:nth-child(1) .quickstart-btn {
-            background: linear-gradient(135deg, #2563eb, #3b82f6);
+        .quickstart-card .quickstart-btn {
+            background: #2563eb;
             color: #fff;
-            box-shadow: 0 4px 16px rgba(37,99,235,0.3);
+            border: 2px solid #2563eb;
+            box-shadow: 0 2px 8px rgba(37,99,235,0.25);
         }
-        .quickstart-card:nth-child(1) .quickstart-btn:hover {
-            box-shadow: 0 8px 24px rgba(37,99,235,0.4);
+        .quickstart-card .quickstart-btn:hover {
+            background: #1d4ed8;
+            border-color: #1d4ed8;
             transform: translateY(-2px);
-        }
-
-        .quickstart-card:nth-child(2) .quickstart-btn {
-            background: #ffffff;
-            color: #2563eb;
-            border: 1.5px solid #2563eb;
-        }
-        .quickstart-card:nth-child(2) .quickstart-btn:hover {
-            background: #eff6ff;
-            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(37,99,235,0.35);
         }
 
         .quickstart-card:nth-child(3) .quickstart-btn {
-            background: #dbeafe;
-            color: #2563eb;
-            border: 1.5px solid #bfdbfe;
+            opacity: 0.4;
+            box-shadow: none;
+            cursor: not-allowed;
+            pointer-events: none;
         }
         .quickstart-card:nth-child(3) .quickstart-btn:hover {
-            background: #bfdbfe;
-            transform: translateY(-2px);
-        }
-
-        @media (max-width: 768px) {
-            .quickstart-cards { flex-direction: column; align-items: center; }
-            .quickstart-card { max-width: 100%; }
+            opacity: 0.4;
+            transform: none;
+            box-shadow: none;
         }
 
         /* ================= TAGLINE ================= */
@@ -1637,12 +1739,14 @@
         .sdk-section {
             max-width: 1200px;
             text-align: center;
+            position: relative;
+            margin-top: 72px;
         }
 
         .sdk-cards {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 24px;
             justify-content: center;
         }
 
@@ -1673,9 +1777,9 @@
             opacity: 1;
         }
 
-        .sdk-card:nth-child(1)::before { background: #8b5cf6; }
-        .sdk-card:nth-child(2)::before { background: #6366f1; }
-        .sdk-card:nth-child(3)::before { background: #a855f7; }
+        .sdk-card:nth-child(1)::before { background: #2563eb; }
+        .sdk-card:nth-child(2)::before { background: #2563eb; }
+        .sdk-card:nth-child(3)::before { background: #2563eb; }
 
         .sdk-card::after {
             display: none;
@@ -1744,52 +1848,41 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            box-sizing: border-box;
+            min-width: 176px;
             padding: 14px 32px;
             border-radius: 10px;
             font-size: 16px;
             font-weight: 600;
             color: #fff;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
-            border: none;
+            background: #2563eb;
+            border: 2px solid #2563eb;
             cursor: pointer;
             text-decoration: none;
             margin-top: 24px;
             transition: all 0.25s ease;
             white-space: nowrap;
             align-self: center;
-            box-shadow: 0 2px 8px rgba(99, 102, 241, 0.25);
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.22);
         }
 
-        .sdk-card:nth-child(1) .sdk-card-btn:not(.sdk-card-btn-disabled) {
-            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
-            box-shadow: 0 2px 8px rgba(139, 92, 246, 0.25);
-        }
-
-        .sdk-card:nth-child(2) .sdk-card-btn:not(.sdk-card-btn-disabled) {
-            background: linear-gradient(135deg, #6366f1, #4f46e5);
-            box-shadow: 0 2px 8px rgba(99, 102, 241, 0.25);
-        }
-
-        .sdk-card:nth-child(1) .sdk-card-btn:not(.sdk-card-btn-disabled):hover {
-            background: linear-gradient(135deg, #7c3aed, #6d28d9);
-            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.35);
-        }
-
-        .sdk-card:nth-child(2) .sdk-card-btn:not(.sdk-card-btn-disabled):hover {
-            background: linear-gradient(135deg, #4f46e5, #4338ca);
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
+        .sdk-card-btn:not(.sdk-card-btn-disabled):hover {
+            background: #2563eb;
+            color: #fff;
         }
 
         .sdk-card-btn.sdk-card-btn-disabled,
         .sdk-card:nth-child(3) .sdk-card-btn.sdk-card-btn-disabled {
-            background: #f1f5f9;
-            color: #94a3b8;
-            border: 1px solid #e2e8f0;
+            background: #2563eb;
+            color: #fff;
+            border: 2px solid #2563eb;
+            opacity: 0.4;
             box-shadow: none;
             cursor: not-allowed;
             pointer-events: none;
+            box-sizing: border-box;
+            min-width: 176px;
             padding: 14px 32px;
-            width: auto;
             border-radius: 10px;
             margin-top: 24px;
             align-self: center;
@@ -1797,7 +1890,7 @@
 
         .sdk-card-btn.sdk-card-btn-disabled:hover,
         .sdk-card:nth-child(3) .sdk-card-btn.sdk-card-btn-disabled:hover {
-            background: #f1f5f9;
+            opacity: 0.4;
             transform: none;
             box-shadow: none;
         }
@@ -1813,6 +1906,45 @@
             .sdk-card-btn { margin-top: 20px; }
             .sdk-card-btn.sdk-card-btn-disabled { margin-top: 20px; }
             .sdk-card-text .sdk-divider { width: 24px; margin-bottom: 10px; }
+        }
+
+        /* ================= SDK CONTACT ENTRY ================= */
+        .sdk-contact {
+            text-align: center;
+            margin: 48px auto 0;
+        }
+
+        .sdk-contact-text {
+            font-size: clamp(15px, 1.6vw, 18px);
+            color: #64748b;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .sdk-contact-link {
+            color: #2563eb;
+            font-weight: 600;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: color 0.2s ease;
+        }
+
+        .sdk-contact-link:hover {
+            color: #1d4ed8;
+        }
+
+        .sdk-contact-arrow {
+            display: inline-block;
+            margin-left: 4px;
+            transition: transform 0.2s ease;
+        }
+
+        .sdk-contact-link:hover .sdk-contact-arrow {
+            transform: translateX(4px);
+        }
+
+        @media (max-width: 768px) {
+            .sdk-contact { margin-top: 32px; }
         }
 
         /* SDK Pricing Wrap */
@@ -2656,24 +2788,31 @@
     
         /* ================= VERSION PRICING SECTION (AiPPT-style) ================= */
         .version-pricing-section {
-            max-width: 920px;
+            max-width: 980px;
             text-align: center;
+        }
+
+        .vp-subtitle {
+            font-size: clamp(15px, 1.6vw, 18px);
+            color: #64748b;
+            line-height: 1.7;
+            margin: 0 0 var(--section-subtitle-gap);
         }
 
         .vp-cards {
             display: flex;
             flex-wrap: wrap;
-            gap: 56px;
+            gap: 24px;
             justify-content: center;
             align-items: stretch;
         }
 
         .vp-card {
-            flex: 1 1 300px;
+            flex: 1 1 420px;
             min-width: 0;
-            max-width: 420px;
-            background: #fcfcfc;
-            border: 1px solid #f3f2f5;
+            max-width: 460px;
+            background: #ffffff;
+            border: 1px solid #e8eaf0;
             border-radius: 16px;
             overflow: hidden;
             position: relative;
@@ -2682,9 +2821,9 @@
         }
 
         .vp-card:hover {
-            outline-color: rgba(119, 51, 248, 0.35);
+            outline-color: rgba(37, 99, 235, 0.35);
             transform: translateY(-8px);
-            box-shadow: 0 16px 40px rgba(119, 51, 248, 0.08);
+            box-shadow: 0 16px 40px rgba(37, 99, 235, 0.10);
         }
 
         .vp-card-inner {
@@ -2698,24 +2837,26 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 168px;
-            padding: 32px 28px;
+            min-height: 188px;
+            padding: 30px 28px;
             background: linear-gradient(270deg, #ede9fe 0%, #f8f7ff 100%);
             border-bottom: 1px solid #f3f2f5;
             box-sizing: border-box;
-        }
-
-        .vp-title-row {
-            width: 100%;
-            text-align: center;
         }
 
         .vp-card-title {
             font-size: 22px;
             font-weight: 800;
             color: #0f172a;
-            margin: 0 0 12px;
+            margin: 0 0 8px;
             line-height: 1.3;
+        }
+
+        .vp-card-scene {
+            font-size: 15px;
+            color: #64748b;
+            line-height: 1.7;
+            margin: 0 0 14px;
         }
 
         .vp-price {
@@ -2778,6 +2919,14 @@
             color: #64748b;
         }
 
+        .vp-price-unavailable {
+            display: inline-block;
+            color: #94a3b8;
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
         .vp-card-pro .vp-price {
             display: flex;
             flex-direction: column;
@@ -2786,17 +2935,78 @@
             min-height: 68px;
         }
 
-        .vp-features {
-            list-style: none;
-            padding: 24px 28px 20px;
-            margin: 0;
+        .vp-card-body {
+            padding: 24px 28px 8px;
             flex: 1;
+            text-align: left;
+        }
+
+        .vp-section-label {
+            font-size: 14px;
+            font-weight: 700;
+            color: #0f172a;
+            margin: 0 0 12px;
+        }
+
+        .vp-section-label:not(:first-child) {
+            margin-top: 22px;
+        }
+
+        .vp-points {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .vp-points li {
+            position: relative;
+            padding-left: 26px;
+            font-size: 15px;
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+        .vp-points li + li {
+            margin-top: 12px;
+        }
+
+        .vp-points li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 4px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #22c55e;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+            background-size: 11px 11px;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .vp-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .vp-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 14px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #2563eb;
+            background: rgba(37, 99, 235, 0.08);
         }
 
         .vp-card-footer {
-            padding: 4px 48px 24px;
+            padding: 20px 28px 28px;
             margin-top: auto;
             display: flex;
+            gap: 12px;
             justify-content: center;
         }
 
@@ -2804,72 +3014,49 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: auto;
-            min-width: 128px;
-            max-width: 72%;
-            padding: 9px 28px;
-            border-radius: 8px;
-            font-size: 14px;
+            flex: 1;
+            min-width: 0;
+            padding: 14px 24px;
+            border-radius: 10px;
+            font-size: 16px;
             font-weight: 600;
             text-align: center;
             text-decoration: none;
-            transition: all 0.2s ease;
+            transition: all 0.25s ease;
             box-sizing: border-box;
             line-height: 1.35;
+            white-space: nowrap;
         }
 
         .vp-card-btn-primary {
             background: #2563eb;
             color: #fff;
-            border: 1.5px solid #2563eb;
+            border: 2px solid #2563eb;
             box-shadow: 0 2px 8px rgba(37, 99, 235, 0.22);
         }
 
         .vp-card-btn-primary:hover {
-            background: #1d4ed8;
-            border-color: #1d4ed8;
-            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.32);
+            background: #2563eb;
+            border-color: #2563eb;
+        }
+
+        .vp-card-btn-outline {
+            background: #fff;
+            color: #2563eb;
+            border: 2px solid #2563eb;
+        }
+
+        .vp-card-btn-outline:hover {
+            background: #fff;
+            color: #2563eb;
         }
 
         .vp-card-btn-disabled {
             background: #f8fafc;
             color: #94a3b8;
-            border: 1.5px solid #e2e8f0;
+            border: 2px solid #e2e8f0;
             cursor: not-allowed;
             pointer-events: none;
-        }
-
-        .vp-features li {
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            gap: 16px;
-            margin-top: 0;
-            margin-bottom: 0;
-            line-height: 1.7;
-            font-size: 15px;
-            color: #64748b;
-        }
-
-        .vp-features li + li {
-            margin-top: 12px;
-        }
-
-        .vp-feature-label {
-            flex: 1;
-            font-size: 15px;
-            font-weight: 600;
-            color: #0f172a;
-            text-align: left;
-        }
-
-        .vp-feature-value {
-            flex-shrink: 0;
-            max-width: 48%;
-            font-size: 14px;
-            font-weight: 400;
-            color: #64748b;
-            text-align: right;
         }
 
         @media (max-width: 768px) {
@@ -2890,12 +3077,12 @@
             .vp-price-num { font-size: 32px; }
             .vp-price-currency { font-size: 18px; }
             .vp-price-soon-text { font-size: 17px; }
-            .vp-price-desc,
-            .vp-feature-label,
-            .vp-feature-value { font-size: 13px; }
-            .vp-features { padding: 20px 20px 16px; }
-            .vp-card-footer { padding: 4px 36px 20px; }
-            .vp-card-btn { font-size: 13px; padding: 8px 24px; min-width: 120px; }
+            .vp-price-desc { font-size: 13px; }
+            .vp-card-scene { font-size: 13px; }
+            .vp-card-body { padding: 20px 20px 4px; }
+            .vp-points li { font-size: 13px; }
+            .vp-card-footer { padding: 16px 20px 22px; }
+            .vp-card-btn { font-size: 13px; padding: 10px 12px; }
         }
 
         /* ================= RESPONSIVE (窗口缩放适配) ================= */
@@ -2905,7 +3092,7 @@
 
         @media (max-width: 1200px) {
             :root {
-                --section-gap: 124px;
+                --section-gap: 132px;
                 --section-subtitle-gap: 36px;
                 --section-title-content-gap: 52px;
             }
@@ -2919,7 +3106,7 @@
             .hero-card-subtitle { font-size: 30px; }
             .aippt-feature-top { padding: 0 28px 20px; }
             .aippt-feature-content { padding: 24px 28px 28px; }
-            .vp-cards { gap: 44px; }
+            .vp-cards { gap: 24px; }
         }
 
         @media (max-width: 1024px) {
@@ -2933,8 +3120,7 @@
             .hero-card-desc { max-width: 100%; font-size: 16px; }
             .sdk-card { flex: 1 1 calc(50% - 10px); max-width: none; }
             .sdk-card:nth-child(3) { flex: 1 1 100%; max-width: 360px; }
-            .quickstart-card { flex: 1 1 calc(50% - 12px); max-width: none; }
-            .quickstart-card:nth-child(3) { flex: 1 1 100%; max-width: 420px; }
+            .quickstart-card { flex: 1 1 calc(50% - 12px); max-width: 360px; }
             .case-cards { grid-template-columns: 1fr; max-width: 560px; }
             .aippt-feature-bottom { flex-direction: column; padding: 0; border-radius: 14px; }
             .aippt-feature-tags {
@@ -2978,8 +3164,7 @@
             .sdk-card,
             .sdk-card:nth-child(3) { flex: 1 1 100%; max-width: 480px; }
             .vp-card { flex: 1 1 100%; max-width: 480px; }
-            .quickstart-card,
-            .quickstart-card:nth-child(3) { flex: 1 1 100%; max-width: 480px; }
+            .quickstart-card { flex: 1 1 100%; max-width: 480px; }
             .vp-features li { gap: 12px; }
             .vp-feature-value { max-width: 52%; }
         }
@@ -3001,6 +3186,100 @@
                 text-align: left;
             }
             .partner-item { width: 120px; }
+        }
+
+        /* ================= QUICK ACCESS STEPS (timeline) ================= */
+        .steps-section {
+            max-width: 1000px;
+            text-align: center;
+        }
+
+        .steps-flow {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* connector line behind the badges */
+        .steps-flow::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: 12.5%;
+            right: 12.5%;
+            height: 2px;
+            background: #dbe4f0;
+            z-index: 0;
+        }
+
+        .step-item {
+            flex: 1 1 0;
+            min-width: 0;
+            padding: 0 16px;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .step-badge {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: #2563eb;
+            color: #fff;
+            font-size: 22px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px;
+            box-shadow: 0 6px 16px rgba(37, 99, 235, 0.28);
+            border: 4px solid #ffffff;
+            box-sizing: content-box;
+        }
+
+        .step-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #0f172a;
+            margin: 0 0 8px;
+            line-height: 1.3;
+        }
+
+        .step-desc {
+            font-size: 15px;
+            color: #64748b;
+            line-height: 1.7;
+            margin: 0;
+            max-width: 14em;
+        }
+
+        @media (max-width: 768px) {
+            .steps-flow { flex-direction: column; align-items: center; gap: 28px; }
+            .steps-flow::before { display: none; }
+            .step-item { max-width: 320px; }
+            .quickstart-card-icon { width: 56px; height: 56px; }
+            .quickstart-card-icon svg { width: 28px; height: 28px; }
+            .quickstart-consult { flex-direction: column; gap: 12px; max-width: 100%; padding: 20px 24px; }
+            .quickstart-consult-text { font-size: 15px; }
+            .quickstart-consult-btn { width: 100%; }
+            .quickstart-decor-1 { width: 140px; height: 140px; top: -30px; left: -40px; }
+            .quickstart-decor-2 { width: 120px; height: 120px; top: -10px; right: -30px; }
+        }
+
+        /* ================= UNIFIED BUTTON HOVER ================= */
+        .sdk-card-btn:not(.sdk-card-btn-disabled):hover,
+        .sdk-contact-btn:hover,
+        .vp-card-btn:not(.vp-card-btn-disabled):hover,
+        .aippt-btn:hover,
+        .quickstart-btn:hover,
+        .steps-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 22px rgba(37, 99, 235, 0.28);
         }
 
         </style>
@@ -3037,130 +3316,13 @@
         </div>
     </header>
 
-    <!-- Hero Section - Single Banner -->
-    <main>
-        <section class="hero">
-            <div class="hero-carousel">
-                <!-- Slide 1: 接入业务系统 -->
-                <div class="hero-slide active" data-slide="0">
-                    <div class="slide3-decor">
-                        <div class="slide3-bg"></div>
-                        <!-- Large gradient blobs -->
-                        <div style="position:absolute;top:-5%;right:-5%;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(139,92,246,0.22),transparent 70%);animation:slide3-shimmer 5s ease-in-out infinite;"></div>
-                        <div style="position:absolute;bottom:-5%;right:5%;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(99,102,241,0.18),transparent 70%);animation:slide3-shimmer 6s ease-in-out 1s infinite;"></div>
-                        <div style="position:absolute;top:20%;right:20%;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(236,72,153,0.14),transparent 70%);animation:slide3-shimmer 7s ease-in-out 2s infinite;"></div>
-                        <div style="position:absolute;top:50%;right:30%;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(167,139,250,0.12),transparent 70%);animation:slide3-shimmer 5.5s ease-in-out 0.5s infinite;"></div>
-                        <!-- Light streaks -->
-                        <div style="position:absolute;top:10%;right:5%;width:2px;height:160px;background:linear-gradient(to bottom,transparent,rgba(139,92,246,0.3),transparent);transform:rotate(25deg);animation:slide3-line-pulse 4s ease-in-out infinite;"></div>
-                        <div style="position:absolute;top:30%;right:18%;width:2px;height:130px;background:linear-gradient(to bottom,transparent,rgba(99,102,241,0.25),transparent);transform:rotate(-15deg);animation:slide3-line-pulse 5s ease-in-out 1s infinite;"></div>
-                        <div style="position:absolute;bottom:10%;right:8%;width:2px;height:140px;background:linear-gradient(to bottom,transparent,rgba(236,72,153,0.2),transparent);transform:rotate(10deg);animation:slide3-line-pulse 4.5s ease-in-out 2s infinite;"></div>
-                        <div style="position:absolute;top:55%;right:25%;width:2px;height:110px;background:linear-gradient(to bottom,transparent,rgba(167,139,250,0.2),transparent);transform:rotate(-20deg);animation:slide3-line-pulse 5.5s ease-in-out 0.8s infinite;"></div>
-                        <!-- Large decorative particles -->
-                        <div style="position:absolute;top:8%;right:15%;width:10px;height:10px;border-radius:50%;background:rgba(139,92,246,0.65);box-shadow:0 0 12px 4px rgba(139,92,246,0.4);animation:sparkle-twinkle 2.5s ease-in-out infinite;"></div>
-                        <div style="position:absolute;top:22%;right:6%;width:8px;height:8px;border-radius:50%;background:rgba(99,102,241,0.6);box-shadow:0 0 10px 3px rgba(99,102,241,0.4);animation:sparkle-twinkle 3s ease-in-out 0.5s infinite;"></div>
-                        <div style="position:absolute;top:38%;right:28%;width:10px;height:10px;border-radius:50%;background:rgba(236,72,153,0.55);box-shadow:0 0 12px 4px rgba(236,72,153,0.35);animation:sparkle-twinkle 2.8s ease-in-out 1s infinite;"></div>
-                        <div style="position:absolute;top:52%;right:8%;width:9px;height:9px;border-radius:50%;background:rgba(167,139,250,0.6);box-shadow:0 0 10px 3px rgba(167,139,250,0.4);animation:sparkle-twinkle 3.2s ease-in-out 1.5s infinite;"></div>
-                        <div style="position:absolute;top:68%;right:20%;width:10px;height:10px;border-radius:50%;background:rgba(129,140,248,0.55);box-shadow:0 0 12px 4px rgba(129,140,248,0.35);animation:sparkle-twinkle 2.6s ease-in-out 0.3s infinite;"></div>
-                        <div style="position:absolute;top:14%;right:32%;width:8px;height:8px;border-radius:50%;background:rgba(139,92,246,0.55);box-shadow:0 0 10px 3px rgba(139,92,246,0.35);animation:sparkle-twinkle 3.5s ease-in-out 2s infinite;"></div>
-                        <div style="position:absolute;top:44%;right:3%;width:9px;height:9px;border-radius:50%;background:rgba(236,72,153,0.5);box-shadow:0 0 10px 3px rgba(236,72,153,0.3);animation:sparkle-twinkle 2.9s ease-in-out 0.8s infinite;"></div>
-                        <div style="position:absolute;top:76%;right:12%;width:8px;height:8px;border-radius:50%;background:rgba(99,102,241,0.55);box-shadow:0 0 10px 3px rgba(99,102,241,0.35);animation:sparkle-twinkle 3.1s ease-in-out 1.3s infinite;"></div>
-                        <div style="position:absolute;top:30%;right:38%;width:8px;height:8px;border-radius:50%;background:rgba(167,139,250,0.5);box-shadow:0 0 10px 3px rgba(167,139,250,0.3);animation:sparkle-twinkle 3.4s ease-in-out 1.8s infinite;"></div>
-                        <div style="position:absolute;top:60%;right:30%;width:9px;height:9px;border-radius:50%;background:rgba(139,92,246,0.55);box-shadow:0 0 10px 3px rgba(139,92,246,0.35);animation:sparkle-twinkle 2.7s ease-in-out 2.2s infinite;"></div>
-                        <div style="position:absolute;top:82%;right:25%;width:8px;height:8px;border-radius:50%;background:rgba(236,72,153,0.45);box-shadow:0 0 8px 3px rgba(236,72,153,0.25);animation:sparkle-twinkle 3.3s ease-in-out 0.6s infinite;"></div>
-                        <div style="position:absolute;top:5%;right:40%;width:7px;height:7px;border-radius:50%;background:rgba(129,140,248,0.5);box-shadow:0 0 8px 3px rgba(129,140,248,0.3);animation:sparkle-twinkle 3.6s ease-in-out 1.1s infinite;"></div>
-                        <div style="position:absolute;top:48%;right:42%;width:7px;height:7px;border-radius:50%;background:rgba(99,102,241,0.45);box-shadow:0 0 8px 3px rgba(99,102,241,0.25);animation:sparkle-twinkle 3s ease-in-out 2.5s infinite;"></div>
-                        <div style="position:absolute;top:72%;right:38%;width:8px;height:8px;border-radius:50%;background:rgba(167,139,250,0.5);box-shadow:0 0 10px 3px rgba(167,139,250,0.3);animation:sparkle-twinkle 2.8s ease-in-out 1.7s infinite;"></div>
-                        <!-- AIPPT Logo -->
-                        <img src="aippt-logo-v2.png?v=2" alt="AIPPT" style="position:absolute;top:26%;right:26%;transform:translateY(-50%);width:240px;height:240px;animation:slide3-float 6s ease-in-out infinite;filter:drop-shadow(0 0 30px rgba(139,92,246,0.35));">
-                    </div>
-                    <div class="hero-content">
-                        <div class="hero-content-inner">
-                            <h2 class="hero-card-title">将 AI PPT 生成能力<br>接入你的业务系统</h2>
-                            <p class="hero-card-desc">支持API、SDK、Skill多种接入方式，通过调用接口，让你的系统拥有一键生成PPT的能力——1分钟，从1句话到PPT</p>
-                            <div class="hero-btn-group">
-                                <a href="https://f.kdocs.cn/ksform/w/write/fELKHo71#routePromt" class="hero-btn hero-btn-primary" target="_blank">客户咨询</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Slide 2: AIPPT Banner -->
-                <div class="hero-slide" data-slide="1">
-                    <div class="hero-banner-bg">
-                        <img src="hero-clean.png" alt="WPS AIPPT Hero" class="hero-banner-img">
-                    </div>
-                    <div class="hero-particles">
-                        <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
-                        <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
-                        <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
-                        <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
-                        <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
-                        <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
-                        <div class="sparkle"></div><div class="sparkle"></div>
-                    </div>
-                    <div class="hero-content">
-                        <div class="hero-content-inner">
-                            <h2 class="hero-card-title">WPS <span class="brand-highlight">AIPPT</span></h2>
-                            <p class="hero-card-subtitle">边聊边改，轻松创作专业PPT</p>
-                            <p class="hero-card-desc">从生成到修改，快速生成完整PPT，<br>并支持在 WebOffice 中继续编辑、调整和协作</p>
-                            <div class="hero-btn-group">
-                                <a href="https://aippt.wps.cn/aippt/?open_position=open" class="hero-btn hero-btn-primary" target="_blank">立即体验</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Slide 3: 快速了解 -->
-                <div class="hero-slide" data-slide="2">
-                    <div class="slide3-decor">
-                        <div class="slide3-bg" style="background: linear-gradient(135deg, #ede9fe 0%, #e0e7ff 50%, #dbeafe 100%);"></div>
-                        <div class="slide3-grid"></div>
-                        <!-- Floating PPT icon cards -->
-                        <div class="slide3-float" style="top:18%;right:32%;width:60px;height:60px;background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.15);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:rgba(139,92,246,0.4);animation-delay:0s;">PPT</div>
-                        <div class="slide3-float" style="top:42%;right:22%;width:50px;height:50px;background:rgba(167,139,250,0.1);border:1px solid rgba(167,139,250,0.13);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:rgba(167,139,250,0.35);animation-delay:1.5s;">模板</div>
-                        <div class="slide3-float" style="top:58%;right:35%;width:48px;height:48px;background:rgba(129,140,248,0.1);border:1px solid rgba(129,140,248,0.13);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:rgba(129,140,248,0.35);animation-delay:3s;">大纲</div>
-                        <!-- Arrow indicators -->
-                        <div class="slide3-bracket" style="top:22%;right:22%;animation-delay:0.5s;font-size:24px;color:rgba(139,92,246,0.2);">→</div>
-                        <div class="slide3-bracket" style="top:42%;right:28%;animation-delay:1.2s;font-size:24px;color:rgba(139,92,246,0.2);">→</div>
-                        <div class="slide3-bracket" style="top:58%;right:18%;animation-delay:2s;font-size:24px;color:rgba(139,92,246,0.2);">→</div>
-                        <!-- AIPPT center logo area -->
-                        <div class="slide3-shimmer" style="top:30%;right:10%;width:160px;height:160px;animation-delay:0s;"></div>
-                        <!-- Connection nodes -->
-                        <div class="slide3-node" style="top:20%;right:32%;animation-delay:0s;"></div>
-                        <div class="slide3-node" style="top:42%;right:40%;animation-delay:1s;"></div>
-                        <div class="slide3-node" style="top:60%;right:28%;animation-delay:2s;"></div>
-                        <div class="slide3-node" style="top:35%;right:15%;animation-delay:0.5s;"></div>
-                        <!-- Connection lines -->
-                        <div class="slide3-line" style="top:25%;right:28%;width:50px;transform:rotate(10deg);animation-delay:0s;"></div>
-                        <div class="slide3-line" style="top:45%;right:35%;width:60px;transform:rotate(-5deg);animation-delay:1s;"></div>
-                        <div class="slide3-line" style="top:62%;right:22%;width:45px;transform:rotate(8deg);animation-delay:2s;"></div>
-                    </div>
-                    <div class="hero-content">
-                        <div class="hero-content-inner">
-                            <h2 class="hero-card-title">快速了解<br>WPS AIPPT 开放能力</h2>
-                            <p class="hero-card-desc">查看接入方式、能力说明、使用流程与典型场景，<br>快速判断适合你的集成方案</p>
-                            <div class="hero-btn-group">
-                                <a href="https://open.wps.cn/documents/app-integration-dev/docs-center/aippt/Application" class="hero-btn hero-btn-primary" target="_blank">查看详情</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Carousel Dots -->
-            <div class="hero-dots">
-                <div class="hero-dot active" data-dot="0"></div>
-                <div class="hero-dot" data-dot="1"></div>
-                <div class="hero-dot" data-dot="2"></div>
-            </div>
-        </section>
-    </main>
-
-
         <!-- SDK Cards Section -->
     <section class="sdk-section">
         <h2>灵活接入 AIPPT 能力</h2>
-        <p class="sdk-subtitle">WPS AIPPT 提供 API、SDK、Skill 三种接入方式，适配不同业务场景</p>
+        <p class="sdk-subtitle">通过 API、SDK、Skill，将 AI PPT 生成能力集成到你的产品、业务系统或智能体中</p>
         <div class="sdk-cards">
             <!-- Card 1: API 接入 -->
-            <div class="sdk-card">
+            <div class="sdk-card" data-key="api">
                 <div class="sdk-card-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <polyline points="16 18 22 12 16 6"/>
@@ -3171,12 +3333,12 @@
                 <div class="sdk-card-text">
                     <h3>API 接入</h3>
                     <div class="sdk-divider"></div>
-                    <p>适合在业务系统中调用 PPT 生成能力<br>支持经典模式与专业模式生成</p>
+                    <p>适合在业务系统或服务端调用 PPT 生成能力<br>如批量生成、后台任务、企业内部系统集成</p>
                     <a href="https://open.wps.cn/documents/app-integration-dev/docs-center/aippt/Application" class="sdk-card-btn" target="_blank" rel="noopener">查看 API 文档</a>
                 </div>
             </div>
             <!-- Card 2: SDK 接入 -->
-            <div class="sdk-card">
+            <div class="sdk-card" data-key="sdk">
                 <div class="sdk-card-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="4" y="4" width="16" height="16" rx="2"/>
@@ -3188,12 +3350,12 @@
                 <div class="sdk-card-text">
                     <h3>SDK 接入</h3>
                     <div class="sdk-divider"></div>
-                    <p>适合在自有产品中嵌入 AIPPT 完整流程<br>支持生成、预览、WebOffice 在线编辑</p>
-                    <a href="https://365.kdocs.cn/l/cb7iqDSk1JVx?openfrom=docs&officeType=o" class="sdk-card-btn" target="_blank" rel="noopener">申请 SDK 接入</a>
+                    <p>适合在自有产品中嵌入 AIPPT 完整生成、预览和编辑流程</p>
+                    <a href="https://365.kdocs.cn/l/cb7iqDSk1JVx?openfrom=docs&officeType=o" class="sdk-card-btn" target="_blank" rel="noopener">查看 SDK 文档</a>
                 </div>
             </div>
             <!-- Card 3: Skill 接入 -->
-            <div class="sdk-card">
+            <div class="sdk-card" data-key="skill">
                 <div class="sdk-card-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="12" cy="12" r="3"/>
@@ -3204,81 +3366,19 @@
                 <div class="sdk-card-text">
                     <h3>Skill 接入</h3>
                     <div class="sdk-divider"></div>
-                    <p>适合在智能体、工作流中调用 AIPPT 能力<br>支持根据用户指令自动生成 PPT</p>
-                    <span class="sdk-card-btn sdk-card-btn-disabled">敬请期待</span>
+                    <p>适合在智能体、Agent 或自动化工作流中调用 AIPPT，根据用户指令自动生成 PPT</p>
+                    <span class="sdk-card-btn sdk-card-btn-disabled">查看 Skill 文档</span>
                 </div>
             </div>
+        </div>
+
+        <!-- Supplementary Entry -->
+        <div class="sdk-contact">
+            <p class="sdk-contact-text">不确定如何选择？<a href="https://f.kdocs.cn/ksform/w/write/fELKHo71#routePromt" class="sdk-contact-link" target="_blank" rel="noopener">联系售前获取接入建议<span class="sdk-contact-arrow">→</span></a></p>
         </div>
     </section>
 
 
-    <!-- Version Pricing Section -->
-    <section class="version-pricing-section">
-        <h2>三种接入方式均可选择经典版或专业版</h2>
-        <div class="vp-cards">
-            <div class="vp-card">
-                <div class="vp-card-inner">
-                    <div class="vp-card-head">
-                        <div class="vp-title-row">
-                            <h3 class="vp-card-title">AIPPT 经典版</h3>
-                        </div>
-                        <div class="vp-price">
-                            <div class="vp-price-current">
-                                <span class="vp-price-num">1.2</span><span class="vp-price-currency">元</span><span class="vp-price-period">/份</span>
-                            </div>
-                            <p class="vp-price-desc">按量计费，灵活接入</p>
-                        </div>
-                    </div>
-                    <ul class="vp-features">
-                        <li>
-                            <span class="vp-feature-label">AI 极速生成</span>
-                            <span class="vp-feature-value">多格式秒转 PPT</span>
-                        </li>
-                        <li>
-                            <span class="vp-feature-label">内嵌千套模版</span>
-                            <span class="vp-feature-value">适配企业自定义模板</span>
-                        </li>
-                        <li>
-                            <span class="vp-feature-label">秒出 AI 演讲稿</span>
-                            <span class="vp-feature-value">一键高效汇报</span>
-                        </li>
-                    </ul>
-                    <div class="vp-card-footer">
-                        <a href="https://f.kdocs.cn/ksform/w/write/fELKHo71#routePromt" class="vp-card-btn vp-card-btn-primary" target="_blank" rel="noopener">立即购买</a>
-                    </div>
-                </div>
-            </div>
-            <div class="vp-card vp-card-pro">
-                <div class="vp-card-inner">
-                    <div class="vp-card-head">
-                        <div class="vp-title-row">
-                            <h3 class="vp-card-title">AIPPT 专业版</h3>
-                        </div>
-                        <div class="vp-price">
-                            <p class="vp-price-desc vp-price-desc-soon">专业版即将开放</p>
-                        </div>
-                    </div>
-                    <ul class="vp-features">
-                        <li>
-                            <span class="vp-feature-label">更专业</span>
-                            <span class="vp-feature-value">HTML 引擎逐页渲染</span>
-                        </li>
-                        <li>
-                            <span class="vp-feature-label">更省事</span>
-                            <span class="vp-feature-value">AI 生成可编辑图表</span>
-                        </li>
-                        <li>
-                            <span class="vp-feature-label">更高效</span>
-                            <span class="vp-feature-value">5 分钟精准出稿</span>
-                        </li>
-                    </ul>
-                    <div class="vp-card-footer">
-                        <span class="vp-card-btn vp-card-btn-disabled">敬请期待</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
     <!-- AIPPT Section -->
     <section class="aippt-section">
         <div class="aippt-feature-wrapper">
@@ -3311,6 +3411,10 @@
             <div class="aippt-feature-tag" data-tab="4">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
                 在线编辑
+            </div>
+            <div class="aippt-feature-tag" data-tab="5">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="12" x2="12" y2="18"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+                AI 补页
             </div>
         </div>
 
@@ -3389,9 +3493,120 @@
                     <img src="panel-img-5.png?v=6" alt="在线编辑">
                 </div>
             </div>
+            <div class="aippt-feature-panel" data-panel="5">
+                <div class="panel-content">
+                    <h3 class="aippt-panel-title">局部生成单页，精准完善内容</h3>
+                    <ul class="aippt-panel-desc">
+                        <li>AI 根据当前 PPT 主题和上下文生成新增页面</li>
+                        <li>自动完成标题、正文、结构和基础排版</li>
+                        <li>支持快速更换版式、字体和颜色</li>
+                    </ul>
+                </div>
+                <div class="panel-visual">
+                    <img src="panel-img-6.png?v=1" alt="AI 补页">
+                </div>
+            </div>
         </div>
     </div>
     </div>
+    </section>
+
+
+    <!-- Version Pricing Section -->
+    <section class="version-pricing-section">
+        <h2>选择适合你的能力版本</h2>
+        <p class="vp-subtitle">根据接入方式、生成效果和预算，选择适合业务需求的 AIPPT 生成版本</p>
+        <div class="vp-cards">
+            <div class="vp-card">
+                <div class="vp-card-inner">
+                    <div class="vp-card-head">
+                        <h3 class="vp-card-title">AIPPT 经典版</h3>
+                        <p class="vp-card-scene">适合高频、标准化、轻量化的 PPT 生成场景</p>
+                        <div class="vp-price">
+                            <div class="vp-price-current">
+                                <span class="vp-price-num">1.2</span><span class="vp-price-currency">元</span><span class="vp-price-period">/份</span>
+                            </div>
+                            <p class="vp-price-desc">按量计费，灵活接入</p>
+                        </div>
+                    </div>
+                    <div class="vp-card-body">
+                        <div class="vp-section-label">核心卖点</div>
+                        <ul class="vp-points">
+                            <li>AI 极速生成，多格式秒转 PPT</li>
+                            <li>内嵌千套模板，适配企业自定义模板</li>
+                            <li>秒出 AI 演讲稿，一键高效汇报</li>
+                        </ul>
+                        <div class="vp-section-label">支持接入方式</div>
+                        <div class="vp-tags">
+                            <span class="vp-tag">API</span>
+                            <span class="vp-tag">SDK</span>
+                        </div>
+                    </div>
+                    <div class="vp-card-footer">
+                        <a href="https://open.wps.cn/documents/app-integration-dev/docs-center/aippt/Application" class="vp-card-btn vp-card-btn-primary" target="_blank" rel="noopener">查看 API 文档</a>
+                        <a href="https://365.kdocs.cn/l/cb7iqDSk1JVx?openfrom=docs&officeType=o" class="vp-card-btn vp-card-btn-primary" target="_blank" rel="noopener">查看 SDK 文档</a>
+                    </div>
+                </div>
+            </div>
+            <div class="vp-card vp-card-pro">
+                <div class="vp-card-inner">
+                    <div class="vp-card-head">
+                        <h3 class="vp-card-title">AIPPT 专业版</h3>
+                        <p class="vp-card-scene">适合对生成质量、视觉效果、复杂内容表达<br>和智能体调用有更高要求的场景</p>
+                        <div class="vp-price">
+                            <span class="vp-price-unavailable">专业版价格请咨询商务</span>
+                        </div>
+                    </div>
+                    <div class="vp-card-body">
+                        <div class="vp-section-label">能力升级</div>
+                        <ul class="vp-points">
+                            <li>更专业，HTML 引擎逐页渲染</li>
+                            <li>更省事，AI 生成可编辑图表</li>
+                            <li>更高效，5 分钟精准出稿</li>
+                        </ul>
+                        <div class="vp-section-label">支持接入方式</div>
+                        <div class="vp-tags">
+                            <span class="vp-tag">API</span>
+                            <span class="vp-tag">SDK</span>
+                            <span class="vp-tag">Skill</span>
+                        </div>
+                    </div>
+                    <div class="vp-card-footer">
+                        <a href="https://f.kdocs.cn/ksform/w/write/fELKHo71#routePromt" class="vp-card-btn vp-card-btn-primary" target="_blank" rel="noopener">咨询专业版</a>
+                        <a href="https://365.kdocs.cn/3rd/open/documents/app-integration-dev/wps365/server/aippt/aippt_html_fullpptx" class="vp-card-btn vp-card-btn-outline" target="_blank" rel="noopener">查看接入文档</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Quick Access Steps Section -->
+    <section class="steps-section">
+        <h2>快速开始接入</h2>
+        <p class="steps-subtitle">四步快速接入 WPS AIPPT</p>
+        <div class="steps-flow">
+            <div class="step-item">
+                <div class="step-badge">1</div>
+                <h3 class="step-title">选择接入方式</h3>
+                <p class="step-desc">根据业务场景选择 API、SDK 或 Skill</p>
+            </div>
+            <div class="step-item">
+                <div class="step-badge">2</div>
+                <h3 class="step-title">确认能力版本</h3>
+                <p class="step-desc">根据生成效果、预算和接入方式选择经典版或专业版</p>
+            </div>
+            <div class="step-item">
+                <div class="step-badge">3</div>
+                <h3 class="step-title">查看接入文档</h3>
+                <p class="step-desc">进入对应文档，完成鉴权、配置和参数说明查看</p>
+            </div>
+            <div class="step-item">
+                <div class="step-badge">4</div>
+                <h3 class="step-title">联调并上线</h3>
+                <p class="step-desc">完成生成测试后，在产品或业务系统中正式使用</p>
+            </div>
+        </div>
     </section>
 
 
@@ -3403,20 +3618,7 @@
             <!-- Card 1: 工作汇报 -->
             <div class="case-card">
                 <div class="case-card-art" aria-hidden="true">
-                    <svg viewBox="0 0 240 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="48" y="36" width="128" height="96" rx="12" fill="#fff" stroke="#91caff" stroke-width="1.5"/>
-                        <rect x="64" y="54" width="48" height="8" rx="4" fill="#1677ff" opacity="0.85"/>
-                        <rect x="64" y="70" width="96" height="5" rx="2.5" fill="#e6f4ff"/>
-                        <rect x="64" y="82" width="80" height="5" rx="2.5" fill="#e6f4ff"/>
-                        <rect x="72" y="104" width="16" height="36" rx="5" fill="#91caff"/>
-                        <rect x="96" y="92" width="16" height="48" rx="5" fill="#1677ff"/>
-                        <rect x="120" y="110" width="16" height="30" rx="5" fill="#4096ff"/>
-                        <rect x="148" y="28" width="56" height="72" rx="10" fill="#fff" stroke="#91caff" stroke-width="1.5"/>
-                        <rect x="160" y="42" width="32" height="6" rx="3" fill="#1677ff" opacity="0.7"/>
-                        <rect x="160" y="56" width="28" height="4" rx="2" fill="#e6f4ff"/>
-                        <circle cx="176" cy="82" r="14" fill="#e6f4ff"/>
-                        <path d="M170 82 L174 86 L182 78" stroke="#1677ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
+                    <img src="case-tpl-1.png" alt="工作汇报模板">
                 </div>
                 <div class="case-card-content">
                     <h3>工作汇报</h3>
@@ -3427,20 +3629,7 @@
             <!-- Card 2: 销售提案 -->
             <div class="case-card">
                 <div class="case-card-art" aria-hidden="true">
-                    <svg viewBox="0 0 240 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="40" y="52" width="140" height="88" rx="12" fill="#fff" stroke="#91caff" stroke-width="1.5"/>
-                        <rect x="56" y="68" width="44" height="8" rx="4" fill="#1677ff" opacity="0.85"/>
-                        <rect x="56" y="84" width="108" height="5" rx="2.5" fill="#e6f4ff"/>
-                        <rect x="56" y="96" width="88" height="5" rx="2.5" fill="#e6f4ff"/>
-                        <path d="M64 120 L96 100 L120 112 L156 88" stroke="#1677ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <circle cx="156" cy="88" r="5" fill="#4096ff"/>
-                        <rect x="72" y="24" width="76" height="40" rx="8" fill="#1677ff" opacity="0.9"/>
-                        <path d="M96 24 V16 C96 12.7 98.7 10 102 10 H118 C121.3 10 124 12.7 124 16 V24" stroke="#1677ff" stroke-width="1.5"/>
-                        <rect x="88" y="36" width="44" height="5" rx="2.5" fill="#e6f4ff"/>
-                        <rect x="168" y="64" width="40" height="56" rx="8" fill="#e6f4ff" stroke="#91caff" stroke-width="1.5"/>
-                        <rect x="178" y="76" width="20" height="4" rx="2" fill="#91caff"/>
-                        <rect x="178" y="86" width="16" height="4" rx="2" fill="#bae0ff"/>
-                    </svg>
+                    <img src="case-tpl-2.png" alt="销售提案模板">
                 </div>
                 <div class="case-card-content">
                     <h3>销售提案</h3>
@@ -3451,21 +3640,7 @@
             <!-- Card 3: 培训课件 -->
             <div class="case-card">
                 <div class="case-card-art" aria-hidden="true">
-                    <svg viewBox="0 0 240 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M32 48 C32 40 38 34 46 34 H98 L128 64 V148 C128 156 122 162 114 162 H46 C38 162 32 156 32 148 V48Z" fill="#fff" stroke="#91caff" stroke-width="1.5"/>
-                        <path d="M98 34 V64 H128" stroke="#91caff" stroke-width="1.5"/>
-                        <rect x="48" y="82" width="64" height="6" rx="3" fill="#e6f4ff"/>
-                        <rect x="48" y="98" width="52" height="5" rx="2.5" fill="#e6f4ff"/>
-                        <rect x="48" y="112" width="56" height="5" rx="2.5" fill="#e6f4ff"/>
-                        <rect x="132" y="40" width="72" height="96" rx="12" fill="#1677ff" opacity="0.88"/>
-                        <rect x="146" y="58" width="44" height="6" rx="3" fill="#e6f4ff"/>
-                        <rect x="146" y="72" width="32" height="4" rx="2" fill="#bae0ff"/>
-                        <rect x="146" y="84" width="36" height="4" rx="2" fill="#bae0ff"/>
-                        <circle cx="168" cy="112" r="16" fill="#e6f4ff"/>
-                        <path d="M162 112 L166 116 L174 108" stroke="#1677ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <rect x="156" y="148" width="56" height="32" rx="8" fill="#fff" stroke="#91caff" stroke-width="1.5"/>
-                        <rect x="168" y="160" width="32" height="4" rx="2" fill="#91caff"/>
-                    </svg>
+                    <img src="case-tpl-3.png" alt="培训课件模板">
                 </div>
                 <div class="case-card-content">
                     <h3>培训课件</h3>
@@ -3476,19 +3651,7 @@
             <!-- Card 4: 市场活动方案 -->
             <div class="case-card">
                 <div class="case-card-art" aria-hidden="true">
-                    <svg viewBox="0 0 240 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="52" y="32" width="108" height="72" rx="12" fill="#fff" stroke="#91caff" stroke-width="1.5"/>
-                        <rect x="68" y="48" width="40" height="8" rx="4" fill="#1677ff" opacity="0.85"/>
-                        <rect x="68" y="64" width="76" height="5" rx="2.5" fill="#e6f4ff"/>
-                        <rect x="68" y="76" width="64" height="5" rx="2.5" fill="#e6f4ff"/>
-                        <rect x="68" y="88" width="52" height="5" rx="2.5" fill="#e6f4ff"/>
-                        <path d="M36 112 C36 88 56 68 80 68 H128 C152 68 172 88 172 112 V124 H36 V112Z" fill="#1677ff" opacity="0.9"/>
-                        <path d="M64 124 H144 V134 C144 140 140 146 134 146 H74 C68 146 64 140 64 134 V124Z" fill="#4096ff"/>
-                        <path d="M172 96 L196 84 V132 L172 120 V96Z" fill="#91caff"/>
-                        <rect x="148" y="36" width="48" height="64" rx="10" fill="#e6f4ff" stroke="#91caff" stroke-width="1.5"/>
-                        <circle cx="172" cy="60" r="12" fill="#fff"/>
-                        <path d="M168 60 L171 63 L177 57" stroke="#1677ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
+                    <img src="case-tpl-4.png" alt="市场活动方案模板">
                 </div>
                 <div class="case-card-content">
                     <h3>市场活动方案</h3>
@@ -3567,29 +3730,63 @@
 
     <!-- Quick Start Section -->
     <section class="quickstart-section">
-        <h2>快速开始使用</h2>
-        <p class="quickstart-subtitle">立即接入 WPS AIPPT，提升企业PPT创作效率</p>
+        <div class="quickstart-header-bar">
+            <span class="quickstart-bar-thin"></span>
+            <span class="quickstart-bar-thick"></span>
+        </div>
+        <h2>开始接入 WPS AIPPT</h2>
+        <p class="quickstart-subtitle">选择适合的接入方式，将 AI PPT 生成能力集成到你的产品、业务系统或智能体中</p>
 
         <div class="quickstart-cards">
-            <!-- Card 1 -->
+            <!-- Card 1: API 接入 -->
             <div class="quickstart-card">
-                <h3 class="quickstart-card-title">网页体验</h3>
-                <p>如果你想直接体验AIPPT生成能力<br>可以前往网页入口</p>
-                <a href="https://aippt.wps.cn/aippt/?open_position=open" class="quickstart-btn" target="_blank">立即体验</a>
-            </div>
-            <!-- Card 2 -->
-            <div class="quickstart-card">
+                <div class="quickstart-card-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <line x1="16" y1="13" x2="8" y2="13"/>
+                        <line x1="16" y1="17" x2="8" y2="17"/>
+                    </svg>
+                </div>
                 <h3 class="quickstart-card-title">API 接入</h3>
-                <p>如果你需要接入API能力<br>可以查看API使用指南</p>
-                <a href="https://open.wps.cn/documents/app-integration-dev/docs-center/aippt/Application" class="quickstart-btn" target="_blank" rel="noopener">查看API文档</a>
+                <p>面向服务端调用、业务系统集成用户</p>
+                <a href="https://open.wps.cn/documents/app-integration-dev/docs-center/aippt/Application" class="quickstart-btn" target="_blank" rel="noopener">查看 API 文档</a>
             </div>
-            <!-- Card 3 -->
+            <!-- Card 2: SDK 接入 -->
             <div class="quickstart-card">
-                <h3 class="quickstart-card-title">联系售前</h3>
-                <p>如果你需要SDK、WebOffice在线编辑<br>或企业定制能力，可以填写表单联系售前</p>
-                <a href="https://f.kdocs.cn/ksform/w/write/fELKHo71#routePromt" class="quickstart-btn" target="_blank">客户咨询</a>
+                <div class="quickstart-card-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                        <line x1="12" y1="18" x2="12.01" y2="18"/>
+                    </svg>
+                </div>
+                <h3 class="quickstart-card-title">SDK 接入</h3>
+                <p>面向产品内嵌、生成预览编辑场景</p>
+                <a href="https://open.wps.cn/documents/app-integration-dev/docs-center/aippt/sdk" class="quickstart-btn" target="_blank">查看 SDK 文档</a>
+            </div>
+            <!-- Card 3: Skill 接入 -->
+            <div class="quickstart-card">
+                <div class="quickstart-card-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="2" y1="12" x2="22" y2="12"/>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                    </svg>
+                </div>
+                <h3 class="quickstart-card-title">Skill 接入</h3>
+                <p>面向智能体、Agent、工作流调用场景</p>
+                <a href="#" class="quickstart-btn" target="_blank">查看 Skill 文档</a>
             </div>
         </div>
+
+        <!-- Bottom consultation -->
+        <div class="sdk-contact">
+            <p class="sdk-contact-text">不确定选择哪种接入方式？<a href="https://f.kdocs.cn/ksform/w/write/fELKHo71#routePromt" class="sdk-contact-link" target="_blank" rel="noopener">咨询接入方案<span class="sdk-contact-arrow">→</span></a></p>
+        </div>
+
+        <!-- Decorative elements -->
+        <div class="quickstart-decor quickstart-decor-1"></div>
+        <div class="quickstart-decor quickstart-decor-2"></div>
     </section>
 
     <!-- Footer -->
@@ -3646,6 +3843,7 @@
         (function() {
             const slides = document.querySelectorAll('.hero-slide');
             const dots = document.querySelectorAll('.hero-dot');
+            if (!slides.length || !dots.length) return;
             let current = 0;
             let timer;
 
@@ -3780,6 +3978,7 @@
                 });
             });
         });
+
     </script>
 
 </script>
