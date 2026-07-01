@@ -1117,16 +1117,18 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 24px;
-            max-width: 960px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
         .case-card {
             position: relative;
-            display: block;
+            display: flex;
+            align-items: center;
+            gap: 22px;
             border-radius: 16px;
             overflow: hidden;
-            min-height: 220px;
+            padding: 26px 28px;
             text-align: left;
             transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
             border: 1px solid #eef2f6;
@@ -1155,96 +1157,135 @@
             border-color: #dbeafe;
         }
 
-        /* 放大并往右下角挤，被卡片边缘裁切，营造嵌入感 */
-        .case-card-art {
-            position: absolute;
-            right: -4%;
-            bottom: -10%;
-            top: auto;
-            width: 52%;
-            display: block;
-            pointer-events: none;
-            z-index: 0;
-            transition: transform 0.35s ease;
-        }
-
-        .case-card-art img {
-            width: 100%;
-            display: block;
-            border-radius: 12px;
-            box-shadow: 0 10px 28px rgba(15, 23, 42, 0.14);
-            transition: transform 0.35s ease, box-shadow 0.35s ease;
-        }
-
-        .case-card:hover .case-card-art {
-            transform: translate(-6px, -6px);
-        }
-
-        .case-card:hover .case-card-art img {
-            box-shadow: 0 16px 34px rgba(15, 23, 42, 0.2);
-        }
-
         .case-card-content {
-            position: relative;
-            z-index: 1;
-            padding: 32px 36px;
-            max-width: 46%;
+            flex: 0 0 40%;
+            max-width: 40%;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            min-height: 220px;
             box-sizing: border-box;
         }
 
         .case-card-content h3 {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 800;
             color: #0f172a;
-            margin: 0 0 12px;
+            margin: 0 0 10px;
             line-height: 1.3;
         }
 
         .case-card-content p {
-            font-size: 15px;
+            font-size: 14px;
             color: #64748b;
             line-height: 1.7;
-            margin: 0;
-            max-width: 26em;
+            margin: 0 0 16px;
+        }
+
+        .case-chips {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .case-chip {
+            align-self: flex-start;
+            max-width: 100%;
+            font-size: 12.5px;
+            color: #475569;
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 6px 12px;
+            line-height: 1.4;
+        }
+
+        .case-chip b {
+            color: #2563eb;
+            font-weight: 700;
+            margin-right: 4px;
+        }
+
+        .case-card-deck {
+            flex: 1 1 auto;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .case-deck-main {
+            border-radius: 10px;
+            overflow: hidden;
+            background: #fff;
+            border: 1px solid #eef2f8;
+            box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .case-deck-bar {
+            height: 18px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 0 9px;
+            background: #fff;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .case-deck-bar i {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #cbd5e1;
+        }
+
+        .case-deck-main img {
+            display: block;
+            width: 100%;
+        }
+
+        .case-deck-minis {
+            display: flex;
+            gap: 8px;
+        }
+
+        .case-deck-minis img {
+            flex: 1 1 0;
+            min-width: 0;
+            width: 50%;
+            display: block;
+            border-radius: 8px;
+            border: 1px solid #eef2f8;
+            box-shadow: 0 3px 10px rgba(15, 23, 42, 0.08);
+        }
+
+        .case-card:hover .case-deck-main {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 30px rgba(15, 23, 42, 0.18);
         }
 
         .case-card-tags,
         .case-card-label,
         .case-card-img,
-        .case-card-illus {
+        .case-card-illus,
+        .case-card-art {
             display: none;
         }
 
         @media (max-width: 1024px) {
             .case-cards { gap: 16px; max-width: 100%; }
-            .case-card-content { padding: 28px 24px; max-width: 46%; min-height: 208px; }
-            .case-card-art {
-                right: -6%;
-                bottom: -10%;
-                width: 52%;
-            }
+            .case-card { padding: 22px 22px; gap: 18px; }
+            .case-card-content { flex-basis: 42%; max-width: 42%; }
         }
 
         @media (max-width: 768px) {
             .case-section h2 { font-size: 28px; }
             .case-cards { grid-template-columns: 1fr; max-width: 520px; }
-            .case-card-content {
-                max-width: 100%;
-                padding: 24px 24px;
-                min-height: 184px;
-            }
+            .case-card { flex-direction: column; align-items: stretch; gap: 16px; padding: 22px; }
+            .case-card-content { flex-basis: auto; max-width: 100%; }
             .case-card-content h3 { font-size: 20px; margin-bottom: 10px; }
-            .case-card-content p { font-size: 14px; max-width: 16em; }
-            .case-card-art {
-                width: 52%;
-                right: -8%;
-                bottom: -10%;
-                opacity: 0.55;
-            }
+            .case-card-content p { font-size: 14px; }
+            .case-chips { flex-direction: row; flex-wrap: wrap; }
         }
 
         /* ================= PARTNERS SECTION ================= */
@@ -1740,7 +1781,7 @@
             max-width: 1200px;
             text-align: center;
             position: relative;
-            margin-top: 72px;
+            margin-top: 56px;
         }
 
         .sdk-cards {
@@ -1859,7 +1900,7 @@
             border: 2px solid #2563eb;
             cursor: pointer;
             text-decoration: none;
-            margin-top: 24px;
+            margin-top: 20px;
             transition: all 0.25s ease;
             white-space: nowrap;
             align-self: center;
@@ -3316,6 +3357,55 @@
         </div>
     </header>
 
+    <!-- Hero Section -->
+    <main>
+        <section class="hero">
+            <div class="hero-carousel">
+                <div class="hero-slide active">
+                    <div class="slide3-decor">
+                        <div class="slide3-bg"></div>
+                        <!-- Large gradient blobs -->
+                        <div style="position:absolute;top:-5%;right:-5%;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(139,92,246,0.22),transparent 70%);animation:slide3-shimmer 5s ease-in-out infinite;"></div>
+                        <div style="position:absolute;bottom:-5%;right:5%;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(99,102,241,0.18),transparent 70%);animation:slide3-shimmer 6s ease-in-out 1s infinite;"></div>
+                        <div style="position:absolute;top:20%;right:20%;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(236,72,153,0.14),transparent 70%);animation:slide3-shimmer 7s ease-in-out 2s infinite;"></div>
+                        <div style="position:absolute;top:50%;right:30%;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(167,139,250,0.12),transparent 70%);animation:slide3-shimmer 5.5s ease-in-out 0.5s infinite;"></div>
+                        <!-- Light streaks -->
+                        <div style="position:absolute;top:10%;right:5%;width:2px;height:160px;background:linear-gradient(to bottom,transparent,rgba(139,92,246,0.3),transparent);transform:rotate(25deg);animation:slide3-line-pulse 4s ease-in-out infinite;"></div>
+                        <div style="position:absolute;top:30%;right:18%;width:2px;height:130px;background:linear-gradient(to bottom,transparent,rgba(99,102,241,0.25),transparent);transform:rotate(-15deg);animation:slide3-line-pulse 5s ease-in-out 1s infinite;"></div>
+                        <div style="position:absolute;bottom:10%;right:8%;width:2px;height:140px;background:linear-gradient(to bottom,transparent,rgba(236,72,153,0.2),transparent);transform:rotate(10deg);animation:slide3-line-pulse 4.5s ease-in-out 2s infinite;"></div>
+                        <div style="position:absolute;top:55%;right:25%;width:2px;height:110px;background:linear-gradient(to bottom,transparent,rgba(167,139,250,0.2),transparent);transform:rotate(-20deg);animation:slide3-line-pulse 5.5s ease-in-out 0.8s infinite;"></div>
+                        <!-- Large decorative particles -->
+                        <div style="position:absolute;top:8%;right:15%;width:10px;height:10px;border-radius:50%;background:rgba(139,92,246,0.65);box-shadow:0 0 12px 4px rgba(139,92,246,0.4);animation:sparkle-twinkle 2.5s ease-in-out infinite;"></div>
+                        <div style="position:absolute;top:22%;right:6%;width:8px;height:8px;border-radius:50%;background:rgba(99,102,241,0.6);box-shadow:0 0 10px 3px rgba(99,102,241,0.4);animation:sparkle-twinkle 3s ease-in-out 0.5s infinite;"></div>
+                        <div style="position:absolute;top:38%;right:28%;width:10px;height:10px;border-radius:50%;background:rgba(236,72,153,0.55);box-shadow:0 0 12px 4px rgba(236,72,153,0.35);animation:sparkle-twinkle 2.8s ease-in-out 1s infinite;"></div>
+                        <div style="position:absolute;top:52%;right:8%;width:9px;height:9px;border-radius:50%;background:rgba(167,139,250,0.6);box-shadow:0 0 10px 3px rgba(167,139,250,0.4);animation:sparkle-twinkle 3.2s ease-in-out 1.5s infinite;"></div>
+                        <div style="position:absolute;top:68%;right:20%;width:10px;height:10px;border-radius:50%;background:rgba(129,140,248,0.55);box-shadow:0 0 12px 4px rgba(129,140,248,0.35);animation:sparkle-twinkle 2.6s ease-in-out 0.3s infinite;"></div>
+                        <div style="position:absolute;top:14%;right:32%;width:8px;height:8px;border-radius:50%;background:rgba(139,92,246,0.55);box-shadow:0 0 10px 3px rgba(139,92,246,0.35);animation:sparkle-twinkle 3.5s ease-in-out 2s infinite;"></div>
+                        <div style="position:absolute;top:44%;right:3%;width:9px;height:9px;border-radius:50%;background:rgba(236,72,153,0.5);box-shadow:0 0 10px 3px rgba(236,72,153,0.3);animation:sparkle-twinkle 2.9s ease-in-out 0.8s infinite;"></div>
+                        <div style="position:absolute;top:76%;right:12%;width:8px;height:8px;border-radius:50%;background:rgba(99,102,241,0.55);box-shadow:0 0 10px 3px rgba(99,102,241,0.35);animation:sparkle-twinkle 3.1s ease-in-out 1.3s infinite;"></div>
+                        <div style="position:absolute;top:30%;right:38%;width:8px;height:8px;border-radius:50%;background:rgba(167,139,250,0.5);box-shadow:0 0 10px 3px rgba(167,139,250,0.3);animation:sparkle-twinkle 3.4s ease-in-out 1.8s infinite;"></div>
+                        <div style="position:absolute;top:60%;right:30%;width:9px;height:9px;border-radius:50%;background:rgba(139,92,246,0.55);box-shadow:0 0 10px 3px rgba(139,92,246,0.35);animation:sparkle-twinkle 2.7s ease-in-out 2.2s infinite;"></div>
+                        <div style="position:absolute;top:82%;right:25%;width:8px;height:8px;border-radius:50%;background:rgba(236,72,153,0.45);box-shadow:0 0 8px 3px rgba(236,72,153,0.25);animation:sparkle-twinkle 3.3s ease-in-out 0.6s infinite;"></div>
+                        <div style="position:absolute;top:5%;right:40%;width:7px;height:7px;border-radius:50%;background:rgba(129,140,248,0.5);box-shadow:0 0 8px 3px rgba(129,140,248,0.3);animation:sparkle-twinkle 3.6s ease-in-out 1.1s infinite;"></div>
+                        <div style="position:absolute;top:48%;right:42%;width:7px;height:7px;border-radius:50%;background:rgba(99,102,241,0.45);box-shadow:0 0 8px 3px rgba(99,102,241,0.25);animation:sparkle-twinkle 3s ease-in-out 2.5s infinite;"></div>
+                        <div style="position:absolute;top:72%;right:38%;width:8px;height:8px;border-radius:50%;background:rgba(167,139,250,0.5);box-shadow:0 0 10px 3px rgba(167,139,250,0.3);animation:sparkle-twinkle 2.8s ease-in-out 1.7s infinite;"></div>
+                        <!-- AIPPT Logo -->
+                        <img src="aippt-logo-v2.png?v=2" alt="AIPPT" style="position:absolute;top:26%;right:26%;transform:translateY(-50%);width:240px;height:240px;animation:slide3-float 6s ease-in-out infinite;filter:drop-shadow(0 0 30px rgba(139,92,246,0.35));">
+                    </div>
+                    <div class="hero-content">
+                        <div class="hero-content-inner">
+                            <h2 class="hero-card-title">将 AI PPT 生成能力<br>接入你的业务系统</h2>
+                            <p class="hero-card-desc">支持API、SDK、Skill多种接入方式，通过调用接口，让你的系统拥有一键生成PPT的能力——1分钟，从1句话到PPT</p>
+                            <div class="hero-btn-group">
+                                <a href="https://365.kdocs.cn/3rd/open/documents/app-integration-dev/docs-center/aippt/Application" class="hero-btn hero-btn-primary" target="_blank" rel="noopener">免费试用</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
         <!-- SDK Cards Section -->
     <section class="sdk-section">
         <h2>灵活接入 AIPPT 能力</h2>
@@ -3572,8 +3662,7 @@
                         </div>
                     </div>
                     <div class="vp-card-footer">
-                        <a href="https://f.kdocs.cn/ksform/w/write/fELKHo71#routePromt" class="vp-card-btn vp-card-btn-primary" target="_blank" rel="noopener">咨询专业版</a>
-                        <a href="https://365.kdocs.cn/3rd/open/documents/app-integration-dev/wps365/server/aippt/aippt_html_fullpptx" class="vp-card-btn vp-card-btn-outline" target="_blank" rel="noopener">查看接入文档</a>
+                        <a href="https://f.kdocs.cn/ksform/w/write/fELKHo71#routePromt" class="vp-card-btn vp-card-btn-outline" target="_blank" rel="noopener">咨询专业版</a>
                     </div>
                 </div>
             </div>
@@ -3617,45 +3706,89 @@
         <div class="case-cards">
             <!-- Card 1: 工作汇报 -->
             <div class="case-card">
-                <div class="case-card-art" aria-hidden="true">
-                    <img src="case-tpl-1.png" alt="工作汇报模板">
-                </div>
                 <div class="case-card-content">
                     <h3>工作汇报</h3>
                     <p>上传工作总结文档或输入汇报主题，AI 快速整理工作内容，生成汇报 PPT</p>
+                    <div class="case-chips">
+                        <span class="case-chip"><b>输入</b>工作总结 / 汇报主题</span>
+                        <span class="case-chip"><b>输出</b>结构化汇报 PPT</span>
+                    </div>
+                </div>
+                <div class="case-card-deck">
+                    <div class="case-deck-main">
+                        <div class="case-deck-bar"><i></i><i></i><i></i></div>
+                        <img src="case-tpl-1.png" alt="工作汇报模板封面">
+                    </div>
+                    <div class="case-deck-minis">
+                        <img src="case1-inner_001.png" alt="工作汇报内容页">
+                        <img src="case1-inner_002.png" alt="工作汇报内容页">
+                    </div>
                 </div>
             </div>
 
             <!-- Card 2: 销售提案 -->
             <div class="case-card">
-                <div class="case-card-art" aria-hidden="true">
-                    <img src="case-tpl-2.png" alt="销售提案模板">
-                </div>
                 <div class="case-card-content">
                     <h3>销售提案</h3>
                     <p>输入客户需求和产品信息，AI 生成结构化销售方案 PPT</p>
+                    <div class="case-chips">
+                        <span class="case-chip"><b>输入</b>客户需求 / 产品资料</span>
+                        <span class="case-chip"><b>输出</b>销售方案 PPT</span>
+                    </div>
+                </div>
+                <div class="case-card-deck">
+                    <div class="case-deck-main">
+                        <div class="case-deck-bar"><i></i><i></i><i></i></div>
+                        <img src="case-tpl-2.png" alt="销售提案模板封面">
+                    </div>
+                    <div class="case-deck-minis">
+                        <img src="case2-inner_001.png" alt="销售提案内容页">
+                        <img src="case2-inner_002.png" alt="销售提案内容页">
+                    </div>
                 </div>
             </div>
 
             <!-- Card 3: 培训课件 -->
             <div class="case-card">
-                <div class="case-card-art" aria-hidden="true">
-                    <img src="case-tpl-3.png" alt="培训课件模板">
-                </div>
                 <div class="case-card-content">
                     <h3>培训课件</h3>
                     <p>上传培训文档或课程大纲，AI 一键制作培训 PPT</p>
+                    <div class="case-chips">
+                        <span class="case-chip"><b>输入</b>培训文档 / 课程大纲</span>
+                        <span class="case-chip"><b>输出</b>培训课件 PPT</span>
+                    </div>
+                </div>
+                <div class="case-card-deck">
+                    <div class="case-deck-main">
+                        <div class="case-deck-bar"><i></i><i></i><i></i></div>
+                        <img src="case-tpl-3.png" alt="培训课件模板封面">
+                    </div>
+                    <div class="case-deck-minis">
+                        <img src="case3-inner_001.png" alt="培训课件内容页">
+                        <img src="case3-inner_002.png" alt="培训课件内容页">
+                    </div>
                 </div>
             </div>
 
             <!-- Card 4: 市场活动方案 -->
             <div class="case-card">
-                <div class="case-card-art" aria-hidden="true">
-                    <img src="case-tpl-4.png" alt="市场活动方案模板">
-                </div>
                 <div class="case-card-content">
                     <h3>市场活动方案</h3>
-                    <p>输入活动主题和执行方案，AI 生成快速产出对外展示 PPT</p>
+                    <p>输入活动主题和执行方案，AI 快速产出对外展示 PPT</p>
+                    <div class="case-chips">
+                        <span class="case-chip"><b>输入</b>活动主题 / 执行方案</span>
+                        <span class="case-chip"><b>输出</b>活动策划 PPT</span>
+                    </div>
+                </div>
+                <div class="case-card-deck">
+                    <div class="case-deck-main">
+                        <div class="case-deck-bar"><i></i><i></i><i></i></div>
+                        <img src="case-tpl-4.png" alt="市场活动方案模板封面">
+                    </div>
+                    <div class="case-deck-minis">
+                        <img src="case4-inner_001.png" alt="市场活动方案内容页">
+                        <img src="case4-inner_002.png" alt="市场活动方案内容页">
+                    </div>
                 </div>
             </div>
         </div>
