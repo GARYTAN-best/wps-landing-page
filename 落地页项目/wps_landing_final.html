@@ -3773,34 +3773,6 @@
             background: #eff6ff;
         }
 
-        .wps-side-nav-divider {
-            height: 1px;
-            margin: 4px 12px;
-            background: #f1f5f9;
-        }
-
-        .wps-side-nav-top {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 4px;
-            padding: 10px 12px;
-            border: none;
-            border-top: 1px solid #f1f5f9;
-            background: #fafbfc;
-            color: #475569;
-            font-size: 12px;
-            font-weight: 600;
-            font-family: inherit;
-            cursor: pointer;
-            transition: color 0.2s ease, background 0.2s ease;
-        }
-
-        .wps-side-nav-top svg {
-            flex-shrink: 0;
-        }
-
         @media (max-width: 1100px) {
             .wps-side-nav {
                 display: none;
@@ -3854,13 +3826,6 @@
                 <li><a href="#quickstart" class="wps-side-nav-link">免费试用</a></li>
                 <li><a href="#faq" class="wps-side-nav-link">常见问题</a></li>
             </ul>
-            <div class="wps-side-nav-divider" aria-hidden="true"></div>
-            <button type="button" class="wps-side-nav-top" id="sideNavBackTop" aria-label="返回顶部">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <polyline points="18 15 12 9 6 15"/>
-                </svg>
-                返回顶部
-            </button>
         </div>
     </nav>
 
@@ -4721,7 +4686,6 @@
         // ================= Side Anchor Nav + Scroll Spy =================
         (function() {
             const sideNav = document.getElementById('wpsSideNav');
-            const backTopBtn = document.getElementById('sideNavBackTop');
             const links = document.querySelectorAll('.wps-side-nav-link');
             if (!sideNav || !links.length) return;
 
@@ -4799,16 +4763,6 @@
                     scrollEndTimer = setTimeout(endClickScroll, 900);
                 });
             });
-
-            if (backTopBtn) {
-                backTopBtn.addEventListener('click', function() {
-                    if (sections[0]) setActiveSection(sections[0].id);
-                    clickScrolling = true;
-                    clearTimeout(scrollEndTimer);
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                    scrollEndTimer = setTimeout(endClickScroll, 900);
-                });
-            }
 
             window.addEventListener('scroll', function() {
                 if (clickScrolling) return;
