@@ -12,11 +12,11 @@
             --text-primary: #1f2937;
             --text-secondary: #6b7280;
             --link-hover: #2563eb;
-            --section-gap: 152px;
+            --section-gap: 112px;
             --section-spacing-x: 24px;
             --section-header-gap: 16px;
-            --section-subtitle-gap: 40px;
-            --section-title-content-gap: 56px;
+            --section-subtitle-gap: 32px;
+            --section-title-content-gap: 44px;
         }
 
         /* 各主板块统一间距：相邻板块之间 = --section-gap（仅用 margin-top，避免 padding 叠加） */
@@ -26,7 +26,8 @@
         .case-section,
         .partners-section,
         .quickstart-section,
-        .steps-section {
+        .steps-section,
+        .faq-section {
             padding: 0 var(--section-spacing-x);
             margin: var(--section-gap) auto 0;
         }
@@ -36,7 +37,9 @@
         .case-section h2,
         .partners-section h2,
         .quickstart-section h2,
-        .steps-section h2 {
+        .steps-section h2,
+        .faq-section h2,
+        .aippt-section h2 {
             font-size: clamp(26px, 3.2vw, 36px);
             font-weight: 800;
             color: #0f172a;
@@ -52,7 +55,9 @@
         .case-section .case-subtitle,
         .quickstart-section .quickstart-subtitle,
         .aippt-section .aippt-desc,
-        .steps-section .steps-subtitle {
+        .steps-section .steps-subtitle,
+        .faq-section .faq-subtitle,
+        .version-pricing-section .vp-subtitle {
             font-size: clamp(15px, 1.6vw, 18px);
             color: #64748b;
             margin: 0 0 var(--section-subtitle-gap);
@@ -61,11 +66,27 @@
 
         .case-section h2,
         .partners-section h2,
-        .quickstart-section h2 {
+        .faq-section h2 {
             text-align: center;
         }
 
         * { box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        [id].sdk-section,
+        [id].aippt-intro,
+        [id].aippt-section,
+        [id].version-pricing-section,
+        [id].steps-section,
+        [id].case-section,
+        [id].partners-section,
+        [id].quickstart-section,
+        [id].faq-section {
+            scroll-margin-top: 88px;
+        }
 
         body {
             font-family: var(--font-main);
@@ -219,7 +240,7 @@
             position: relative;
             overflow: hidden;
             background: #e8e0f5;
-            height: clamp(380px, 42vw, 480px);
+            height: clamp(260px, 30vw, 360px);
         }
 
         .hero-banner-bg {
@@ -317,12 +338,12 @@
         .hero-content-inner {
             max-width: 1280px;
             margin: 0 auto;
-            padding: 80px 48px;
+            padding: 48px 48px;
             width: 100%;
         }
 
         .hero-card-title {
-            font-size: 44px;
+            font-size: 38px;
             font-weight: 800;
             color: #0f172a;
             margin: 0 0 16px;
@@ -444,7 +465,7 @@
 
         @media (max-width: 768px) {
             .hero-content-inner { padding: 40px 24px; }
-            .hero-card-title { font-size: 32px; }
+            .hero-card-title { font-size: 28px; }
             .hero-card-subtitle { font-size: 24px; }
             .hero-card-desc { font-size: 16px; }
             .hero-btn-group { flex-direction: column; gap: 12px; }
@@ -660,13 +681,7 @@
             position: relative;
         }
 
-
-
         .aippt-section h2 {
-            font-size: clamp(26px, 3.2vw, 36px);
-            font-weight: 800;
-            margin: 0 0 var(--section-header-gap);
-            line-height: 1.3;
             display: inline-block;
             background: linear-gradient(90deg, #6366f1, #a855f7, #ec4899, #6366f1);
             background-size: 300% 100%;
@@ -738,15 +753,12 @@
 
         @media (max-width: 768px) {
             :root {
-                --section-gap: 104px;
+                --section-gap: 80px;
                 --section-spacing-x: 20px;
                 --section-header-gap: 14px;
-                --section-subtitle-gap: 32px;
-                --section-title-content-gap: 48px;
+                --section-subtitle-gap: 28px;
+                --section-title-content-gap: 40px;
             }
-            .aippt-section h2 { font-size: 26px; padding: 12px 20px; }
-            .aippt-section h2::after { width: 40px; height: 3px; bottom: -3px; }
-            .aippt-section .aippt-desc { font-size: 15px; }
             .aippt-btn-group { flex-direction: column; gap: 12px; }
             .aippt-btn { min-width: 240px; }
         }
@@ -762,7 +774,9 @@
         }
 
         .aippt-feature-top {
-            padding: 0 40px 28px;
+            position: relative;
+            z-index: 2;
+            padding: 0 40px 20px;
             text-align: center;
         }
 
@@ -833,7 +847,7 @@
             max-width: none;
             margin: 0;
             position: relative;
-            padding: 28px 32px 32px;
+            padding: 20px 28px 24px;
             overflow: hidden;
             background: #ffffff;
             border: none;
@@ -958,9 +972,9 @@
         }
 
         .panel-visual {
-            flex: 0 0 240px;
+            flex: 0 0 160px;
             width: 100%;
-            height: 240px;
+            height: 160px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -974,7 +988,7 @@
         .panel-visual img {
             width: 100%;
             max-width: 100%;
-            height: 240px;
+            height: 160px;
             max-height: 100%;
             object-fit: contain;
             display: block;
@@ -1028,8 +1042,8 @@
             .aippt-panel-desc li { font-size: 14px; }
             .aippt-feature-content { padding: 20px 16px 24px; border-radius: 0; border-left: none; }
             .aippt-feature-panel { gap: 12px; }
-            .panel-visual { flex: 0 0 180px; height: 180px; }
-            .panel-visual img { height: 180px; }
+            .panel-visual { flex: 0 0 140px; height: 140px; }
+            .panel-visual img { height: 140px; }
         }
 
 
@@ -1279,12 +1293,9 @@
         }
 
         @media (max-width: 768px) {
-            .case-section h2 { font-size: 28px; }
             .case-cards { grid-template-columns: 1fr; max-width: 520px; }
             .case-card { flex-direction: column; align-items: stretch; gap: 16px; padding: 22px; }
             .case-card-content { flex-basis: auto; max-width: 100%; }
-            .case-card-content h3 { font-size: 20px; margin-bottom: 10px; }
-            .case-card-content p { font-size: 14px; }
             .case-chips { flex-direction: row; flex-wrap: wrap; }
         }
 
@@ -1447,6 +1458,113 @@
             top: -20px;
             right: -40px;
             background: radial-gradient(circle, rgba(59,130,246,0.07), transparent 70%);
+        }
+
+        /* ================= ONBOARD PANEL (即刻使用) ================= */
+        .onboard-panel {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .onboard-cards {
+            display: flex;
+            align-items: stretch;
+            gap: 0;
+        }
+
+        .onboard-card {
+            flex: 1 1 0;
+            min-width: 0;
+            padding: 28px 24px 26px;
+            background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            text-align: left;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .onboard-card:hover {
+            border-color: #bfdbfe;
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.08);
+        }
+
+        .onboard-card-num {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            color: #2563eb;
+            background: #eff6ff;
+            padding: 4px 10px;
+            border-radius: 6px;
+            margin-bottom: 14px;
+        }
+
+        .onboard-card-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #0f172a;
+            margin: 0 0 8px;
+            line-height: 1.35;
+        }
+
+        .onboard-card-desc {
+            font-size: 14px;
+            color: #64748b;
+            line-height: 1.65;
+            margin: 0;
+        }
+
+        .onboard-card-arrow {
+            flex: 0 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #cbd5e1;
+            font-size: 22px;
+            font-weight: 300;
+            user-select: none;
+        }
+
+        .onboard-cta-wrap {
+            margin-top: 32px;
+            text-align: center;
+        }
+
+        .onboard-cta-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 40px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            background: #2563eb;
+            color: #ffffff;
+            border: 2px solid #2563eb;
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.22);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .onboard-cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(37, 99, 235, 0.28);
+        }
+
+        @media (max-width: 768px) {
+            .onboard-cards {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .onboard-card-arrow {
+                flex: none;
+                height: 24px;
+                transform: rotate(90deg);
+            }
+            .onboard-card { padding: 22px 20px; }
+            .onboard-cta-wrap { margin-top: 24px; }
+            .onboard-cta-btn { width: 100%; max-width: 320px; }
         }
 
         /* Bottom consultation area */
@@ -1781,7 +1899,7 @@
             max-width: 1200px;
             text-align: center;
             position: relative;
-            margin-top: 56px;
+            margin-top: 40px;
         }
 
         .sdk-cards {
@@ -1895,8 +2013,8 @@
             border-radius: 10px;
             font-size: 16px;
             font-weight: 600;
-            color: #fff;
-            background: #2563eb;
+            color: #2563eb;
+            background: #ffffff;
             border: 2px solid #2563eb;
             cursor: pointer;
             text-decoration: none;
@@ -1904,18 +2022,18 @@
             transition: all 0.25s ease;
             white-space: nowrap;
             align-self: center;
-            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.22);
+            box-shadow: none;
         }
 
         .sdk-card-btn:not(.sdk-card-btn-disabled):hover {
-            background: #2563eb;
-            color: #fff;
+            background: #ffffff;
+            color: #2563eb;
         }
 
         .sdk-card-btn.sdk-card-btn-disabled,
         .sdk-card:nth-child(3) .sdk-card-btn.sdk-card-btn-disabled {
-            background: #2563eb;
-            color: #fff;
+            background: #ffffff;
+            color: #2563eb;
             border: 2px solid #2563eb;
             opacity: 0.4;
             box-shadow: none;
@@ -2704,6 +2822,130 @@
             .enterprise-card-cta-row { padding: 12px 16px; }
         }
 
+        /* ================= FAQ SECTION ================= */
+        .faq-section {
+            max-width: 880px;
+            text-align: center;
+        }
+
+        .faq-list {
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .faq-item {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 14px;
+            overflow: hidden;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .faq-item:hover {
+            border-color: #dbe4f0;
+        }
+
+        .faq-item.active {
+            border-color: #bfdbfe;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.08);
+        }
+
+        .faq-question {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 20px 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            text-align: left;
+        }
+
+        .faq-question-text {
+            font-size: 16px;
+            font-weight: 700;
+            color: #0f172a;
+            line-height: 1.45;
+        }
+
+        .faq-icon {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            position: relative;
+            transition: background 0.25s ease;
+        }
+
+        .faq-icon::before,
+        .faq-icon::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            background: #64748b;
+            border-radius: 1px;
+            transition: background 0.25s ease, opacity 0.25s ease;
+        }
+
+        .faq-icon::before {
+            width: 12px;
+            height: 2px;
+            transform: translate(-50%, -50%);
+        }
+
+        .faq-icon::after {
+            width: 2px;
+            height: 12px;
+            transform: translate(-50%, -50%);
+        }
+
+        .faq-item.active .faq-icon {
+            background: #eff6ff;
+        }
+
+        .faq-item.active .faq-icon::before,
+        .faq-item.active .faq-icon::after {
+            background: #2563eb;
+        }
+
+        .faq-item.active .faq-icon::after {
+            opacity: 0;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 320px;
+            opacity: 1;
+        }
+
+        .faq-answer p {
+            margin: 0;
+            padding: 16px 24px 20px;
+            font-size: 15px;
+            color: #64748b;
+            line-height: 1.75;
+            border-top: 1px solid #f1f5f9;
+        }
+
+        @media (max-width: 768px) {
+            .faq-question { padding: 16px 18px; }
+            .faq-question-text { font-size: 15px; }
+            .faq-answer p { padding: 14px 18px 18px; font-size: 14px; }
+        }
+
         /* ================= FOOTER ================= */
         .wps-footer {
             background: #ffffff;
@@ -2798,11 +3040,11 @@
 
         @media (max-width: 768px) {
             :root {
-                --section-gap: 104px;
+                --section-gap: 80px;
                 --section-spacing-x: 20px;
                 --section-header-gap: 14px;
-                --section-subtitle-gap: 32px;
-                --section-title-content-gap: 48px;
+                --section-subtitle-gap: 28px;
+                --section-title-content-gap: 40px;
             }
             .header-inner { padding: 0 24px; }
             .nav-links { display: none; }
@@ -2813,9 +3055,6 @@
             .cards-overlap-section { padding: 40px 24px; }
             .api-cards { flex-direction: column; align-items: center; }
             .api-card { width: 100%; max-width: 320px; height: 110px; }
-            .aippt-section h2 { font-size: 26px; padding: 12px 20px; }
-            .aippt-section h2::after { width: 40px; height: 3px; bottom: -3px; }
-            .aippt-section .aippt-desc { font-size: 15px; }
             .aippt-btn-group { flex-direction: column; gap: 12px; }
             .aippt-btn { min-width: 240px; }
             .enterprise-card { flex-direction: column; }
@@ -2834,9 +3073,6 @@
         }
 
         .vp-subtitle {
-            font-size: clamp(15px, 1.6vw, 18px);
-            color: #64748b;
-            line-height: 1.7;
             margin: 0 0 var(--section-subtitle-gap);
         }
 
@@ -3070,14 +3306,15 @@
         }
 
         .vp-card-btn-primary {
-            background: #2563eb;
-            color: #fff;
+            background: #fff;
+            color: #2563eb;
             border: 2px solid #2563eb;
-            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.22);
+            box-shadow: none;
         }
 
         .vp-card-btn-primary:hover {
-            background: #2563eb;
+            background: #fff;
+            color: #2563eb;
             border-color: #2563eb;
         }
 
@@ -3102,24 +3339,21 @@
 
         @media (max-width: 768px) {
             :root {
-                --section-gap: 104px;
+                --section-gap: 80px;
                 --section-spacing-x: 20px;
                 --section-header-gap: 14px;
-                --section-subtitle-gap: 32px;
-                --section-title-content-gap: 48px;
+                --section-subtitle-gap: 28px;
+                --section-title-content-gap: 40px;
             }
-            .version-pricing-section h2 { font-size: 28px; }
             .vp-cards { flex-direction: column; align-items: center; gap: 28px; }
             .vp-card { max-width: 100%; width: 100%; }
             .vp-card:hover { transform: none; }
             .vp-card-head { min-height: 148px; padding: 24px 20px; }
             .vp-card-pro .vp-price { min-height: 60px; }
-            .vp-card-title { font-size: 17px; margin-bottom: 10px; }
             .vp-price-num { font-size: 32px; }
             .vp-price-currency { font-size: 18px; }
             .vp-price-soon-text { font-size: 17px; }
             .vp-price-desc { font-size: 13px; }
-            .vp-card-scene { font-size: 13px; }
             .vp-card-body { padding: 20px 20px 4px; }
             .vp-points li { font-size: 13px; }
             .vp-card-footer { padding: 16px 20px 22px; }
@@ -3133,9 +3367,9 @@
 
         @media (max-width: 1200px) {
             :root {
-                --section-gap: 132px;
-                --section-subtitle-gap: 36px;
-                --section-title-content-gap: 52px;
+                --section-gap: 100px;
+                --section-subtitle-gap: 30px;
+                --section-title-content-gap: 40px;
             }
             .header-inner { padding: 0 32px; }
             .header-left { gap: 32px; }
@@ -3143,8 +3377,6 @@
             .nav-links a { font-size: 14px; }
             .search-box { width: 180px; }
             .hero-content-inner { padding: 64px 32px; }
-            .hero-card-title { font-size: 38px; }
-            .hero-card-subtitle { font-size: 30px; }
             .aippt-feature-top { padding: 0 28px 20px; }
             .aippt-feature-content { padding: 24px 28px 28px; }
             .vp-cards { gap: 24px; }
@@ -3156,9 +3388,7 @@
             .nav-links { display: none; }
             .search-box { display: none; }
             .hero-content-inner { padding: 56px 28px; }
-            .hero-card-title { font-size: 34px; }
-            .hero-card-subtitle { font-size: 26px; }
-            .hero-card-desc { max-width: 100%; font-size: 16px; }
+            .hero-card-desc { max-width: 100%; }
             .sdk-card { flex: 1 1 calc(50% - 10px); max-width: none; }
             .sdk-card:nth-child(3) { flex: 1 1 100%; max-width: 360px; }
             .quickstart-card { flex: 1 1 calc(50% - 12px); max-width: 360px; }
@@ -3193,15 +3423,13 @@
                 padding: 20px 16px 24px;
                 border-left: none;
             }
-            .panel-visual { flex: 0 0 200px; height: 200px; }
-            .panel-visual img { height: 200px; }
+            .panel-visual { flex: 0 0 150px; height: 150px; }
+            .panel-visual img { height: 150px; }
             .vp-card { flex: 1 1 calc(50% - 28px); max-width: none; }
         }
 
         @media (max-width: 900px) {
-            .hero { height: 400px; }
-            .hero-card-title { font-size: 30px; }
-            .hero-card-subtitle { font-size: 22px; }
+            .hero { height: 300px; }
             .sdk-card,
             .sdk-card:nth-child(3) { flex: 1 1 100%; max-width: 480px; }
             .vp-card { flex: 1 1 100%; max-width: 480px; }
@@ -3213,8 +3441,7 @@
         @media (max-width: 640px) {
             .header-right .dev-console { font-size: 13px; padding: 6px 10px; }
             .hero-content-inner { padding: 40px 20px; }
-            .hero-card-title { font-size: 26px; }
-            .hero-card-subtitle { font-size: 20px; }
+            .hero-card-title { font-size: 24px; }
             .hero-card-desc { font-size: 15px; margin-bottom: 28px; }
             .hero-btn { padding: 12px 24px; font-size: 15px; }
             .vp-features li {
@@ -3323,6 +3550,263 @@
             box-shadow: 0 10px 22px rgba(37, 99, 235, 0.28);
         }
 
+        /* ================= FLOAT CONSULT BAR (WPS Open Platform) ================= */
+        .wps-float-bar {
+            position: fixed;
+            right: 16px;
+            bottom: 72px;
+            z-index: 998;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: #3c414b;
+            user-select: none;
+        }
+
+        .wps-float-item {
+            width: 72px;
+            min-height: 72px;
+            padding: 10px 6px;
+            border-radius: 12px;
+            background: #fff;
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.12);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid rgba(226, 232, 240, 0.9);
+        }
+
+        .wps-float-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.16);
+        }
+
+        .wps-float-item svg {
+            flex-shrink: 0;
+        }
+
+        .wps-float-item-text {
+            line-height: 1.2;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .wps-float-item--consult {
+            background: linear-gradient(180deg, #2b8cff 0%, #1a73e8 100%);
+            border-color: transparent;
+            color: #fff;
+        }
+
+        .wps-float-item--consult .wps-float-item-text {
+            color: #fff;
+        }
+
+        .wps-float-middle {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .wps-float-contact-wrap {
+            position: relative;
+        }
+
+        .wps-float-qrcode {
+            position: absolute;
+            right: calc(100% + 12px);
+            bottom: 0;
+            width: 220px;
+            padding: 16px;
+            border-radius: 12px;
+            background: #fff;
+            box-shadow: 0 8px 32px rgba(15, 23, 42, 0.14);
+            border: 1px solid #e8edf3;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(8px);
+            transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+            pointer-events: none;
+        }
+
+        .wps-float-qrcode::after {
+            content: '';
+            position: absolute;
+            right: -6px;
+            bottom: 24px;
+            width: 12px;
+            height: 12px;
+            background: #fff;
+            border-right: 1px solid #e8edf3;
+            border-bottom: 1px solid #e8edf3;
+            transform: rotate(-45deg);
+        }
+
+        .wps-float-contact-wrap:hover .wps-float-qrcode,
+        .wps-float-qrcode.is-visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+            pointer-events: auto;
+        }
+
+        .wps-float-qrcode-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: #1f2937;
+            margin: 0 0 8px;
+        }
+
+        .wps-float-qrcode-hotline {
+            font-size: 12px;
+            color: #64748b;
+            margin: 0 0 4px;
+        }
+
+        .wps-float-qrcode-phone {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1f2937;
+            margin: 0 0 8px;
+        }
+
+        .wps-float-qrcode-time {
+            font-size: 12px;
+            color: #94a3b8;
+            margin: 0 0 12px;
+            line-height: 1.5;
+        }
+
+        .wps-float-qrcode img {
+            display: block;
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .wps-float-back-top {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(8px);
+            transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+        }
+
+        .wps-float-back-top.is-visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .wps-float-bar {
+                right: 10px;
+                bottom: 16px;
+                transform: scale(0.92);
+                transform-origin: bottom right;
+            }
+
+            .wps-float-qrcode {
+                width: 200px;
+                right: calc(100% + 8px);
+            }
+        }
+
+        /* ================= SIDE ANCHOR NAV ================= */
+        .wps-side-nav {
+            position: fixed;
+            left: 16px;
+            bottom: 72px;
+            top: auto;
+            transform: none;
+            z-index: 997;
+            max-height: calc(100vh - 160px);
+            overflow-y: auto;
+            overscroll-behavior: contain;
+        }
+
+        .wps-side-nav::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+        }
+
+        .wps-side-nav-inner {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(15, 23, 42, 0.1);
+            overflow: hidden;
+            min-width: 108px;
+        }
+
+        .wps-side-nav-list {
+            list-style: none;
+            margin: 0;
+            padding: 6px 0;
+        }
+
+        .wps-side-nav-link {
+            display: block;
+            padding: 9px 14px 9px 11px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #64748b;
+            text-decoration: none;
+            border-left: 3px solid transparent;
+            line-height: 1.35;
+            transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+            white-space: nowrap;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .wps-side-nav-link.active {
+            color: #2563eb;
+            font-weight: 600;
+            border-left-color: #2563eb;
+            background: #eff6ff;
+        }
+
+        .wps-side-nav-divider {
+            height: 1px;
+            margin: 4px 12px;
+            background: #f1f5f9;
+        }
+
+        .wps-side-nav-top {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            padding: 10px 12px;
+            border: none;
+            border-top: 1px solid #f1f5f9;
+            background: #fafbfc;
+            color: #475569;
+            font-size: 12px;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: color 0.2s ease, background 0.2s ease;
+        }
+
+        .wps-side-nav-top svg {
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 1100px) {
+            .wps-side-nav {
+                display: none;
+            }
+        }
+
         </style>
 </head>
 <body>
@@ -3357,6 +3841,29 @@
         </div>
     </header>
 
+    <!-- Side Anchor Nav -->
+    <nav class="wps-side-nav" id="wpsSideNav" aria-label="页面模块导航">
+        <div class="wps-side-nav-inner">
+            <ul class="wps-side-nav-list">
+                <li><a href="#sdk" class="wps-side-nav-link">接入方式</a></li>
+                <li><a href="#aippt-intro" class="wps-side-nav-link">AIPPT 能力</a></li>
+                <li><a href="#pricing" class="wps-side-nav-link">版本定价</a></li>
+                <li><a href="#steps" class="wps-side-nav-link">接入流程</a></li>
+                <li><a href="#cases" class="wps-side-nav-link">场景应用</a></li>
+                <li><a href="#partners" class="wps-side-nav-link">合作伙伴</a></li>
+                <li><a href="#quickstart" class="wps-side-nav-link">免费试用</a></li>
+                <li><a href="#faq" class="wps-side-nav-link">常见问题</a></li>
+            </ul>
+            <div class="wps-side-nav-divider" aria-hidden="true"></div>
+            <button type="button" class="wps-side-nav-top" id="sideNavBackTop" aria-label="返回顶部">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="18 15 12 9 6 15"/>
+                </svg>
+                返回顶部
+            </button>
+        </div>
+    </nav>
+
     <!-- Hero Section -->
     <main>
         <section class="hero">
@@ -3390,7 +3897,7 @@
                         <div style="position:absolute;top:48%;right:42%;width:7px;height:7px;border-radius:50%;background:rgba(99,102,241,0.45);box-shadow:0 0 8px 3px rgba(99,102,241,0.25);animation:sparkle-twinkle 3s ease-in-out 2.5s infinite;"></div>
                         <div style="position:absolute;top:72%;right:38%;width:8px;height:8px;border-radius:50%;background:rgba(167,139,250,0.5);box-shadow:0 0 10px 3px rgba(167,139,250,0.3);animation:sparkle-twinkle 2.8s ease-in-out 1.7s infinite;"></div>
                         <!-- AIPPT Logo -->
-                        <img src="aippt-logo-v2.png?v=2" alt="AIPPT" style="position:absolute;top:26%;right:26%;transform:translateY(-50%);width:240px;height:240px;animation:slide3-float 6s ease-in-out infinite;filter:drop-shadow(0 0 30px rgba(139,92,246,0.35));">
+                        <img src="aippt-logo-v2.png?v=2" alt="AIPPT" style="position:absolute;top:26%;right:26%;transform:translateY(-50%);width:160px;height:160px;animation:slide3-float 6s ease-in-out infinite;filter:drop-shadow(0 0 30px rgba(139,92,246,0.35));">
                     </div>
                     <div class="hero-content">
                         <div class="hero-content-inner">
@@ -3407,7 +3914,7 @@
     </main>
 
         <!-- SDK Cards Section -->
-    <section class="sdk-section">
+    <section class="sdk-section" id="sdk">
         <h2>灵活接入 AIPPT 能力</h2>
         <p class="sdk-subtitle">通过 API、SDK、Skill，将 AI PPT 生成能力集成到你的产品、业务系统或智能体中</p>
         <div class="sdk-cards">
@@ -3452,9 +3959,9 @@
                         <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
                     </svg>
                 </div>
-                <div class="sdk-card-label">Skill 接入</div>
+                <div class="sdk-card-label">Skill 接入（即将上线）</div>
                 <div class="sdk-card-text">
-                    <h3>Skill 接入</h3>
+                    <h3>Skill 接入（即将上线）</h3>
                     <div class="sdk-divider"></div>
                     <p>适合在智能体、Agent 或自动化工作流中调用 AIPPT，根据用户指令自动生成 PPT</p>
                     <span class="sdk-card-btn sdk-card-btn-disabled">查看 Skill 文档</span>
@@ -3462,17 +3969,13 @@
             </div>
         </div>
 
-        <!-- Supplementary Entry -->
-        <div class="sdk-contact">
-            <p class="sdk-contact-text">不确定如何选择？<a href="https://f.kdocs.cn/ksform/w/write/fELKHo71#routePromt" class="sdk-contact-link" target="_blank" rel="noopener">联系售前获取接入建议<span class="sdk-contact-arrow">→</span></a></p>
-        </div>
     </section>
 
 
     <!-- AIPPT Section -->
-    <section class="aippt-section">
+    <section class="aippt-section" id="aippt">
         <div class="aippt-feature-wrapper">
-            <div class="aippt-feature-top">
+            <div class="aippt-feature-top" id="aippt-intro">
                 <h2>从小时级到分钟级，快速搞定PPT</h2>
                 <p class="aippt-desc">AI生成PPT大纲及完整演示文稿，快速完成汇报、方案等材料制作</p>
                 <div class="aippt-btn-group">
@@ -3603,7 +4106,7 @@
 
 
     <!-- Version Pricing Section -->
-    <section class="version-pricing-section">
+    <section class="version-pricing-section" id="pricing">
         <h2>选择适合你的能力版本</h2>
         <p class="vp-subtitle">根据接入方式、生成效果和预算，选择适合业务需求的 AIPPT 生成版本</p>
         <div class="vp-cards">
@@ -3633,8 +4136,8 @@
                         </div>
                     </div>
                     <div class="vp-card-footer">
-                        <a href="https://open.wps.cn/documents/app-integration-dev/docs-center/aippt/Application" class="vp-card-btn vp-card-btn-primary" target="_blank" rel="noopener">查看 API 文档</a>
-                        <a href="https://365.kdocs.cn/l/cb7iqDSk1JVx?openfrom=docs&officeType=o" class="vp-card-btn vp-card-btn-primary" target="_blank" rel="noopener">查看 SDK 文档</a>
+                        <a href="https://open.wps.cn/documents/app-integration-dev/docs-center/aippt/Application" class="vp-card-btn vp-card-btn-outline" target="_blank" rel="noopener">查看 API 文档</a>
+                        <a href="https://365.kdocs.cn/l/cb7iqDSk1JVx?openfrom=docs&officeType=o" class="vp-card-btn vp-card-btn-outline" target="_blank" rel="noopener">查看 SDK 文档</a>
                     </div>
                 </div>
             </div>
@@ -3671,7 +4174,7 @@
 
 
     <!-- Quick Access Steps Section -->
-    <section class="steps-section">
+    <section class="steps-section" id="steps">
         <h2>快速开始接入</h2>
         <p class="steps-subtitle">四步快速接入 WPS AIPPT</p>
         <div class="steps-flow">
@@ -3700,7 +4203,7 @@
 
 
     <!-- Case Cards Section -->
-    <section class="case-section">
+    <section class="case-section" id="cases">
         <h2>多场景适配，选择满足您业务需求的方案</h2>
         <p class="case-subtitle">WPS AIPPT覆盖企业常见PPT制作场景，各环节效率拉满</p>
         <div class="case-cards">
@@ -3795,7 +4298,7 @@
     </section>
 
     <!-- Partners Section -->
-    <section class="partners-section">
+    <section class="partners-section" id="partners">
         <h2>优质的合作伙伴/客户，构建值得信赖的生态</h2>
         <div class="partners-slider-wrapper">
             <!-- Row 1 -->
@@ -3861,65 +4364,107 @@
         </div>
     </section>
 
-    <!-- Quick Start Section -->
-    <section class="quickstart-section">
-        <div class="quickstart-header-bar">
-            <span class="quickstart-bar-thin"></span>
-            <span class="quickstart-bar-thick"></span>
-        </div>
-        <h2>开始接入 WPS AIPPT</h2>
-        <p class="quickstart-subtitle">选择适合的接入方式，将 AI PPT 生成能力集成到你的产品、业务系统或智能体中</p>
+    <!-- Quick Start / Onboard Section -->
+    <section class="quickstart-section" id="quickstart">
+        <h2>成为开发者，三步拥有 AIPPT 能力</h2>
+        <p class="quickstart-subtitle">快速上手，即刻在你的产品中调用 AIPPT 能力</p>
 
-        <div class="quickstart-cards">
-            <!-- Card 1: API 接入 -->
-            <div class="quickstart-card">
-                <div class="quickstart-card-icon">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                        <polyline points="14 2 14 8 20 8"/>
-                        <line x1="16" y1="13" x2="8" y2="13"/>
-                        <line x1="16" y1="17" x2="8" y2="17"/>
-                    </svg>
+        <div class="onboard-panel">
+            <div class="onboard-cards">
+                <div class="onboard-card">
+                    <span class="onboard-card-num">01</span>
+                    <h3 class="onboard-card-title">创建应用</h3>
+                    <p class="onboard-card-desc">注册企业账号并创建集成应用</p>
                 </div>
-                <h3 class="quickstart-card-title">API 接入</h3>
-                <p>面向服务端调用、业务系统集成用户</p>
-                <a href="https://open.wps.cn/documents/app-integration-dev/docs-center/aippt/Application" class="quickstart-btn" target="_blank" rel="noopener">查看 API 文档</a>
+                <div class="onboard-card-arrow" aria-hidden="true">→</div>
+                <div class="onboard-card">
+                    <span class="onboard-card-num">02</span>
+                    <h3 class="onboard-card-title">开启试用</h3>
+                    <p class="onboard-card-desc">免费试用，调用 AIPPT 能力</p>
+                </div>
+                <div class="onboard-card-arrow" aria-hidden="true">→</div>
+                <div class="onboard-card">
+                    <span class="onboard-card-num">03</span>
+                    <h3 class="onboard-card-title">购买认证</h3>
+                    <p class="onboard-card-desc">购买后完成企业认证即可发布</p>
+                </div>
             </div>
-            <!-- Card 2: SDK 接入 -->
-            <div class="quickstart-card">
-                <div class="quickstart-card-icon">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
-                        <line x1="12" y1="18" x2="12.01" y2="18"/>
-                    </svg>
-                </div>
-                <h3 class="quickstart-card-title">SDK 接入</h3>
-                <p>面向产品内嵌、生成预览编辑场景</p>
-                <a href="https://open.wps.cn/documents/app-integration-dev/docs-center/aippt/sdk" class="quickstart-btn" target="_blank">查看 SDK 文档</a>
-            </div>
-            <!-- Card 3: Skill 接入 -->
-            <div class="quickstart-card">
-                <div class="quickstart-card-icon">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="10"/>
-                        <line x1="2" y1="12" x2="22" y2="12"/>
-                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-                    </svg>
-                </div>
-                <h3 class="quickstart-card-title">Skill 接入</h3>
-                <p>面向智能体、Agent、工作流调用场景</p>
-                <a href="#" class="quickstart-btn" target="_blank">查看 Skill 文档</a>
+            <div class="onboard-cta-wrap">
+                <a href="https://open.wps.cn/developer/home" class="onboard-cta-btn" target="_blank" rel="noopener">免费试用</a>
             </div>
         </div>
+    </section>
 
-        <!-- Bottom consultation -->
-        <div class="sdk-contact">
-            <p class="sdk-contact-text">不确定选择哪种接入方式？<a href="https://f.kdocs.cn/ksform/w/write/fELKHo71#routePromt" class="sdk-contact-link" target="_blank" rel="noopener">咨询接入方案<span class="sdk-contact-arrow">→</span></a></p>
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <h2>常见问题</h2>
+        <p class="faq-subtitle">关于 WPS AIPPT 接入与使用的常见疑问</p>
+
+        <div class="faq-list">
+            <div class="faq-item active">
+                <button type="button" class="faq-question" aria-expanded="true">
+                    <span class="faq-question-text">是否支持调用其他 AI 大模型？</span>
+                    <span class="faq-icon" aria-hidden="true"></span>
+                </button>
+                <div class="faq-answer">
+                    <p>暂不支持，仅支持金山自研模型。</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button type="button" class="faq-question" aria-expanded="false">
+                    <span class="faq-question-text">是否支持本地化部署？</span>
+                    <span class="faq-icon" aria-hidden="true"></span>
+                </button>
+                <div class="faq-answer">
+                    <p>支持。目前支持本地和私有化部署，华为、海尔等大客户已完成 AIPPT 经典版的私有化部署。</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button type="button" class="faq-question" aria-expanded="false">
+                    <span class="faq-question-text">是否需要连外网？</span>
+                    <span class="faq-icon" aria-hidden="true"></span>
+                </button>
+                <div class="faq-answer">
+                    <p>可以连外网，同时也支持私有化部署（内网环境可离线使用）。</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button type="button" class="faq-question" aria-expanded="false">
+                    <span class="faq-question-text">图片来源和模板来源？</span>
+                    <span class="faq-icon" aria-hidden="true"></span>
+                </button>
+                <div class="faq-answer">
+                    <p>图片来源于金山自研 AI 模型生成，模板来源于金山稻壳资源库的自研模板，均为金山自研产品，无商用风险。</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button type="button" class="faq-question" aria-expanded="false">
+                    <span class="faq-question-text">支持企业自定义模板资源导入吗？</span>
+                    <span class="faq-icon" aria-hidden="true"></span>
+                </button>
+                <div class="faq-answer">
+                    <p>支持。</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button type="button" class="faq-question" aria-expanded="false">
+                    <span class="faq-question-text">AIPPT 的收费标准是怎么样的？</span>
+                    <span class="faq-icon" aria-hidden="true"></span>
+                </button>
+                <div class="faq-answer">
+                    <p>按次扣费，生成1份PPT即为调用1次接口</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button type="button" class="faq-question" aria-expanded="false">
+                    <span class="faq-question-text">AIPPT 有限制生成页数吗？</span>
+                    <span class="faq-icon" aria-hidden="true"></span>
+                </button>
+                <div class="faq-answer">
+                    <p>没有限制（主要取决于客户输入内容和 AI 输出）。</p>
+                </div>
+            </div>
         </div>
-
-        <!-- Decorative elements -->
-        <div class="quickstart-decor quickstart-decor-1"></div>
-        <div class="quickstart-decor quickstart-decor-2"></div>
     </section>
 
     <!-- Footer -->
@@ -3970,6 +4515,55 @@
             </div>
         </div>
     </footer>
+
+    <!-- Float Consult Bar (same as open.wps.cn) -->
+    <aside class="wps-float-bar" id="wpsFloatBar" aria-label="售前咨询工具栏">
+        <button type="button" class="wps-float-item wps-float-item--consult" id="floatConsultBtn" aria-label="购买咨询">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 6.5C5 5.12 6.12 4 7.5 4h9C17.88 4 19 5.12 19 6.5v7c0 1.38-1.12 2.5-2.5 2.5H10l-4.2 3.15c-.55.41-1.3-.02-1.3-.72V6.5Z" fill="#fff" fill-opacity="0.95"/>
+                <circle cx="9" cy="10" r="1" fill="#1a73e8"/>
+                <circle cx="12" cy="10" r="1" fill="#1a73e8"/>
+                <circle cx="15" cy="10" r="1" fill="#1a73e8"/>
+            </svg>
+            <span class="wps-float-item-text">购买咨询</span>
+        </button>
+        <div class="wps-float-middle">
+            <button type="button" class="wps-float-item" id="floatMessageBtn" aria-label="留言咨询">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M6 5h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7.2L6 19.5V17H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z" stroke="#64748b" stroke-width="1.6"/>
+                    <path d="M8.5 10h7M8.5 13h4.5" stroke="#64748b" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+                <span class="wps-float-item-text">留言咨询</span>
+            </button>
+            <div class="wps-float-contact-wrap" id="floatContactWrap">
+                <button type="button" class="wps-float-item" id="floatContactBtn" aria-label="联系我们">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <rect x="5" y="5" width="14" height="14" rx="2" stroke="#64748b" stroke-width="1.6"/>
+                        <path d="M8 8.5h3v3H8zM13 8.5h3v3h-3zM8 13.5h3v3H8zM13 13.5h3v3h-3z" fill="#64748b"/>
+                    </svg>
+                    <span class="wps-float-item-text">联系我们</span>
+                </button>
+                <div class="wps-float-qrcode" id="floatQrcodeCard">
+                    <p class="wps-float-qrcode-hotline">拨打企业采购专线</p>
+                    <div class="wps-float-qrcode-phone">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                            <path d="M9.93 10.52c.15-.09.27-.16.39-.22.86-.4 1.61-.14 2.61 1.05.62.74.8 1.4.56 1.99-.18.44-.52.74-1.13 1.12-.04.02-.39.23-.48.29-1.42.9-4.67-1.17-7.01-4.7C2.54 6.56 1.93 2.78 3.37 1.87l.19-.12.21-.14c.73-.48 1.19-.68 1.74-.58.55.1 1.02.52 1.42 1.28.84 1.62.65 2.39-.42 3.09-.08.05-.35.22-.38.24-.26.17.2 1.29 1.24 2.86 1.05 1.58 1.93 2.45 2.22 2.26.03-.02.27-.18.35-.23Z" fill="#3C414B"/>
+                        </svg>
+                        <span>021-80294900</span>
+                    </div>
+                    <p class="wps-float-qrcode-time">工作日 9:00-12:00 13:00-18:30</p>
+                    <p class="wps-float-qrcode-title">咨询专属顾问</p>
+                    <img src="https://cloudcdn.qwps.cn/open/web_open-homepage/qr_code-DDJYNQA9.png" alt="企业微信顾问二维码" loading="lazy">
+                </div>
+            </div>
+        </div>
+        <button type="button" class="wps-float-item wps-float-back-top" id="floatBackTopBtn" aria-label="返回顶部">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 6.5 6.5 12M12 6.5 17.5 12M12 6.5V18" stroke="#64748b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="wps-float-item-text">返回顶部</span>
+        </button>
+    </aside>
 
     <script>
         // ================= Hero Carousel =================
@@ -4112,9 +4706,222 @@
             });
         });
 
-    </script>
+        // ================= FAQ Accordion =================
+        (function() {
+            const items = document.querySelectorAll('.faq-item');
+            items.forEach(item => {
+                const btn = item.querySelector('.faq-question');
+                if (!btn) return;
+                btn.addEventListener('click', function() {
+                    const isActive = item.classList.contains('active');
+                    items.forEach(i => {
+                        i.classList.remove('active');
+                        const q = i.querySelector('.faq-question');
+                        if (q) q.setAttribute('aria-expanded', 'false');
+                    });
+                    if (!isActive) {
+                        item.classList.add('active');
+                        btn.setAttribute('aria-expanded', 'true');
+                    }
+                });
+            });
+        })();
 
-</script>
+        // ================= Side Anchor Nav + Scroll Spy =================
+        (function() {
+            const sideNav = document.getElementById('wpsSideNav');
+            const backTopBtn = document.getElementById('sideNavBackTop');
+            const links = document.querySelectorAll('.wps-side-nav-link');
+            if (!sideNav || !links.length) return;
+
+            const HEADER_OFFSET = 88;
+            const sections = Array.from(links)
+                .map(link => {
+                    const id = (link.getAttribute('href') || '').slice(1);
+                    return document.getElementById(id);
+                })
+                .filter(Boolean);
+
+            let clickScrolling = false;
+            let scrollEndTimer = null;
+
+            function setActiveSection(id) {
+                if (!id) return;
+                links.forEach(link => {
+                    const active = link.getAttribute('href') === '#' + id;
+                    link.classList.toggle('active', active);
+                });
+            }
+
+            function getActiveSectionId() {
+                const marker = HEADER_OFFSET + 24;
+                let currentId = sections[0] ? sections[0].id : '';
+                let closestId = currentId;
+                let closestDistance = Infinity;
+
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const top = rect.top;
+                    const bottom = rect.bottom;
+
+                    if (top <= marker && bottom > marker) {
+                        const distance = Math.abs(top - marker);
+                        if (distance < closestDistance) {
+                            closestDistance = distance;
+                            closestId = section.id;
+                        }
+                    }
+
+                    if (top <= marker) {
+                        currentId = section.id;
+                    }
+                });
+
+                return closestDistance !== Infinity ? closestId : currentId;
+            }
+
+            function updateActiveOnScroll() {
+                if (clickScrolling) return;
+                const id = getActiveSectionId();
+                if (id) setActiveSection(id);
+            }
+
+            function endClickScroll() {
+                clickScrolling = false;
+                updateActiveOnScroll();
+            }
+
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const id = (this.getAttribute('href') || '').slice(1);
+                    const target = document.getElementById(id);
+                    if (!target) return;
+
+                    setActiveSection(id);
+                    clickScrolling = true;
+                    clearTimeout(scrollEndTimer);
+
+                    const top = target.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
+                    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+
+                    scrollEndTimer = setTimeout(endClickScroll, 900);
+                });
+            });
+
+            if (backTopBtn) {
+                backTopBtn.addEventListener('click', function() {
+                    if (sections[0]) setActiveSection(sections[0].id);
+                    clickScrolling = true;
+                    clearTimeout(scrollEndTimer);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    scrollEndTimer = setTimeout(endClickScroll, 900);
+                });
+            }
+
+            window.addEventListener('scroll', function() {
+                if (clickScrolling) return;
+                updateActiveOnScroll();
+            }, { passive: true });
+
+            if ('onscrollend' in window) {
+                window.addEventListener('scrollend', function() {
+                    clearTimeout(scrollEndTimer);
+                    endClickScroll();
+                }, { passive: true });
+            }
+
+            updateActiveOnScroll();
+        })();
+
+        // ================= Float Consult Bar + Clink Chat =================
+        (function() {
+            const CLINK_ACCESS_ID = 'd1225299-0abc-4245-8b45-dda75882d87a';
+            const MESSAGE_FORM_URL = 'https://f.kdocs.cn/ksform/w/write/fELKHo71#routePromt';
+            const RETRY_LIMIT = 5;
+            const RETRY_INTERVAL = 100;
+            const RETRY_DELAY = 500;
+
+            const consultBtn = document.getElementById('floatConsultBtn');
+            const messageBtn = document.getElementById('floatMessageBtn');
+            const contactWrap = document.getElementById('floatContactWrap');
+            const qrcodeCard = document.getElementById('floatQrcodeCard');
+            const backTopBtn = document.getElementById('floatBackTopBtn');
+
+            if (!consultBtn) return;
+
+            function injectClinkStyles() {
+                if (document.getElementById('clink-custom-style')) return;
+                const style = document.createElement('style');
+                style.id = 'clink-custom-style';
+                style.textContent = `
+                    #tinet-chat-visitor { display: none !important; }
+                    #TinetWebChatFrame { right: 90px !important; }
+                `;
+                document.head.appendChild(style);
+            }
+
+            function mountClinkSdk() {
+                if (window.__clinkSdkLoaded) return;
+                window.__clinkSdkLoaded = true;
+                injectClinkStyles();
+                window.clinkWebchatOptions = window.clinkWebchatOptions || function() {
+                    window.clinkWebchatOptions.options = arguments[0];
+                };
+                window.clinkWebchatOptions({
+                    accessId: CLINK_ACCESS_ID,
+                    language: 'zh_CN'
+                });
+                const script = document.createElement('script');
+                script.async = true;
+                script.src = 'https://webchat-bj.clink.cn/webchat.js?v=' + Date.now();
+                document.body.appendChild(script);
+            }
+
+            function openClinkPanel() {
+                mountClinkSdk();
+                let tries = 0;
+                const tryOpen = function() {
+                    const trigger = document.querySelector('#tinet-chat-visitor .tinet-type');
+                    if (trigger) {
+                        trigger.click();
+                        return;
+                    }
+                    if (tries < RETRY_LIMIT) {
+                        tries += 1;
+                        setTimeout(tryOpen, RETRY_INTERVAL);
+                    }
+                };
+                setTimeout(tryOpen, RETRY_DELAY);
+            }
+
+            consultBtn.addEventListener('click', openClinkPanel);
+
+            messageBtn.addEventListener('click', function() {
+                window.open(MESSAGE_FORM_URL, '_blank', 'noopener,noreferrer');
+            });
+
+            contactWrap.addEventListener('mouseenter', function() {
+                qrcodeCard.classList.add('is-visible');
+            });
+            contactWrap.addEventListener('mouseleave', function() {
+                qrcodeCard.classList.remove('is-visible');
+            });
+
+            backTopBtn.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            function toggleBackTop() {
+                backTopBtn.classList.toggle('is-visible', window.scrollY > 400);
+            }
+            window.addEventListener('scroll', toggleBackTop, { passive: true });
+            toggleBackTop();
+
+            setTimeout(mountClinkSdk, 2000);
+        })();
+
+    </script>
 
 </body>
 </html>
